@@ -1,9 +1,11 @@
 #!/bin/sh
+## -----------Change it if different---------
 installdir=/mnt/us/SotongDJ
 pythonbin=/mnt/us/python/bin/python2.6
 nowdate=`date +%Y%m%d`
 finatemp=/mnt/us/SotongDJ/finatemp
-finance=/mnt/us/DK_Documents/Finance
+finance=/mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/user/
+## ----------------------------------------------
 
 case "$1" in
     copy)
