@@ -6,9 +6,9 @@ notepaddir="/mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/u
 musicdir="/mnt/us/music/"
 ## ----------------------------------------------
 if sys.argv[1] == "playlist":
-    file = notepadfile+"01-Playlist.txt"
+    file = notepaddir+"01-Playlist.txt"
 if sys.argv[1] == "reclist":
-    file = notepadfile+"02-Reclist.txt"
+    file = notepaddir+"02-Reclist.txt"
 ##Playback Mode Description:
 ##modenum:
 ##   0 none
