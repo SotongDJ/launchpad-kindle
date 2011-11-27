@@ -1,7 +1,6 @@
 #!/bin/sh
 ## -----------Change it if different---------
 pythonbin=/mnt/us/python/bin/python2.6
-
 mainlog=/mnt/us/documents/00-self/Log.txt
 backuplog=/mnt/us/documents/00-self/bkLog
 
@@ -17,6 +16,8 @@ editbtconf=/mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/us
 systempy=/mnt/us/SotongDJ/system.py
 dkconfig=/mnt/us/DK_System/Lite/config.ini
 dkconfbk=/mnt/us/DK_System/Lite/configbk
+## --------DeBug Usage----------------------
+#pythonbin=python
 ## ----------------------------------------------
 case "$1" in
     copy)
