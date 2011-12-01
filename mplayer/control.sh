@@ -1,0 +1,1 @@
+/media/Kindle/mplayer/control.sh
