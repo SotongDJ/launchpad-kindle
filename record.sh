@@ -1,1 +1,0 @@
-/media/Kindle/SotongDJ/record.sh
