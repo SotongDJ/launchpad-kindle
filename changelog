@@ -2,6 +2,7 @@
 mark ch2duokan as experiment
 edit sync.sh --> add remove spam
 edit README
+correct format of control.sh
 
 2011-12-4
 add switch system to duokan lite

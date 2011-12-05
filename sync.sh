@@ -13,3 +13,5 @@ cp /media/Kindle/launchpad/SotongDJ.ini ~/github/launchpad-kindle/launchpad/Soto
 cp /media/Kindle/mplayer/control.sh ~/github/launchpad-kindle/mplayer/control.sh
 rm -f /media/Kindle/SotongDJ/*~
 rm -f ~/github/launchpad-kindle/*~
+rm -f /media/Kindle/launchpad/*~
+rm -f /media/Kindle/mplayer/*~
