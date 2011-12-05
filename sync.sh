@@ -11,3 +11,5 @@ cp /media/Kindle/SotongDJ/system.py ~/github/launchpad-kindle/system.py
 cp /media/Kindle/SotongDJ/changelog.txt ~/github/launchpad-kindle/changelog
 cp /media/Kindle/launchpad/SotongDJ.ini ~/github/launchpad-kindle/launchpad/SotongDJ.ini
 cp /media/Kindle/mplayer/control.sh ~/github/launchpad-kindle/mplayer/control.sh
+rm -f /media/Kindle/SotongDJ/*~
+rm -f ~/github/launchpad-kindle/*~

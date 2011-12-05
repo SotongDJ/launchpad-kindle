@@ -52,11 +52,12 @@ case "$1" in
 		$pythonbin $systempy duokan
 		;;
 	ch2duokan)
-		killall -9 ebook
-		killall -9 KindleApp
-		killall -9 UsbSignal.bin
-		/etc/init.d/framework stop
-		/mnt/us/DK_System/rundk.sh lite
+		##still in experimental 
+##		killall -9 ebook
+##		killall -9 KindleApp
+##		killall -9 UsbSignal.bin
+##		/etc/init.d/framework stop
+##		/mnt/us/DK_System/rundk.sh lite
 		;;
     *)
         echo "Usage: $0 {copy|sync|boot2kindle|boot2duokan}"
