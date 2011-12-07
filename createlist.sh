@@ -18,7 +18,7 @@ strtemp="$tempdir/strtemp"
 case "$1" in
 	play)
 		ls -1 $music > $playtemp
-		$pythonbin $filterpy play aac.flac.ogg.m3u.m4a.mp3.wav.wma > $forpledit
+		$pythonbin $filterpy play aac.flac.ogg.m3u.m4a.mp3.wav.wma > "/tmp/playlist"
 		;;
 	playlist)
 		ls -1 $music > $playtemp

@@ -11,11 +11,11 @@ if sys.argv[1] == "playlist":
 
 if sys.argv[1] == "playall":
     status=os.system("sh /mnt/us/SotongDJ/createlist.sh play")
-    file = notepaddir+"01-Playlist.txt"
+    file = "/tmp/playlist"
     targetdir="/mnt/us/music/"
 if sys.argv[1] == "playrand":
     status=os.system("sh /mnt/us/SotongDJ/createlist.sh play")
-    file = notepaddir+"01-Playlist.txt"
+    file = "/tmp/playlist"
     targetdir="/mnt/us/music/"
 
 if sys.argv[1] == "reclist":
@@ -32,15 +32,15 @@ if sys.argv[1] == "strlist":
 ##   3 playall and shuffle
 modenum=0
 for line in open(file).read().splitlines():
+    if sys.argv[1] == "playall":
+        modenum=1
+    if sys.argv[1] == "playrand":
+        modenum=3
     if "##" in line:
         if ":playall:" in line:
             modenum=modenum+1
         if ":shuffle:" in line:
             modenum=modenum+2
-        if sys.argv[1] == "playall":
-            modenum=1
-        if sys.argv[1] == "playrand":
-            modenum=2
     if not '##' in line:
         if modenum == 0:
             if not '!:' in line:
