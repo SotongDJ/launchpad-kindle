@@ -9,15 +9,15 @@ for bch in open("./brchtemp").read().splitlines():
         rmnbch=bch
 if rmnbch==selbch:
     cmd="git push origin "+selbch
-    print cmd
+    print "->"+cmd
     status=os.system(cmd)
 if not rmnbch==selbch:
     cmd="git checkout "+selbch
-    print cmd
+    print "->"+cmd
     status=os.system(cmd)
     cmd="git push origin "+selbch
-    print cmd
+    print "->"+cmd
     status=os.system(cmd)
     cmd="git checkout "+rmnbch
-    print cmd
+    print "->"+cmd
     status=os.system(cmd)
