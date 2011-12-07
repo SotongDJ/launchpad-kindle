@@ -45,11 +45,6 @@ read commit
 echo --------------------------------------------
 git commit -m "$commit"
 echo ============================================
-git branch
-git branch>./brchtemp
-echo Select a branch to push the commits:
-read branch
-echo --------------------------------------------
 echo Push commit\(s\) to GitHub
-python ./sync.py $branch
+git push origin testing
 echo ============================================
