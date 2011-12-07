@@ -2,6 +2,7 @@
 add KindleNote -->as Notepad can't edit text file that have more than 3099 character
 add keystore
 change editor dir from Notepad to KindleNote
+put try.py and test.sh into git
 
 2011-12-5
 mark ch2duokan as experiment
