@@ -59,6 +59,11 @@ case "$1" in
 ##		/etc/init.d/framework stop
 ##		/mnt/us/DK_System/rundk.sh lite
 		;;
+	keystore)
+		mntroot rw
+		cp /mnt/us/SotongDJ/developer.keystore /var/local/java/keystore/developer.keystore
+		mntroot ro
+		;;
     *)
         echo "Usage: $0 {copy|sync|boot2kindle|boot2duokan}"
         exit 1
