@@ -1,5 +1,5 @@
 #!/bin/sh
-echo --------------------------------------------
+echo ============================================
 echo copy scripts
 cp /media/Kindle/SotongDJ/createlist.py ~/github/launchpad-kindle/createlist.py
 cp /media/Kindle/SotongDJ/createlist.sh ~/github/launchpad-kindle/createlist.sh
@@ -25,17 +25,20 @@ rm -f ~/github/launchpad-kindle/*~
 rm -f /media/Kindle/launchpad/*~
 rm -f /media/Kindle/mplayer/*~
 echo --------------------------------------------
+echo remove temp files
+rm -f /media/Kindle/SotongDJ/*temp
+echo ============================================
 echo  Add change
 git add -A
 echo --------------------------------------------
 echo Commit change
-echo ---------------------
+echo --------------------------------------------
 echo Please enter your description of
 echo this commit:
 read commit
-git commit -m "$commit"
 echo --------------------------------------------
+git commit -m "$commit"
+echo ============================================
 echo Push commit\(s\) to GitHub
 git push origin master
-echo --------------------------------------------
-
+echo ============================================
