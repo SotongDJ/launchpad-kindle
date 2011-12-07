@@ -1,17 +1,19 @@
 #!/bin/sh
 ## -----------Change it if different---------
-rectemp=/mnt/us/SotongDJ/rectemp
-playtemp=/mnt/us/SotongDJ/playtemp
-strtemp=/mnt/us/SotongDJ/strtemp
 pythonbin=/mnt/us/python/bin/python2.6
 strpl=/mnt/us/mplayer/playlist
-forpledit=/mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/user/01-Playlist.txt
-forrecdit=/mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/user/02-Reclist.txt
-forstrdit=/mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/user/03-Strlist.txt
+tempdir=/mnt/us/SotongDJ
+notepaddir=/mnt/us/developer/KindleNote/work/user
 filterpy=/mnt/us/SotongDJ/filter.py
 music=/mnt/us/music
 record=/mnt/us/record
 ## ----------------------------------------------
+forpledit="$notepaddir/01-Playlist.txt"
+forrecdit="$notepaddir/02-Reclist.txt"
+forstrdit="$notepaddir/03-Strlist.txt"
+rectemp="$tempdir/rectemp"
+playtemp="$tempdir/playtemp"
+strtemp="$tempdir/strtemp"
 
 case "$1" in
 	playlist)

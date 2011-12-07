@@ -1,3 +1,8 @@
+2011-12-7
+add KindleNote -->as Notepad can't edit text file that have more than 3099 character
+add keystore
+change editor dir from Notepad to KindleNote
+
 2011-12-5
 mark ch2duokan as experiment
 edit sync.sh --> add remove spam

@@ -10,9 +10,6 @@ launchpad=/mnt/us/launchpad/launchpad.log
 notesto=/mnt/us/DK_Documents/Notes-ReadOnly
 notesfrom=/mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/user
 
-bootconf=/mnt/us/DK_System/Lite/config.ini
-editbtconf=/mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/user/DKSystemConfig.txt
-
 systempy=/mnt/us/SotongDJ/system.py
 dkconfig=/mnt/us/DK_System/Lite/config.ini
 dkconfbk=/mnt/us/DK_System/Lite/configbk

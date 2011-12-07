@@ -2,7 +2,7 @@
 import sys
 import random
 ## -----------Change it if different---------
-notepaddir="/mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/user/"
+notepaddir="/mnt/us/developer/KindleNote/work/user/"
 ## ----------------------------------------------
 if sys.argv[1] == "playlist":
     file = notepaddir+"01-Playlist.txt"
