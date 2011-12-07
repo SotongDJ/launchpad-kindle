@@ -1,4 +1,5 @@
 #!/mnt/us/python/bin/python2.6
+import os
 import sys
 import random
 ## -----------Change it if different---------
@@ -7,6 +8,16 @@ notepaddir="/mnt/us/developer/KindleNote/work/"
 if sys.argv[1] == "playlist":
     file = notepaddir+"01-Playlist.txt"
     targetdir="/mnt/us/music/"
+
+if sys.argv[1] == "playall":
+    status=os.system("sh /mnt/us/SotongDJ/createlist.sh play")
+    file = notepaddir+"01-Playlist.txt"
+    targetdir="/mnt/us/music/"
+if sys.argv[1] == "playrand":
+    status=os.system("sh /mnt/us/SotongDJ/createlist.sh play")
+    file = notepaddir+"01-Playlist.txt"
+    targetdir="/mnt/us/music/"
+
 if sys.argv[1] == "reclist":
     file = notepaddir+"02-Reclist.txt"
     targetdir="/mnt/us/record/"
@@ -26,6 +37,10 @@ for line in open(file).read().splitlines():
             modenum=modenum+1
         if ":shuffle:" in line:
             modenum=modenum+2
+        if sys.argv[1] == "playall":
+            modenum=1
+        if sys.argv[1] == "playrand":
+            modenum=2
     if not '##' in line:
         if modenum == 0:
             if not '!:' in line:

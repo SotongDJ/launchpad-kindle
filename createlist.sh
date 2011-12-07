@@ -16,6 +16,10 @@ playtemp="$tempdir/playtemp"
 strtemp="$tempdir/strtemp"
 
 case "$1" in
+	play)
+		ls -1 $music > $playtemp
+		$pythonbin $filterpy play > $forpledit
+		;;
 	playlist)
 		ls -1 $music > $playtemp
 		$pythonbin $filterpy playlist > $forpledit
