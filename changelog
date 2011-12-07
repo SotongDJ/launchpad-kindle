@@ -6,6 +6,7 @@ put try.py and test.sh into git
 improve sync.sh --> add git add/commit/push
 improve mplayer control.sh and createlist scripts
 improve sync.sh --> use update(adj.) copy as copy method
+start using testing branch for experimental purpose
 
 2011-12-5
 mark ch2duokan as experiment
