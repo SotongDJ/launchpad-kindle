@@ -1,8 +1,10 @@
-SotongDJ's Kindle Launchpad Scripts介绍（未完成）
+SotongDJ's Kindle Launchpad Scripts
 ----------------------------------------------------
-SotongDJ's Kindle Launchpad Scripts是由几个部分组成：
-1，
-2，
-3，
-4，
-5，
+SotongDJ's Kindle Launchpad Scripts is composed of several components:
+1，Record
+2，Mplayer Playback
+3，List of Expenditure (Code-Name:Finance)
+4，System Files Manager
+5,  File Manager (coming soon)
+
+TO BE CONTINUE...
