@@ -1,11 +1,10 @@
 #!/bin/sh
-## See http://www.mplayerhq.hu/DOCS/tech/slave.txt for docs
+## This version is edit by SotongDJ, base on mobileread one.
+## See http://www.mobileread.com/forums/showthread.php?t=119851 for original control.sh
 
 ## /mnt/us is the root directory when mounting the Kindle via USB
 INSTALLDIR=/mnt/us/mplayer
 MUSICDIR=/mnt/us/music
-##RECDIR=/mnt/us/record
-PLAYLIST="$INSTALLDIR/playlist"
 
 pythonbin=/mnt/us/python/bin/python2.6
 createlist=/mnt/us/SotongDJ/createlist.py
@@ -21,14 +20,6 @@ if [ ! -e $FIFO ]; then
   mkfifo $FIFO
 fi
 
-listmusic() {
-    ## We can't allow non-valid file in the playlist because it would make prev behave weirdly
-    find $MUSICDIR -type f -regex '.*\.\(3gp\|aac\|flac\|ogg\|m3u\|m4a\|mp3\|pls\|wav\|wma\)'
-}
-
-## listrecord() {
- ##    find $RECDIR -type f -regex '.*\.\(3gp\|aac\|flac\|ogg\|m3u\|m4a\|mp3\|pls\|wav\|wma\)'
-## }
 
 cmd() {
     if [ "x$(pidof mplayer)" = "x" ]; then
@@ -47,20 +38,13 @@ loadplaylist() {
 
 case "$1" in
     playall)
-		listmusic > /tmp/mplayer.playlist
-		loadplaylist /tmp/mplayer.playlist
+		$pythonbin $createlist playall > /tmp/mplayer.playlist
+		loadplaylist /tmp/mplayer.playlist		
 		;;
-##	playrec)
-##		listrecord > /tmp/mplayer.playlist
-##		loadplaylist /tmp/mplayer.playlist
-##		;;
     playrand)
-		listmusic | $SHUF > /tmp/mplayer.playlist
+		$pythonbin $createlist playrand > /tmp/mplayer.playlist
 		loadplaylist /tmp/mplayer.playlist
 		;;
-#    playlist)
-#		loadplaylist $PLAYLIST
-#		;;
 	playlist)
 		$pythonbin $createlist playlist > /tmp/mplayer.playlist
 		loadplaylist /tmp/mplayer.playlist
