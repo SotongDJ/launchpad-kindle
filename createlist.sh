@@ -18,19 +18,19 @@ strtemp="$tempdir/strtemp"
 case "$1" in
 	play)
 		ls -1 $music > $playtemp
-		$pythonbin $filterpy play > $forpledit
+		$pythonbin $filterpy play aac.flac.ogg.m3u.m4a.mp3.wav.wma > $forpledit
 		;;
 	playlist)
 		ls -1 $music > $playtemp
-		$pythonbin $filterpy playlist > $forpledit
+		$pythonbin $filterpy playlist aac.flac.ogg.m3u.m4a.mp3.wav.wma > $forpledit
 		;;
 	reclist)
 		ls -1 $record > $rectemp
-		$pythonbin $filterpy reclist > $forrecdit
+		$pythonbin $filterpy reclist wav> $forrecdit
 		;;
 	strlist)
 		cat $strpl > $strtemp
-		$pythonbin $filterpy strlist > $forstrdit
+		$pythonbin $filterpy strlist http> $forstrdit
 		;;
 	*)
 		echo "Usage: $0 {playlist|reclist}"
