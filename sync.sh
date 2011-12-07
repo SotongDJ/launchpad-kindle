@@ -44,5 +44,5 @@ echo --------------------------------------------
 git commit -m "$commit"
 echo ============================================
 echo Push commit\(s\) to GitHub
-git push origin master
+git push origin testing
 echo ============================================
