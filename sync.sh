@@ -33,12 +33,6 @@ echo --------------------------------------------
 echo remove temp files
 rm -f /media/Kindle/SotongDJ/*temp
 echo ============================================
-echo Select branch
-echo --------------------------------------------
-echo Which branch you want to push to:
-git branch
-read branch
-echo ============================================
 echo  Add change
 git add -A
 echo --------------------------------------------
@@ -51,5 +45,5 @@ echo --------------------------------------------
 git commit -m "$commit"
 echo ============================================
 echo Push commit\(s\) to GitHub
-git push origin $branch
+git push origin testing
 echo ============================================
