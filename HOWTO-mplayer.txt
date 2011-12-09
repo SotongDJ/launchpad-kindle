@@ -1,0 +1,30 @@
+教程编写中～仍未完成
+我基于MPlayer for Kindle编写了一组脚本来实现播放列表的功能。
+如果您有兴趣试一试，请跟着以下的步骤安装和测试SotongDJ's Mplayer Playback Script Set。
+（以下简称"SotongDJ's Mplayer Playback Script Set"为"MyMplayer"）
+
+第一步，了解：相关消息
+（如果你并不打算修改MyMplayer，可以直接跳过这一步）
+MyMplayer是SotongDJ's Kindle Launchpad Script Sets的其中一组脚本，是基于MPlayer for Kindle的control.sh编写且延伸出来的一组脚本。
+（以下简称"SotongDJ's Kindle Launchpad Script Sets"为"MyScriptSets"）
+和MyScriptSets一样采用GPL v3许可，相关消息可以参阅 http://www.gnu.org/licenses/ 。MyScriptSets的项目主页：https://github.com/SotongDJ/launchpad-kindle
+（launchpad-kindle的子文件夹底下的文件是被我修改或仅作保留的非MyScriptSets项目文件）
+以下是MyMplayer各部分（被修改）组件所采用的许可：
+Mplayer for Kindle，control.sh(和除了mplayer二进制文件以外的其他文件)的源码采用GPL v2，项目主页：http://gitorious.org/kindlebrew/mplayer
+以下只是声明我提供的Mplayer for Kindle的源码来源，我并没有作任何修改：
+Mplayer for Kindle，mplayer二进制的源码采用GPL v2，项目主页：http://mplayerhq.hu/ ，许可信息：http://mplayerhq.hu/design7/info.html
+以下只是声明我提供的Python for Kindle的源码来源，我并没有作任何修改：
+Python for Kindle，我不知道是谁编译的，不过其源码采用与GPL兼容的许可，项目主页：http://www.python.org/ ，许可信息：http://www.python.org/getit/releases/2.6.2/license/
+（我没有能力在Kindle上编译Python，所以无法证实我的版本有无修改，目前仅假设无修改，如果有人编译和查证出有修改，请通知我）
+我并无修改MyScriptSets及其子项目所依赖的项目：
+Kindle Jailbreak，相关信息：http://www.mobileread.com/forums/showthread.php?t=88004
+Launchpad (for Kindle)，相关信息：http://www.mobileread.com/forums/showthread.php?t=97636
+（注：Launchpad for Kindle和Launchpad.net是完全不一样的项目）
+
+
+第二步，准备：部署环境
+简而言之，要运行MyMplayer需要以下的组件：
+1，Kindle Jailbreak
+2，Launchpad For Kindle
+3，Python For Kindle
+4，Mplayer For Kindle
