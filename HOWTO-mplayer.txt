@@ -7,7 +7,7 @@
 （如果你并不打算修改MyMplayer，可以直接跳过这一步）
 MyMplayer是SotongDJ's Kindle Launchpad Script Sets的其中一组脚本，是基于MPlayer for Kindle的control.sh编写且延伸出来的一组脚本。
 （以下简称"SotongDJ's Kindle Launchpad Script Sets"为"MyScriptSets"）
-和MyScriptSets一样采用GPL v3许可，相关消息可以参阅 http://www.gnu.org/licenses/ 。MyScriptSets的项目主页：https://github.com/SotongDJ/launchpad-kindle
+和MyScriptSets一样采用GPL v3许可，相关消息可以参阅 http://www.gnu.org/licenses/ 。MyScriptSets的项目主页：http://github.com/SotongDJ/launchpad-kindle
 （launchpad-kindle的子文件夹底下的文件是被我修改或仅作保留的非MyScriptSets项目文件）
 以下是MyMplayer各部分（被修改）组件所采用的许可：
 Mplayer for Kindle，control.sh(和除了mplayer二进制文件以外的其他文件)的源码采用GPL v2，项目主页：http://gitorious.org/kindlebrew/mplayer
@@ -21,10 +21,24 @@ Kindle Jailbreak，相关信息：http://www.mobileread.com/forums/showthread.ph
 Launchpad (for Kindle)，相关信息：http://www.mobileread.com/forums/showthread.php?t=97636
 （注：Launchpad for Kindle和Launchpad.net是完全不一样的项目）
 
-
 第二步，准备：部署环境
-简而言之，要运行MyMplayer需要以下的组件：
+简而言之，要运行MyMplayer需要以下的组件（最后我会直接附上）：
+
 1，Kindle Jailbreak
+下载页面：http://www.mobileread.com/forums/showthread.php?t=88004
+安装方式：如同其他mod一样，放入用户文件夹（插入电脑后所显示的随身碟的根目录，实际上是系统的/mnt/us目录，以下使用“用户文件夹”表示），按[Menu]，选[Setting]，按[Menu]，选[Update]，确认升级，等待重启，即可。提醒：不要选[Restart]
+解释：我给的链接是专属Kindle 3.3之前（不包括3.3）的版本，我只越狱过3.1罢了，至于其他版本的越狱方式请向他人请教，我无能为力。我要提醒大家，目前Kindle 3.3韧体是无法被越狱的，不过你可以把之前已被越狱的韧体升级至3.3，(3.x升到3.3)升级不会抹除越狱的效果。记得升级前要把输入法、浏览器Hack等等一些会修改系统文件的mod卸载，才可顺利升级，记得越狱不会阻碍升级（到3.3）。
+
 2，Launchpad For Kindle
-3，Python For Kindle
+下载页面：http://www.mobileread.com/forums/showthread.php?t=97636
+安装方式：如同其他mod一样，放入用户文件夹，按[Menu]，选[Setting]，按[Menu]，选[Update]，确认升级，等待重启，即可。提醒：不要选[Restart]
+
+3，Python For Kindle（可选，看“解释”）
+下载页面：http://github.com/SotongDJ/python-bin-for-kindle-3
+安装方式：在用户文件夹建立“python”文件夹（最好是全部小写，虽然FAT是大小写不敏感，不过很可能在未来做一些修改会出现问题），然后在下载zip压缩档，解压缩后把所有文件放进python文件夹里即可
+解释：可能有人会发现多看其实已经附带Python For Kindle（"/mnt/us/DK_System/Lite/python"，不是多看版本和我的版本有同一个来源，就是我的版本的来源的来源是多看。没看错，两次“来源”），由于我不清楚多看是否有对Python作修改（同样的，如果我可以证实多看的版本，那么我就可以证实我的版本），所以我建议安装我的版本。
+如果你想节省空间，不要安装我的版本，可以把我的脚本里的"/mnt/us/python"替换成"/mnt/us/DK_System/Lite/python"
+
 4，Mplayer For Kindle
+下载页面：http://www.mobileread.com/forums/showthread.php?t=119851
+安装方式：下载后解压缩
