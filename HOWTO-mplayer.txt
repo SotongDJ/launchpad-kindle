@@ -11,30 +11,31 @@ MyMplayer是SotongDJ's Kindle Launchpad Script Sets的其中一组脚本，是�
 （launchpad-kindle的子文件夹底下的文件是被我修改或仅作保留的非MyScriptSets项目文件，除了SotongDJ.ini）
 
 以下是MyMplayer各部分（被修改）组件所采用的许可：
-Mplayer for Kindle，control.sh(和除了mplayer二进制文件以外的其他文件)的源码采用GPL v2，项目主页：http://gitorious.org/kindlebrew/mplayer
+Mplayer for Kindle，control.sh(以及除了mplayer二进制文件以外的其他文件)的源码采用GPL v2，项目主页：http://gitorious.org/kindlebrew/mplayer
+KindleNote，采用GPL（未知版本，大于v2），项目主页：https://github.com/proDOOMman/KindleNote
 
-以下只是声明我提供的Mplayer for Kindle的源码来源，我并没有作任何修改：
-Mplayer for Kindle，mplayer二进制的源码采用GPL v2，项目主页：http://mplayerhq.hu/ ，许可信息：http://mplayerhq.hu/design7/info.html
-
-以下只是声明我提供的Python for Kindle的源码来源，我并没有作任何修改：
+以下只是声明我提供的版本的源码来源，我并没有作任何修改：
 Python for Kindle，我不知道是谁编译的，不过其源码采用与GPL兼容的许可，项目主页：http://www.python.org/ ，许可信息：http://www.python.org/getit/releases/2.6.2/license/
 （我没有能力在Kindle上编译Python，所以无法证实我的版本有无修改，目前仅假设无修改，如果有人编译和查证出有修改，请通知我）
+Mplayer for Kindle，mplayer二进制的源码采用GPL v2，项目主页：http://mplayerhq.hu/ ，许可信息：http://mplayerhq.hu/design7/info.html
 
 我并无修改MyScriptSets及其子项目所依赖的项目：
 Kindle Jailbreak，相关信息：http://www.mobileread.com/forums/showthread.php?t=88004
 Launchpad (for Kindle)，相关信息：http://www.mobileread.com/forums/showthread.php?t=97636
 （注：Launchpad for Kindle和Launchpad.net是完全不一样的项目）
+Developer Keystore，相关信息：http://www.mobileread.com/forums/showthread.php?t=152294
 
 第二步，准备：部署环境
-简而言之，要运行MyMplayer需要以下的组件（最后我会直接附上）：
-
+简而言之，要运行MyMplayer需要以下的组件（最后我会直接附上。）：
+（切记，要照次序，因为有几项会依赖前几项）
 1，Kindle Jailbreak
 下载页面：http://www.mobileread.com/forums/showthread.php?t=88004
 安装方式：如同其他mod一样，放入用户文件夹（插入电脑后所显示的随身碟的根目录，实际上是系统的/mnt/us目录，以下使用“用户文件夹”表示），按[Menu]，选[Setting]，按[Menu]，选[Update]，确认升级，等待重启，即可。提醒：不要选[Restart]
 解释：我给的链接是专属Kindle 3.3之前（不包括3.3）的版本，我只越狱过3.1罢了，至于其他版本的越狱方式请向他人请教，我无能为力。我要提醒大家，目前Kindle 3.3韧体是无法被越狱的，不过你可以把之前已被越狱的韧体升级至3.3，(3.x升到3.3)升级不会抹除越狱的效果。记得升级前要把输入法、浏览器Hack等等一些会修改系统文件的mod卸载，才可顺利升级，记得越狱不会阻碍升级（到3.3）。
 
 2，Launchpad For Kindle
-下载页面：http://www.mobileread.com/forums/showthread.php?t=97636
+下载页面：http://www.mobileread.com
+/forums/showthread.php?t=97636
 安装方式：如同其他mod一样，放入用户文件夹，按[Menu]，选[Setting]，按[Menu]，选[Update]，确认升级，等待重启，即可。提醒：不要选[Restart]
 
 3，Python For Kindle（可选，看“解释”）
@@ -45,4 +46,10 @@ Launchpad (for Kindle)，相关信息：http://www.mobileread.com/forums/showthr
 
 4，Mplayer For Kindle
 下载页面：http://www.mobileread.com/forums/showthread.php?t=119851
-安装方式：下载后解压缩
+安装方式：下载后解压缩，把mplayer和launchpad两个文件夹放进用户文件夹里，记得要覆盖launchpad文件夹（但是不会覆盖任何原先的文件）
+
+5，KindleNote
+下载页面：http://www.mobileread.com/forums/showthread.php?t=128347（原本）
+下载页面：https://github.com/SotongDJ/launchpad-kindle/tree/master/kindlenote（修改，推荐）
+安装方式：你可以照着原本下载页面的方法安装，不过，我有一个更简单的办法，前提是已经安装Launchpad（再一次呼吁，照次序来，谢谢）。下载launchpad-kindle/tree/master/kindlenote的两个文件：KindleNote.azw2和developer.keystore（其他两个，ori是指原始版本，未经修改的版本；txt的那个则是Developer Keystore的整理者的记录，请看“解释”）
+解释：
