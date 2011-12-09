@@ -1,5 +1,4 @@
 #!/bin/sh
-python ./gitco.py testing
 echo ============================================
 echo copy scripts
 echo --------------------------------------------
