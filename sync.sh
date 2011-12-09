@@ -46,5 +46,5 @@ echo --------------------------------------------
 git commit -m "$commit"
 echo ============================================
 echo Push commit\(s\) to GitHub
-git push origin testing
+python ./gitcho.py nonch push origin
 echo ============================================
