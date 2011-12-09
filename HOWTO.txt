@@ -1,10 +1,10 @@
 SotongDJ's Kindle Launchpad Script Sets
 ----------------------------------------------------
 SotongDJ's Kindle Launchpad Script Sets is composed of several components:
-1，Record
-2，Mplayer Playback
-3，List of Expenditure (Code-Name:Finance)
-4，System Files Manager
-5,  File Manager (coming soon)
+1，Record (temporary)
+2，Mplayer Playback Script Set
+3，List of Expenditure (Code-Name:Finance) [temporary]
+4，System Files Manager (temporary)
+5,  File Manager (coming soon) [temporary]
 
 TO BE CONTINUE...
