@@ -71,7 +71,23 @@ P P = !/mnt/us/mplayer/control.sh playlist
 其他的都可以删除（我附上的SotongDj.ini已经处理了，可以略过这一段）
 5，接下来是继续安装KindleNote。确定developer.keystore放置在SotongDJ文件夹底下。在launchpad/SotongDJ.ini添加以下这段：
 K S = !mntroot rw&&cp /mnt/us/SotongDJ/developer.keystore /var/local/java/keystore/developer.keystore&&mntroot ro &
-6，安装完毕
+6，修改完成后，快速且连续的点Shift+Shift+Space，要照次序而且一定要分开按，然后出现“成功”后，再连续Shift+K+S。这样就可以运行KindleNote了。别忘了打开看看有没有问题（我建议有装汉语拼音的同学不要在KindleNote里使用，我发现会发生无法关闭输入法的问题，可能是作者有加入本地键盘补丁[作者是俄国人]）
+7，根据您放置音乐的位置修改所有"/mnt/us/music"。我的建议是：使用原本music，不过音乐格式不要是mp3，因为原生系统的音乐播放功能会和mplayer起冲突，让系统不稳，唯有music文件夹里没有任何一首mp3才能让原生系统的音乐播放关闭。别担心，mplayer可以播放的格式多看也支援
+8，安装完毕
 第四步，适应：如何使用
-1，记住以下的快捷键，您可以随意修改，不过不要一组快捷键配上两个指令。
-Shift 
+1，记住以下的快捷键，您可以随意修改，不过不要一组快捷键配上两个指令。（因为脚本里的指令参数，mplayer默认是自动无限循环全部，如果是播放列表，就是整个播放列表）
+Shift M A 播放所有音乐
+Shift M R 随机播放所有音乐
+Shift M Space 暂停播放
+Shift M S 停止播放
+Shift M P 上一首
+Shift M N 下一首
+Shift P G 创建播放列表
+Shift P P 播放播放列表
+2，如何编辑播放列表？您可以打开KindleNote，点选01-Playlist.txt，然后再点击确认键进入编辑模式，删除您要的歌曲前面的“!:”即可，编辑完后，点击返回，确认储存，点击返回直到推出，再SPP即可
+好好享受吧～
+
+资源：
+Launchpad For Kindle
+Python For Kindle
+Mplayer For Kindle+KindleNote+Mplayer Playback Script Set
