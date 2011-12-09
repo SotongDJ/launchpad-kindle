@@ -4,7 +4,7 @@ installdir=/mnt/us/SotongDJ
 pythonbin=/mnt/us/python/bin/python2.6
 nowdate=`date +%Y%m%d`
 finatemp=/mnt/us/SotongDJ/finatemp
-finance=/mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/user
+finance=`cat /mnt/us/SotongDJ/protect`
 ## --------DeBug Usage----------------------
 #pythonbin=python
 ## ----------------------------------------------

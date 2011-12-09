@@ -8,7 +8,7 @@ freedownload=/mnt/us/freedownload/freedownload.log
 launchpad=/mnt/us/launchpad/launchpad.log
 
 notesto=/mnt/us/DK_Documents/Notes-ReadOnly
-notesfrom=/mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/user
+notesfrom=`cat /mnt/us/SotongDJ/protect`
 
 systempy=/mnt/us/SotongDJ/system.py
 dkconfig=/mnt/us/DK_System/Lite/config.ini

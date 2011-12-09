@@ -1,5 +1,4 @@
 #!/bin/sh
-python ./gitco.py testing
 echo ============================================
 echo copy scripts
 echo --------------------------------------------
@@ -46,5 +45,5 @@ echo --------------------------------------------
 git commit -m "$commit"
 echo ============================================
 echo Push commit\(s\) to GitHub
-git push origin testing
+python ./gitcho.py nonch push origin
 echo ============================================

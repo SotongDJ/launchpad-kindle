@@ -1,5 +1,5 @@
 #!/bin/sh
-python ./gitco.py master
+python ./gitcho.py change checkout master
 git merge testing
 git push origin master
 git checkout testing
