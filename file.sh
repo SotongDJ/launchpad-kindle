@@ -36,6 +36,7 @@ case "$1" in
 		cat $mainlog >> $backuplog
         ;;
     sync)
+		rm -f "$notesto"/*
 		cp "$notesfrom"/* $notesto
         ;;
 	boot2kindle)
