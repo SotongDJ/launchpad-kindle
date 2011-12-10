@@ -1,8 +1,10 @@
 #!/mnt/us/python/bin/python2.6
 import os
 import sys
+global cmdfile
 ## -----------Change it if different---------
 notepaddir="/mnt/us/developer/KindleNote/work/"
+cmdfile=notepaddir+"CMD.TXT"
 workdir="/mnt/us/SotongDJ/"
 ## ----------------------------------------------
 result=notepaddir+"Result.txt"
@@ -10,6 +12,11 @@ def head():
     status=os.system("echo ---------------------------------------------------->>"+result)
     status=os.system("date +%Y-%m-%d.%H:%M:%S >>"+result)
     status=os.system("echo ---------------------------------------------------->>"+result)
+def cmdfunc():
+    file=open(cmdfile,'w')
+    part='## Write down the command you prefer to run, \n## please make sure you replace \" with \\\".'
+    file.write(part)
+    file.close()
 if len(sys.argv)==1:
     print "Usage: "+sys.argv[0]+" {file|list}"
 elif sys.argv[1] == 'file':
@@ -41,11 +48,15 @@ elif sys.argv[1] == 'file':
     for num in range(maxnum):
         num=num+1
         cmd=maindict[num]
-        status=os.system(cmd+">>"+result)
+    status=os.system(cmd+">>"+result)
     for rm in rmlist:
         status=os.system("rm -f "+rm)
 elif sys.argv[1] == 'list':
-    cmdlist=notepaddir+"CMD.TXT"
+    cmdlist=[]
+    for cmd in open(cmdfile).read().splitlines():
+        if not "##" in cmd:
+            cmdlist.append(cmd)
+    cmd='&&'.join(cmdlist)
     head()
-    cmd='&&'.join(open(cmdlist).read().splitlines())
     status=os.system(cmd+">>"+result)
+    cmdfunc()

@@ -30,6 +30,7 @@ rm -f /media/Kindle/launchpad/*~
 rm -f /mnt/us/launchpad/*~
 rm -f /media/Kindle/mplayer/*~
 rm -f /mnt/us/mplayer/*~
+rm -f /mnt/us/developer/KindleNote/work/*~
 echo --------------------------------------------
 echo remove temp files
 rm -f /media/Kindle/SotongDJ/*temp
