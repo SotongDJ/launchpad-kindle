@@ -27,6 +27,11 @@ def rmcmdf():
     for rm in rmlist:
         status=os.system("rm -f "+rm)
     status=os.system("rm -f "+workdir+"cmdtemp")
+    cmd2file=notepaddir+"TipsForCmdPyFile.txt"
+    file=open(cmd2file,'w')
+    part='## You can replace = with !1, \n## You can replace $ with !2, \n## You can replace " with !3, \n## Don\'t modify this file'
+    file.write(part)
+    file.close()
 ##
 if len(sys.argv)==1:
     print "Usage: "+sys.argv[0]+" {file|list}"
