@@ -1,7 +1,7 @@
 #!/mnt/us/python/bin/python2.6
 import os
 import sys
-global cmdfile,notepaddir,cmdtemp
+global cmdfile,notepaddir,cmdtemp,bcheck,acheck
 ## -----------Change it if different---------
 notepaddir="/mnt/us/developer/KindleNote/work/"
 cmdfile=notepaddir+"CMD.TXT"
@@ -9,6 +9,8 @@ workdir="/mnt/us/SotongDJ/"
 ## ----------------------------------------------
 result=notepaddir+"Result.txt"
 cmdtemp=workdir+"cmdtemp"
+bcheck=[]
+acheck=[]
 def head():
     status=os.system("echo ---------------------------------------------------->>"+result)
     status=os.system("date +%Y-%m-%d.%H:%M:%S >>"+result)
@@ -32,6 +34,36 @@ def rmcmdf():
     part='## You can replace = with !1, \n## You can replace $ with !2, \n## You can replace " with !3, \n## Don\'t modify this file'
     file.write(part)
     file.close()
+def chkfunc():
+    for sect in bcheck:
+        if "rm " in sect:
+            sect=sect.replace('rm ','mv ')
+            sect=sect+"/mnt/us/SotongDJ/trash/"
+            acheck.append(sect)
+        elif "mv " in sect:
+            if "-b" in sect:
+                sect=sect
+                acheck.append(sect)
+            elif "--backup" in sect:
+                sect=sect
+                acheck.append(sect)
+            else:
+                sect=sect.replace('mv ','mv -b ')
+                acheck.append(sect)
+        elif "cp " in sect:
+            if "-b" in sect:
+                sect=sect
+                acheck.append(sect)
+            elif "--backup" in sect:
+                sect=sect
+                acheck.append(sect)
+            else:
+                sect=sect.replace('cp ','cp -b ')
+                acheck.append(sect)
+        else:
+            sect=sect
+            acheck.append(sect)
+##
 ##
 if len(sys.argv)==1:
     print "Usage: "+sys.argv[0]+" {file|list}"
@@ -69,6 +101,9 @@ elif sys.argv[1] == 'file':
         num=num+1
         cmd=maindict[num]
         cmdlist.append(cmd)
+    bcheck=cmdlist
+    chkfunc()
+    cmdlist=acheck
     cmd='&&'.join(cmdlist)
     head()
 #    print cmd+">>"+result
@@ -79,8 +114,12 @@ elif sys.argv[1] == 'list':
     for cmd in open(cmdfile).read().splitlines():
         if not "##" in cmd:
             cmdlist.append(cmd)
+    bcheck=cmdlist
+    chkfunc()
+    cmdlist=acheck
     cmd='&&'.join(cmdlist)
     head()
+#    print cmd+">>"+result
     status=os.system(cmd+">>"+result)
     cmdfunc()
 elif sys.argv[1] == 'init':
