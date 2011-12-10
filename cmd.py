@@ -31,42 +31,48 @@ def rmcmdf():
 if len(sys.argv)==1:
     print "Usage: "+sys.argv[0]+" {file|list}"
 elif sys.argv[1] == 'file':
-    cmdsq=[]
     cmdlist=[]
     maindict={}
     maxnum=0
     status=os.system("ls -1 "+notepaddir+">"+workdir+"cmdtemp")
     for line in open(cmdtemp).read().splitlines():
         subdict={}
+        cmdsq=[]
         if 'cmd' in line:
             line=line.replace('.txt','')
             line=line.replace('cmd','')
+            line=line.replace('!1','=')
+            line=line.replace('!2','$')
+            line=line.replace('!3','\"')
             precmdsq=line.split("-")
             for sec in precmdsq:
                 if not  sec=='':
                     cmdsq.append(sec)
+#                    print cmdsq
             nums=cmdsq[0]
+#            print nums
             cmdsq.remove(nums)
             numi=int(nums)
             if numi>maxnum:
                 maxnum=numi
             tcmd=' '.join(cmdsq)
             subdict={numi:tcmd}
+#            print subdict
             maindict=dict(maindict.items()+subdict.items())
+#            print maindict
     for num in range(maxnum):
         num=num+1
         cmd=maindict[num]
-        cmd="\""+cmd+"\""
         cmdlist.append(cmd)
     cmd='&&'.join(cmdlist)
     head()
+#    print cmd+">>"+result
     status=os.system(cmd+">>"+result)
     rmcmdf()
 elif sys.argv[1] == 'list':
     cmdlist=[]
     for cmd in open(cmdfile).read().splitlines():
         if not "##" in cmd:
-            cmd="\""+cmd+"\""
             cmdlist.append(cmd)
     cmd='&&'.join(cmdlist)
     head()
