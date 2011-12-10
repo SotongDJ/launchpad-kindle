@@ -22,21 +22,20 @@ for line in open(cmdtemp).read().splitlines():
         for sec in precmdsq:
             if not  sec=='':
                 cmdsq.append(sec)
-        nums=cmdsq[1]
+        nums=cmdsq[0]
         cmdsq.remove(nums)
         numi=int(nums)
-        if numi>num:
+        if numi>maxnum:
             maxnum=numi
         tcmd=' '.join(cmdsq)
         subdict={numi:tcmd}
         maindict=dict(maindict.items()+subdict.items())
-fnum=maxnum+1
 status=os.system("echo ---------------------------------------------------->>"+result)
-status=os.system("date +%Y-%m-%d %H:%M:%S >>"+result)
+status=os.system("date +%Y-%m-%d.%H:%M:%S >>"+result)
 status=os.system("echo ---------------------------------------------------->>"+result)
-for num in range(fnum):
+for num in range(maxnum):
+    num=num+1
     cmd=maindict[num]
     status=os.system(cmd+">>"+result)
-status=os.system("echo ---------------------------------------------------->>"+result)
 for rm in rmlist:
     status=os.system("rm -f "+rm)
