@@ -13,6 +13,7 @@ cp -u /media/Kindle/SotongDJ/record.sh ~/github/launchpad-kindle/record.sh
 cp -u /media/Kindle/SotongDJ/system.py ~/github/launchpad-kindle/system.py
 cp -u /media/Kindle/SotongDJ/test.sh ~/github/launchpad-kindle/test.sh
 cp -u /media/Kindle/SotongDJ/python.py ~/github/launchpad-kindle/python.py
+cp -u /media/Kindle/SotongDJ/cmd.py ~/github/launchpad-kindle/cmd.py
 cp -u /media/Kindle/SotongDJ/changelog.txt ~/github/launchpad-kindle/changelog
 cp -u /media/Kindle/launchpad/SotongDJ.ini ~/github/launchpad-kindle/launchpad/SotongDJ.ini
 cp -u /media/Kindle/mplayer/control.sh ~/github/launchpad-kindle/mplayer/control.sh
