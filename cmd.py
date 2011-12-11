@@ -4,9 +4,9 @@ import sys
 global cmdfile,notepaddir,cmdtemp,bcheck,acheck
 ## -----------Change it if different---------
 notepaddir=open("protect").read().replace("\n","")+"/"
-cmdfile=notepaddir+"CMD.TXT"
 workdir="/mnt/us/SotongDJ/"
 ## ----------------------------------------------
+cmdfile=notepaddir+"CMD.TXT"
 result=notepaddir+"Result.txt"
 cmdtemp=workdir+"cmdtemp"
 bcheck=[]
@@ -16,10 +16,10 @@ def head():
     status=os.system("date +%Y-%m-%d.%H:%M:%S >>"+result)
     status=os.system("echo ---------------------------------------------------->>"+result)
 def cmdfunc():
-    file=open(cmdfile,'w')
-    part='## Write down the command you prefer to run, \n## please make sure you replace \" with \\\".'
-    file.write(part)
-    file.close()
+    filea=open(cmdfile,'w')
+    parta='## Write down the command you prefer to run, \n## please make sure you replace \" with \\\".'
+    filea.write(parta)
+    filea.close()
 def rmcmdf():
     rmlist=[]
     status=os.system("ls -1 "+notepaddir+">"+workdir+"cmdtemp")
@@ -30,10 +30,10 @@ def rmcmdf():
         status=os.system("rm -f "+rm)
     status=os.system("rm -f "+workdir+"cmdtemp")
     cmd2file=notepaddir+"TipsForCmdPyFile.txt"
-    file=open(cmd2file,'w')
-    part='## You can replace = with !1, \n## You can replace $ with !2, \n## You can replace " with !3, \n## Don\'t modify this file'
-    file.write(part)
-    file.close()
+    fileq=open(cmd2file,'w')
+    partq='## You can replace = with !1, \n## You can replace $ with !2, \n## You can replace " with !3, \n## Don\'t modify this file'
+    fileq.write(partq)
+    fileq.close()
 def chkfunc():
     for sect in bcheck:
         if "rm " in sect:
@@ -109,6 +109,7 @@ elif sys.argv[1] == 'files':
 #    print cmd+">>"+result
     status=os.system(cmd+">>"+result)
     rmcmdf()
+    cmdfunc()
 elif sys.argv[1] == 'list':
     cmdlist=[]
     for cmd in open(cmdfile).read().splitlines():
@@ -123,5 +124,5 @@ elif sys.argv[1] == 'list':
     status=os.system(cmd+">>"+result)
     cmdfunc()
 elif sys.argv[1] == 'init':
-    cmdfunc()
     rmcmdf()
+    cmdfunc()

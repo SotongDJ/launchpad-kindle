@@ -13,7 +13,7 @@ case "$1" in
     copy)
 		ls -1 $finance > $finatemp
 		$pythonbin "$installdir/finance.py" $nowdate
-		echo shell script run>"$installdir/$nowdate.debug"
+#		echo shell script run>"$installdir/$nowdate.debug"
 		;;
     *)
         echo "Usage: $0 {copy}"
