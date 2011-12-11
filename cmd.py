@@ -67,7 +67,7 @@ def chkfunc():
 ##
 if len(sys.argv)==1:
     print "Usage: "+sys.argv[0]+" {file|list}"
-elif sys.argv[1] == 'file':
+elif sys.argv[1] == 'files':
     cmdlist=[]
     maindict={}
     maxnum=0

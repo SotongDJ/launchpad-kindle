@@ -13,8 +13,6 @@ notesfrom=`cat /mnt/us/SotongDJ/protect`
 systempy=/mnt/us/SotongDJ/system.py
 dkconfig=/mnt/us/DK_System/Lite/config.ini
 dkconfbk=/mnt/us/DK_System/Lite/configbk
-## --------DeBug Usage----------------------
-#pythonbin=python
 ## ----------------------------------------------
 case "$1" in
     copy)
