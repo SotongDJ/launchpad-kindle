@@ -6,7 +6,7 @@ global cmdfile,notepaddir,cmdtemp,bcheck,acheck
 notepaddir=open("protect").read().replace("\n","")+"/"
 workdir="/mnt/us/SotongDJ/"
 ## ----------------------------------------------
-cmdfile=notepaddir+"CMD.TXT"
+cmdfile=notepaddir+"command.txt"
 result=notepaddir+"Result.txt"
 cmdtemp=workdir+"cmdtemp"
 bcheck=[]
