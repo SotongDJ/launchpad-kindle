@@ -21,17 +21,6 @@ cp -u /media/Kindle/mplayer/control.sh ~/github/launchpad-kindle/mplayer/control
 ## cp -u /media/Kindle/SotongDJ/developer.keystore ~/github/launchpad-kindle/kindlenote/developer.keystore
 ## cp -u /media/Kindle/SotongDJ/developer.keystore.txt ~/github/launchpad-kindle/kindlenote/developer.keystore.txt
 echo --------------------------------------------
-echo remove gedit backup files
-rm -f /media/Kindle/SotongDJ/*~
-rm -f /mnt/us/SotongDJ/*~
-rm -f ~/github/launchpad-kindle/*~
-rm -f ~/github/launchpad-kindle/*/*~
-rm -f /media/Kindle/launchpad/*~
-rm -f /mnt/us/launchpad/*~
-rm -f /media/Kindle/mplayer/*~
-rm -f /mnt/us/mplayer/*~
-rm -f /mnt/us/developer/KindleNote/work/*~
-echo --------------------------------------------
 echo remove temp files
 rm -f /media/Kindle/SotongDJ/*temp
 echo ============================================
