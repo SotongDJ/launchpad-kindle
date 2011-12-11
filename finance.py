@@ -2,7 +2,7 @@
 import sys
 ## -----------Change it if different---------
 finatemp="/mnt/us/SotongDJ/finatemp"
-notepaddir=open("/mnt/us/SotongDJ/protect").read()+"/"
+notepaddir=open("protect").read().replace("\n","")+"/"
 temple="n:none\n----------------\ncost:\nn\ntotal n\n----------------\nborrow:\nn\ntotal n\n----------------\nlent:\nn\ntotal n\n================\nmoney add:\nmain n\nleft-left n\nleft-right n\nright-left n\nright-right n\nlittle n\n----------------\nmoney left:\nmain n\nleft-left n\nleft-right n\nright-left n\nright-right n\nlittle n\n----------------\n"
 ## ----------------------------------------------
 lastdatenum=0

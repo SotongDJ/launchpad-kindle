@@ -3,7 +3,7 @@ import os
 import sys
 global cmdfile,notepaddir,cmdtemp,bcheck,acheck
 ## -----------Change it if different---------
-notepaddir="/mnt/us/developer/KindleNote/work/"
+notepaddir=open("protect").read().replace("\n","")+"/"
 cmdfile=notepaddir+"CMD.TXT"
 workdir="/mnt/us/SotongDJ/"
 ## ----------------------------------------------

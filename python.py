@@ -1,2 +1,4 @@
 #!/mnt/us/python/bin/python2.6
-print "Hello World!"
+import sys
+print open("protect").read().replace("\n","")
+print 'haha'
