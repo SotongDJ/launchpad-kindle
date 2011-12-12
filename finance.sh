@@ -11,10 +11,10 @@ finance=`cat /mnt/us/SotongDJ/protect`
 
 case "$1" in
     copy)
-		ls -1 $finance > $finatemp
-		$pythonbin "$installdir/finance.py" $nowdate
-#		echo shell script run>"$installdir/$nowdate.debug"
-		;;
+        ls -1 $finance > $finatemp
+        $pythonbin "$installdir/finance.py" $nowdate
+#        echo shell script run>"$installdir/$nowdate.debug"
+        ;;
     *)
         echo "Usage: $0 {copy}"
         exit 1

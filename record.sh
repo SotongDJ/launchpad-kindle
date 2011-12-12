@@ -4,7 +4,7 @@ if [ -d "/mnt/us/record" ]; then
 fi
 case "$1" in
     start)
-		name=`date +%Y-%m-%d_%H-%M-%S`
+        name=`date +%Y-%m-%d_%H-%M-%S`
         arecord -qN /mnt/us/record/$name.wav
         ;;
     end)

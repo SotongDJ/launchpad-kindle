@@ -22,30 +22,34 @@ fi
 
 
 cmd() {
-    if [ "x$(pidof mplayer)" = "x" ]; then
+	if [ "x$(pidof mplayer)" = "x" ]; then
 		return 1;
-    fi
-    echo "$@" > $FIFO
-    return 0;
+	fi
+	echo "$@" > $FIFO
+	return 0;
 }
 
 loadplaylist() {
-    if ! cmd "loadlist $1"; then
+	if ! cmd "loadlist $1"; then
 		$MPLAYER -loop 0 -playlist $1 &
-    fi
+	fi
 }
 
 
 case "$1" in
-    playall)
+	playall)
 		$pythonbin $createlist playall > /tmp/mplayer.playlist
 		loadplaylist /tmp/mplayer.playlist		
 		;;
-    playrand)
+	playrand)
 		$pythonbin $createlist playrand > /tmp/mplayer.playlist
 		loadplaylist /tmp/mplayer.playlist
 		;;
 	playlist)
+		$pythonbin $createlist playlist > /tmp/mplayer.playlist
+		loadplaylist /tmp/mplayer.playlist
+		;;
+	playlists)
 		$pythonbin $createlist playlist > /tmp/mplayer.playlist
 		loadplaylist /tmp/mplayer.playlist
 		;;
@@ -61,19 +65,19 @@ case "$1" in
 		echo /mnt/us/music/FixYou.wav > /tmp/mplayer.playlist
 		loadplaylist /tmp/mplayer.playlist
 		;;
-    pause)
+	pause)
 		cmd "pause"
 		;;
-    stop)
-	    killall mplayer
+	stop)
+		killall mplayer
 		;;
-    prev)
+	prev)
 		cmd "pt_step -1"
 		;;
-    next)
+	next)
 		cmd "pt_step 1"
 		;;
-    *)
+	*)
 		echo "Usage: $0 {playall|playrec|playrand|playlist|pause|stop|prev|next}"
 		exit 1
 		;;

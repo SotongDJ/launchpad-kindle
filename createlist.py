@@ -24,10 +24,14 @@ if sys.argv[1] == "reclist":
 if sys.argv[1] == "strlist":
     file = notepaddir+"03-Strlist.txt"
     targetdir=""
+
+if sys.argv[1] == "playlists":
+    file = notepaddir+"04-Playlists.txt"
+    sdpl=[]
 ##Playback Mode Description:
 ##modenum:
 ##   0 none
-##   1playall
+##   1 playall
 ##   2 shuffle
 ##   3 playall and shuffle
 modenum=0
@@ -44,11 +48,20 @@ for line in open(file).read().splitlines():
     if not '##' in line:
         if modenum == 0:
             if not '!:' in line:
-                print targetdir+line
+                if not sys.argv[1] == "playlists":
+                    print targetdir+line
+                if sys.argv[1] == "playlists":
+                    sdpl.append(line)
         if modenum == 1:
             line=line.replace("!:","")
-            print targetdir+line
+                if not sys.argv[1] == "playlists":
+                    print targetdir+line
+                    if sys.argv[1] == "playlists":
+                        sdpl.append(line)
 ##start another "if" as need to shuffle the file list in the begin
+if sys.argv[1] == "playlists":
+    if modenum >= 2:
+        modenum = 3
 if modenum >= 2:
     lines=open(file).read().splitlines()
     random.shuffle(lines)
@@ -56,7 +69,21 @@ if modenum >= 2:
         if not '##' in line:
             if modenum == 2:
                 if not '!:' in line:
-                    print targetdir+line
+                    if not sys.argv[1] == "playlists":
+                        print targetdir+line
+                    if sys.argv[1] == "playlists":
+                        sdpl.append(line)
             if modenum == 3:
                 line=line.replace("!:","")
-                print targetdir+line
+                if not sys.argv[1] == "playlists":
+                    print targetdir+line
+                if sys.argv[1] == "playlists":
+                    sdpl.append(line)
+if sys.argv[1] == "playlists":
+    final=[]
+    for line in sdpl:
+        final=final+open(notepaddir+line).read().splitlines()
+    if modenum == 3:
+	    random.shuffle(final)
+    for line in final:
+        print line

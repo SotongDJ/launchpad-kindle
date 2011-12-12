@@ -3,7 +3,7 @@ import os
 import sys
 global cmdfile,notepaddir,cmdtemp,bcheck,acheck
 ## -----------Change it if different---------
-notepaddir=open("protect").read().replace("\n","")+"/"
+notepaddir=open("/mnt/us/SotongDJ/protect").read().replace("\n","")+"/"
 workdir="/mnt/us/SotongDJ/"
 ## ----------------------------------------------
 cmdfile=notepaddir+"command.txt"
