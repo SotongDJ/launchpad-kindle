@@ -13,6 +13,7 @@ createlist=/mnt/us/SotongDJ/createlist.py
 NICENESS="-10"
 
 FIFO=/tmp/mplayer.fifo
+##MPLAYER="nice -n$NICENESS $INSTALLDIR/mplayer -ao alsa -slave -input file=$FIFO"
 MPLAYER="nice -n$NICENESS $INSTALLDIR/mplayer -ao alsa -slave -quiet -input file=$FIFO"
 SHUF="$INSTALLDIR/shuf"
 
@@ -76,6 +77,15 @@ case "$1" in
 		;;
 	next)
 		cmd "pt_step 1"
+		;;
+	test)
+#		echo>testtemp
+		cmd "get_meta_title">testtemp
+		cmd "get_meta_artist">testtemp
+		cmd "get_percent_pos">testtemp
+		cmd "get_time_pos">testtemp
+		cmd "get_time_length">testtemp
+#		cat testtemp
 		;;
 	*)
 		echo "Usage: $0 {playall|playrec|playrand|playlist|pause|stop|prev|next}"

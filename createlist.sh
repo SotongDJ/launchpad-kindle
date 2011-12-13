@@ -24,8 +24,10 @@ case "$1" in
         ;;
     playlist)
         ls -1 $music > $playtemp
-        ls -1 $notepaddir > $sdpltemp
         $pythonbin $filterpy playlist aac.flac.ogg.m3u.m4a.mp3.wav.wma > $forpledit
+        ;;
+    playlists)
+        ls -1 $notepaddir > $sdpltemp
         $pythonbin $filterpy playlists sdpl > $forsdpldit
         ;;
     reclist)

@@ -16,6 +16,7 @@ cp -u /media/Kindle/SotongDJ/python.py ~/github/launchpad-kindle/python.py
 cp -u /media/Kindle/SotongDJ/cmd.py ~/github/launchpad-kindle/cmd.py
 cp -u /media/Kindle/SotongDJ/changelog.txt ~/github/launchpad-kindle/changelog
 cp -u /media/Kindle/launchpad/SotongDJ.ini ~/github/launchpad-kindle/launchpad/SotongDJ.ini
+cp -u /media/Kindle/launchpad/mplayer.ini ~/github/launchpad-kindle/launchpad/mplayer.ini
 cp -u /media/Kindle/mplayer/control.sh ~/github/launchpad-kindle/mplayer/control.sh
 ## cp -u /media/Kindle/documents/KindleNote.azw2 ~/github/launchpad-kindle/kindlenote/KindleNote.azw2
 ## cp -u /media/Kindle/SotongDJ/developer.keystore ~/github/launchpad-kindle/kindlenote/developer.keystore
