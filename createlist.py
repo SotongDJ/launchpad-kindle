@@ -54,10 +54,10 @@ for line in open(file).read().splitlines():
                     sdpl.append(line)
         if modenum == 1:
             line=line.replace("!:","")
-                if not sys.argv[1] == "playlists":
-                    print targetdir+line
-                    if sys.argv[1] == "playlists":
-                        sdpl.append(line)
+            if not sys.argv[1] == "playlists":
+                print targetdir+line
+            if sys.argv[1] == "playlists":
+                sdpl.append(line)
 ##start another "if" as need to shuffle the file list in the begin
 if sys.argv[1] == "playlists":
     if modenum >= 2:
