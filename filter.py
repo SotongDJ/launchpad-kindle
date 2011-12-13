@@ -5,11 +5,11 @@ tempdir="/mnt/us/SotongDJ"
 ## ----------------------------------------------
 global thing
 thing=""
-def showa()
+def showa():
     print "## Select the mode below by remove \'!\'"
     print "## :!shuffle: :!playall:"
     print "## Remove the \'!:\' to select your "+thing 
-def showa()
+def showb():
     print "## Pls prepare your sdpl file before on computer"
     print "## The name of sdpl must follow the format below:"
     print "## myfavpl-sdpl.txt or MyFav-sDPl.TXt p.s.no capital sensitive"
@@ -20,6 +20,8 @@ def showa()
     print "## :!shuffle: shuffle the"+thing+"that you select"
     print "##------------------"
     print "## Remove the \'!:\' to select your "+thing 
+if len(sys.argv) == 1:
+    print "Usage: "+sys.argv[0]+" {play|playlist|playlists|reclist|strlist}"
 if sys.argv[1] == "play":
     folder=tempdir+'/playtemp'
     thing='songs'
