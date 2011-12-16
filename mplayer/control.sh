@@ -87,6 +87,12 @@ case "$1" in
 		cmd "get_time_length">testtemp
 #		cat testtemp
 		;;
+	volup)
+		cmd "volume 5"
+		;;
+	voldown)
+		cmd "volume -5"
+		;;
 	*)
 		echo "Usage: $0 {playall|playrec|playrand|playlist|pause|stop|prev|next}"
 		exit 1
