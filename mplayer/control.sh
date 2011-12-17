@@ -51,7 +51,7 @@ case "$1" in
 		loadplaylist /tmp/mplayer.playlist
 		;;
 	playlists)
-		$pythonbin $createlist playlist > /tmp/mplayer.playlist
+		$pythonbin $createlist playlists > /tmp/mplayer.playlist
 		loadplaylist /tmp/mplayer.playlist
 		;;
 	playrec)
