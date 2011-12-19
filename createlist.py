@@ -59,9 +59,6 @@ for line in open(file).read().splitlines():
             if sys.argv[1] == "playlists":
                 sdpl.append(line)
 ##start another "if" as need to shuffle the file list in the begin
-if sys.argv[1] == "playlists":
-    if modenum >= 2:
-        modenum = 3
 if modenum >= 2:
     lines=open(file).read().splitlines()
     random.shuffle(lines)
@@ -83,7 +80,7 @@ if sys.argv[1] == "playlists":
     final=[]
     for line in sdpl:
         final=final+open(notepaddir+line).read().splitlines()
-    if modenum == 3:
+    if modenum >= 2:
 	    random.shuffle(final)
     for line in final:
         print line

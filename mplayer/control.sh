@@ -6,7 +6,7 @@
 INSTALLDIR=/mnt/us/mplayer
 MUSICDIR=/mnt/us/music
 
-pythonbin=/mnt/us/python/bin/python2.6
+pythonbin=/mnt/us/python/bin/python
 createlist=/mnt/us/SotongDJ/createlist.py
 
 ## Value between -20 and 19, decrease in case of music lags
@@ -64,6 +64,9 @@ case "$1" in
 		;;
 	fixyou)
 		echo /mnt/us/music/FixYou.wav > /tmp/mplayer.playlist
+		loadplaylist /tmp/mplayer.playlist
+		;;
+	prepl)
 		loadplaylist /tmp/mplayer.playlist
 		;;
 	pause)
