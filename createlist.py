@@ -4,23 +4,25 @@ import sys
 import random
 ## -----------Change it if different---------
 notepaddir="/mnt/us/developer/KindleNote/work/"
+musicdir="/mnt/us/music/"
+recorddir="/mnt/us/record/"
 ## ----------------------------------------------
 if sys.argv[1] == "playlist":
     file = notepaddir+"01-Playlist.txt"
-    targetdir="/mnt/us/music/"
+    targetdir=musicdir
 
 if sys.argv[1] == "playall":
     status=os.system("sh /mnt/us/SotongDJ/createlist.sh play")
     file = "/tmp/playlist"
-    targetdir="/mnt/us/music/"
+    targetdir=musicdir
 if sys.argv[1] == "playrand":
     status=os.system("sh /mnt/us/SotongDJ/createlist.sh play")
     file = "/tmp/playlist"
-    targetdir="/mnt/us/music/"
+    targetdir=musicdir
 
 if sys.argv[1] == "reclist":
     file = notepaddir+"02-Reclist.txt"
-    targetdir="/mnt/us/record/"
+    targetdir=recorddir
 if sys.argv[1] == "strlist":
     file = notepaddir+"03-Strlist.txt"
     targetdir=""

@@ -30,11 +30,22 @@ cmd() {
 	return 0;
 }
 
-loadplaylist() {
-	if ! cmd "loadlist $1"; then
-		$MPLAYER -loop 0 -playlist $1 &
-	fi
-}
+case "$2" in
+	noneloop)
+		loadplaylist() {
+			if ! cmd "loadlist $1"; then
+				$MPLAYER 0 -playlist $1 &
+			fi
+		}
+		;;
+	*)
+		loadplaylist() {
+			if ! cmd "loadlist $1"; then
+				$MPLAYER -loop 0 -playlist $1 &
+			fi
+		}
+		;;
+esac
 
 
 case "$1" in
