@@ -1,7 +1,7 @@
 #!/bin/sh
 ## -----------Change it if different---------
 installdir=/mnt/us/SotongDJ
-pythonbin=/mnt/us/python/bin/python2.6
+pythonbin=/mnt/us/python/bin/python
 nowdate=`date +%Y%m%d`
 finatemp=/mnt/us/SotongDJ/finatemp
 finance=`cat /mnt/us/SotongDJ/protect`

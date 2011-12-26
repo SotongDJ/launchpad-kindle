@@ -1,6 +1,6 @@
 #!/bin/sh
 ## -----------Change it if different---------
-pythonbin=/mnt/us/python/bin/python2.6
+pythonbin=/mnt/us/python/bin/python
 strpl=/mnt/us/mplayer/playlist
 tempdir=/mnt/us/SotongDJ
 notepaddir=/mnt/us/developer/KindleNote/work

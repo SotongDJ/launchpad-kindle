@@ -1,6 +1,6 @@
 #!/bin/sh
 ## -----------Change it if different---------
-pythonbin=/mnt/us/python/bin/python2.6
+pythonbin=/mnt/us/python/bin/python
 mainlog=/mnt/us/documents/00-self/Log.txt
 backuplog=/mnt/us/documents/00-self/bkLog
 

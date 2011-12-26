@@ -1,5 +1,5 @@
 #!/bin/sh
-pythonloc=/mnt/us/python/bin/python2.6
+pythonloc=/mnt/us/python/bin/python
 pythontest=/mnt/us/SotongDJ/python.py
 pythonresult=/mnt/us/pytestres.txt
 nowdate=`date +%d%m%Y`
