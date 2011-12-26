@@ -1,6 +1,6 @@
 #!/bin/sh
 echo ============================================
-echo copy scripts
+echo "copy scripts (copy file from kindle to com.)"
 echo --------------------------------------------
 cp -u /media/Kindle/SotongDJ/createlist.py ~/github/launchpad-kindle/createlist.py
 cp -u /media/Kindle/SotongDJ/createlist.sh ~/github/launchpad-kindle/createlist.sh
@@ -23,18 +23,4 @@ cp -u /media/Kindle/http/* ~/github/launchpad-kindle/gw4m4k/
 echo --------------------------------------------
 echo remove temp files
 rm -f /media/Kindle/SotongDJ/*temp
-echo ============================================
-echo  Add change
-git add -A
-echo --------------------------------------------
-echo Commit change
-echo --------------------------------------------
-echo Please enter your description of
-echo this commit:
-read commit
-echo --------------------------------------------
-git commit -m "$commit"
-echo ============================================
-echo Push commit\(s\) to GitHub
-python ./gitcho.py nonch push origin
 echo ============================================
