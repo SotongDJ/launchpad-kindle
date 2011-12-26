@@ -6,13 +6,14 @@
 INSTALLDIR=/mnt/us/mplayer
 MUSICDIR=/mnt/us/music
 
-pythonbin=/mnt/us/python/bin/python2.6
+pythonbin=/mnt/us/python/bin/python
 createlist=/mnt/us/SotongDJ/createlist.py
 
 ## Value between -20 and 19, decrease in case of music lags
 NICENESS="-10"
 
 FIFO=/tmp/mplayer.fifo
+##MPLAYER="nice -n$NICENESS $INSTALLDIR/mplayer -ao alsa -slave -input file=$FIFO"
 MPLAYER="nice -n$NICENESS $INSTALLDIR/mplayer -ao alsa -slave -quiet -input file=$FIFO"
 SHUF="$INSTALLDIR/shuf"
 
@@ -22,31 +23,46 @@ fi
 
 
 cmd() {
-    if [ "x$(pidof mplayer)" = "x" ]; then
+	if [ "x$(pidof mplayer)" = "x" ]; then
 		return 1;
-    fi
-    echo "$@" > $FIFO
-    return 0;
+	fi
+	echo "$@" > $FIFO
+	return 0;
 }
 
-loadplaylist() {
-    if ! cmd "loadlist $1"; then
-		$MPLAYER -loop 0 -playlist $1 &
-    fi
-}
+case "$2" in
+	noneloop)
+		loadplaylist() {
+			if ! cmd "loadlist $1"; then
+				$MPLAYER 0 -playlist $1 &
+			fi
+		}
+		;;
+	*)
+		loadplaylist() {
+			if ! cmd "loadlist $1"; then
+				$MPLAYER -loop 0 -playlist $1 &
+			fi
+		}
+		;;
+esac
 
 
 case "$1" in
-    playall)
+	playall)
 		$pythonbin $createlist playall > /tmp/mplayer.playlist
 		loadplaylist /tmp/mplayer.playlist		
 		;;
-    playrand)
+	playrand)
 		$pythonbin $createlist playrand > /tmp/mplayer.playlist
 		loadplaylist /tmp/mplayer.playlist
 		;;
 	playlist)
 		$pythonbin $createlist playlist > /tmp/mplayer.playlist
+		loadplaylist /tmp/mplayer.playlist
+		;;
+	playlists)
+		$pythonbin $createlist playlists > /tmp/mplayer.playlist
 		loadplaylist /tmp/mplayer.playlist
 		;;
 	playrec)
@@ -61,19 +77,37 @@ case "$1" in
 		echo /mnt/us/music/FixYou.wav > /tmp/mplayer.playlist
 		loadplaylist /tmp/mplayer.playlist
 		;;
-    pause)
+	prepl)
+		loadplaylist /tmp/mplayer.playlist
+		;;
+	pause)
 		cmd "pause"
 		;;
-    stop)
-	    killall mplayer
+	stop)
+		killall mplayer
 		;;
-    prev)
+	prev)
 		cmd "pt_step -1"
 		;;
-    next)
+	next)
 		cmd "pt_step 1"
 		;;
-    *)
+	test)
+#		echo>testtemp
+		cmd "get_meta_title">testtemp
+		cmd "get_meta_artist">testtemp
+		cmd "get_percent_pos">testtemp
+		cmd "get_time_pos">testtemp
+		cmd "get_time_length">testtemp
+#		cat testtemp
+		;;
+	volup)
+		cmd "volume 5"
+		;;
+	voldown)
+		cmd "volume -5"
+		;;
+	*)
 		echo "Usage: $0 {playall|playrec|playrand|playlist|pause|stop|prev|next}"
 		exit 1
 		;;
