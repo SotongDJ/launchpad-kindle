@@ -9,6 +9,7 @@ cp -v -u ~/github/launchpad-kindle/finance.py /media/Kindle/SotongDJ/finance.py
 cp -v -u ~/github/launchpad-kindle/filter.py /media/Kindle/SotongDJ/filter.py
 cp -v -u ~/github/launchpad-kindle/file.sh /media/Kindle/SotongDJ/file.sh
 cp -v -u ~/github/launchpad-kindle/fm.py /media/Kindle/SotongDJ/fm.py
+cp -v -u ~/github/launchpad-kindle/tree.py /media/Kindle/SotongDJ/tree.py
 cp -v -u ~/github/launchpad-kindle/record.sh /media/Kindle/SotongDJ/record.sh
 cp -v -u ~/github/launchpad-kindle/system.py /media/Kindle/SotongDJ/system.py
 cp -v -u ~/github/launchpad-kindle/test.sh /media/Kindle/SotongDJ/test.sh
