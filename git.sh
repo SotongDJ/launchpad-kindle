@@ -1,5 +1,8 @@
 #!/bin/sh
-~/github/launchpad-kindle/pull.sh
+#~/github/launchpad-kindle/pull.sh
+echo "Before continue, make sure the contents were pull down"
+echo "from Kindle Keyboard before push to server."
+read null
 echo  Add change
 git add -A
 echo --------------------------------------------
