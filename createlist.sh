@@ -3,7 +3,7 @@
 pythonbin=/mnt/us/python/bin/python
 strpl=/mnt/us/mplayer/playlist
 tempdir=/mnt/us/SotongDJ
-notepaddir=/mnt/us/developer/KindleNote/work
+notepaddir="/mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/user"
 filterpy=/mnt/us/SotongDJ/filter.py
 music=/mnt/us/music
 record=/mnt/us/record
