@@ -2,7 +2,7 @@
 import sys
 ## -----------Change it if different---------
 ## ----------------------------------------------
-o=open("/mnt/us/DK_System/Lite/config.ini","a")
+o=open("/mnt/us/DK_System/xKindle/config.ini","a")
 if sys.argv[1] == "kindle":
     for line in open("/mnt/us/DK_System/xKindle/configbk").read().splitlines():
         if  "DefaultSystem" in line:
