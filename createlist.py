@@ -8,7 +8,8 @@ musicdir="/mnt/us/music/"
 recorddir="/mnt/us/record/"
 ## ----------------------------------------------
 if sys.argv[1] == "playlist":
-    file = notepaddir+"01-Playlist.txt"
+    #file = notepaddir+"01-Playlist.txt"
+    file = "/mnt/us/SotongDJ/listtemp"
     targetdir=musicdir
 
 if sys.argv[1] == "playall":

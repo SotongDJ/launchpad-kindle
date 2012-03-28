@@ -5,6 +5,7 @@ strpl=/mnt/us/mplayer/playlist
 tempdir=/mnt/us/SotongDJ
 notepaddir="/mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/user"
 filterpy=/mnt/us/SotongDJ/filter.py
+splitpy=/mnt/us/SotongDJ/split.py
 music=/mnt/us/music
 record=/mnt/us/record
 ## ----------------------------------------------
@@ -16,15 +17,18 @@ rectemp="$tempdir/rectemp"
 playtemp="$tempdir/playtemp"
 strtemp="$tempdir/strtemp"
 sdpltemp="$tempdir/sdpltemp"
+listtemp="$tempdir/listtemp"
 
 case "$1" in
     play)
         ls -1 $music > $playtemp
-        $pythonbin $filterpy play aac.flac.ogg.m3u.m4a.mp3.wav.wma > "/tmp/playlist"
+        $pythonbin $filterpy play aac.flac.ogg.m3u.m4a.mp3.wav.wma.m3p > "/tmp/playlist"
         ;;
     playlist)
         ls -1 $music > $playtemp
-        $pythonbin $filterpy playlist aac.flac.ogg.m3u.m4a.mp3.wav.wma > $forpledit
+        $pythonbin $filterpy playlist aac.flac.ogg.m3u.m4a.mp3.wav.wma.m3p > $listtemp
+        $pythonbin $splitpy playlist on
+        rm $listtemp
         ;;
     playlists)
         ls -1 $notepaddir > $sdpltemp
