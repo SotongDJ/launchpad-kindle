@@ -57,10 +57,7 @@ case "$1" in
 		;;
 	playrand)
 		$pythonbin $createlist playrand > /tmp/mplayer.playlist
-		##    cp /tmp/mplayer.playlist $NOTEDIR/NowPlaying.txt
 		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
-		##    $pythonbin /mnt/us/SotongDJ/split.py nowplaying on
-		##    rm $NOTEDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist
 		;;
 	playlist)
@@ -82,15 +79,8 @@ case "$1" in
 		$pythonbin $createlist strlist > /tmp/mplayer.playlist
 		loadplaylist /tmp/mplayer.playlist
 		;;
-##	fixyou)
-##		echo /mnt/us/music/FixYou.wav > /tmp/mplayer.playlist
-##		loadplaylist /tmp/mplayer.playlist
-##		;;
 	prepl)
-		##    cp /tmp/mplayer.playlist $NOTEDIR/NowPlaying.txt
 		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
-		##    $pythonbin /mnt/us/SotongDJ/split.py nowplaying on
-		##    rm $NOTEDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist
 		;;
 	pause)
