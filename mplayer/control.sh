@@ -5,7 +5,8 @@
 ## /mnt/us is the root directory when mounting the Kindle via USB
 INSTALLDIR=/mnt/us/mplayer
 MUSICDIR=/mnt/us/music
-
+NOTEDIR=/mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/user
+DOCLOGDIR=/mnt/us/documents/log
 pythonbin=/mnt/us/python/bin/python
 createlist=/mnt/us/SotongDJ/createlist.py
 
@@ -51,14 +52,19 @@ esac
 case "$1" in
 	playall)
 		$pythonbin $createlist playall > /tmp/mplayer.playlist
+		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist		
 		;;
 	playrand)
 		$pythonbin $createlist playrand > /tmp/mplayer.playlist
+		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist
 		;;
 	playlist)
+		$pythonbin /mnt/us/SotongDJ/split.py playlist off
 		$pythonbin $createlist playlist > /tmp/mplayer.playlist
+		rm /mnt/us/SotongDJ/listtemp
+		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist
 		;;
 	playlists)
@@ -73,11 +79,8 @@ case "$1" in
 		$pythonbin $createlist strlist > /tmp/mplayer.playlist
 		loadplaylist /tmp/mplayer.playlist
 		;;
-	fixyou)
-		echo /mnt/us/music/FixYou.wav > /tmp/mplayer.playlist
-		loadplaylist /tmp/mplayer.playlist
-		;;
 	prepl)
+		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist
 		;;
 	pause)

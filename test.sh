@@ -1,6 +1,6 @@
 #!/bin/sh
 pythonloc=/mnt/us/python/bin/python
-pythontest=/mnt/us/SotongDJ/python.py
+pythontest="/mnt/us/SotongDJ/tree.py /mnt/us/music"
 pythonresult=/mnt/us/pytestres.txt
 nowdate=`date +%d%m%Y`
 test=`cat /mnt/us/SotongDJ/test`

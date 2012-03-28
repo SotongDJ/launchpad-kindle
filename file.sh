@@ -11,8 +11,8 @@ notesto=/mnt/us/DK_Documents/Notes-ReadOnly
 notesfrom=`cat /mnt/us/SotongDJ/protect`
 
 systempy=/mnt/us/SotongDJ/system.py
-dkconfig=/mnt/us/DK_System/Lite/config.ini
-dkconfbk=/mnt/us/DK_System/Lite/configbk
+dkconfig=/mnt/us/DK_System/xKindle/config.ini
+dkconfbk=/mnt/us/DK_System/xKindle/configbk
 ## ----------------------------------------------
 case "$1" in
     copy)
