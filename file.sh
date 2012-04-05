@@ -33,10 +33,14 @@ case "$1" in
         echo "==============" >> $backuplog
         cat $mainlog >> $backuplog
         ;;
-    sync)
-        rm -f "$notesto"/*
-        cp "$notesfrom"/* $notesto
-        ;;
+	cplp)
+		## Please edit this case on computer, dont change it under Kindle
+		cp -t "$notesfrom" createlist.py createlist.sh file.sh filter.py finance.py finance.sh record.sh system.py
+		cp -t "$launchpaddir" mplayer.ini SotongDJ.ini servicecmds.ini
+		;;
+    cleanlp)
+		rm -f "$notesfrom"/createlist.py "$notesfrom"/createlist.sh "$notesfrom"/file.sh "$notesfrom"/filter.py "$notesfrom"/finance.py "$notesfrom"/finance.sh "$notesfrom"/record.sh "$notesfrom"/system.py "$launchpaddir"/mplayer.ini "$launchpaddir"/SotongDJ.ini "$launchpaddir"/servicecmds.ini
+		;;
     boot2kindle)
         cp $dkconfig $dkconfbk
         rm $dkconfig
