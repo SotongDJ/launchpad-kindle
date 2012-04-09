@@ -61,6 +61,7 @@ case "$1" in
 		$pythonbin $createlist playrand > /tmp/mplayer.playlist
 		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist
+		$pythonbin $screensaver turnoff
 		;;
 	playlist)
 		$pythonbin /mnt/us/SotongDJ/split.py playlist off
@@ -68,28 +69,34 @@ case "$1" in
 		rm /mnt/us/SotongDJ/listtemp
 		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist
+		$pythonbin $screensaver turnoff
 		;;
 	playlists)
 		$pythonbin $createlist playlists > /tmp/mplayer.playlist
 		loadplaylist /tmp/mplayer.playlist
+		$pythonbin $screensaver turnoff
 		;;
 	playrec)
 		$pythonbin $createlist reclist > /tmp/mplayer.playlist
 		loadplaylist /tmp/mplayer.playlist
+		$pythonbin $screensaver turnoff
 		;;
 	playstr)
 		$pythonbin $createlist strlist > /tmp/mplayer.playlist
 		loadplaylist /tmp/mplayer.playlist
+		$pythonbin $screensaver turnoff
 		;;
 	prepl)
 		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist
+		$pythonbin $screensaver turnoff
 		;;
 	pause)
 		cmd "pause"
 		;;
 	stop)
 		killall mplayer
+		$pythonbin $screensaver turnon
 		;;
 	prev)
 		cmd "pt_step -1"
