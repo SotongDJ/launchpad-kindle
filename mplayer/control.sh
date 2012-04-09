@@ -9,6 +9,7 @@ NOTEDIR=/mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/user
 DOCLOGDIR=/mnt/us/documents/log
 pythonbin=/mnt/us/python/bin/python
 createlist=/mnt/us/SotongDJ/createlist.py
+screensaver=/mnt/us/SotongDJ/screen.py
 
 ## Value between -20 and 19, decrease in case of music lags
 NICENESS="-10"
@@ -53,12 +54,14 @@ case "$1" in
 	playall)
 		$pythonbin $createlist playall > /tmp/mplayer.playlist
 		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
-		loadplaylist /tmp/mplayer.playlist		
+		loadplaylist /tmp/mplayer.playlist
+		$pythonbin $screensaver turnoff
 		;;
 	playrand)
 		$pythonbin $createlist playrand > /tmp/mplayer.playlist
 		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist
+		$pythonbin $screensaver turnoff
 		;;
 	playlist)
 		$pythonbin /mnt/us/SotongDJ/split.py playlist off
@@ -66,28 +69,34 @@ case "$1" in
 		rm /mnt/us/SotongDJ/listtemp
 		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist
+		$pythonbin $screensaver turnoff
 		;;
 	playlists)
 		$pythonbin $createlist playlists > /tmp/mplayer.playlist
 		loadplaylist /tmp/mplayer.playlist
+		$pythonbin $screensaver turnoff
 		;;
 	playrec)
 		$pythonbin $createlist reclist > /tmp/mplayer.playlist
 		loadplaylist /tmp/mplayer.playlist
+		$pythonbin $screensaver turnoff
 		;;
 	playstr)
 		$pythonbin $createlist strlist > /tmp/mplayer.playlist
 		loadplaylist /tmp/mplayer.playlist
+		$pythonbin $screensaver turnoff
 		;;
 	prepl)
 		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist
+		$pythonbin $screensaver turnoff
 		;;
 	pause)
 		cmd "pause"
 		;;
 	stop)
 		killall mplayer
+		$pythonbin $screensaver turnon
 		;;
 	prev)
 		cmd "pt_step -1"

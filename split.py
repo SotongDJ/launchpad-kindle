@@ -2,7 +2,7 @@
 import sys
 ## -----------Change it if different---------
 notepaddir="/mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/user/"
-log="/mnt/us/SotongDJ/splitlog"
+log="/mnt/us/SotongDJ/splittemp"
 splitnum=50
 ## ----------------------------------------------
 if sys.argv[-2] == "playlist":
