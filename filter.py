@@ -49,9 +49,8 @@ if sys.argv[1] == "strlist":
     thing='stream/radio'
     showa()
 types=sys.argv[2].split(".")
-for type in types:
-    for line in open(folder).read().splitlines():
-        if not '##' in line:
+for line in open(folder).read().splitlines():
+    if not '##' in line:
+        for type in types:
             if  type in line:
                 print '!:'+line
-
