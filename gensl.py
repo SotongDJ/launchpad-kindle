@@ -38,6 +38,9 @@ def gensl(otypes,source,temp,listh,thing):
     status=os.system("ls -1 "+source+" > "+temp)
     types=otypes.split(".")
 #    for line in open(folder).read().splitlines():
+    for type in types:
+        for line in open(temp).read().splitlines():
+            
     
     
     
