@@ -4,6 +4,7 @@ echo "Before continue, make sure the contents were pull down"
 echo "from Kindle Keyboard before push to server."
 read null
 echo  Add change
+rm -f ~/github/launchpad-kindle/*temp
 git add -A
 echo --------------------------------------------
 echo Commit change
