@@ -6,6 +6,9 @@ import random
 notepaddir="/mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/user/"
 musicdir="/mnt/us/music/"
 recorddir="/mnt/us/record/"
+## -------Temporary as dev gensl--------------
+pythonbin="/mnt/us/python/bin/python2.6"
+gensl="/mnt/us/SotongDJ/gensl.py"
 ## ----------------------------------------------
 if sys.argv[1] == "playlist":
     #file = notepaddir+"01-Playlist.txt"
@@ -13,11 +16,12 @@ if sys.argv[1] == "playlist":
     targetdir=musicdir
 
 if sys.argv[1] == "playall":
-    status=os.system("sh /mnt/us/SotongDJ/createlist.sh play")
+#    status=os.system("sh /mnt/us/SotongDJ/createlist.sh playall")
+    status=os.system(pythonbin+" "+gensl+" --playall")
     file = "/tmp/playlist"
     targetdir=musicdir
 if sys.argv[1] == "playrand":
-    status=os.system("sh /mnt/us/SotongDJ/createlist.sh play")
+    status=os.system(pythonbin+" "+gensl+" --playall")
     file = "/tmp/playlist"
     targetdir=musicdir
 

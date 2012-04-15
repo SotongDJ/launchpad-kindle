@@ -7,7 +7,7 @@ INSTALLDIR=/mnt/us/mplayer
 MUSICDIR=/mnt/us/music
 NOTEDIR=/mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/user
 DOCLOGDIR=/mnt/us/documents/log
-pythonbin=/mnt/us/python/bin/python
+pythonbin=/mnt/us/python/bin/python2.6
 createlist=/mnt/us/SotongDJ/createlist.py
 screensaver=/mnt/us/SotongDJ/screen.py
 
@@ -36,7 +36,7 @@ case "$2" in
 	noneloop)
 		loadplaylist() {
 			if ! cmd "loadlist $1"; then
-				$MPLAYER 0 -playlist $1 &
+				$MPLAYER $2 0 -playlist $1 &
 			fi
 		}
 		;;
