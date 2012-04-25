@@ -1,20 +1,15 @@
-2011-12-7
-add KindleNote -->as Notepad can't edit text file that have more than 3099 character
-add keystore
-change editor dir from Notepad to KindleNote
-put try.py and test.sh into git
-improve sync.sh --> add git add/commit/push
-improve mplayer control.sh and createlist scripts
-improve sync.sh --> use update(adj.) copy as copy method
-start using testing branch for experimental purpose
-
-2011-12-5
-mark ch2duokan as experiment
-edit sync.sh --> add remove spam
-edit README
-correct format of control.sh
-
-2011-12-4
-add switch system to duokan lite
-edit finance.py --> temple is user-part string
-add changelog
+Changelog
+=======================================================
+25042012:
+MyMplayer (SotongDJ's Mplayer Playback Script Set)
+1, change tmp dir to /tmp
+2, change the format of changelog
+(the main modify will state in description of commit)
+3, move old changelog to SCL (Summary of ChangeLog)
+4, create manual of gensl.py
+5, create manual of genpl.py
+6, remove string which wont use(gensl.py)
+7, 精简多余的变数
+8, modify "copy" in file.sh
+9, 把diff.sh从pull.sh和push.sh分割出来
+10, modify pdp(pull.sh, diff.sh, push.sh)

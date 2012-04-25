@@ -1,0 +1,46 @@
+##Temporary 临时格式
+>Generator of MyMplayer selection list
+	file:
+		gensl.py
+	type:
+		python script
+	description:
+	usage:
+		"python gensl.py {--playall|}"
+	command:
+
+*development info*
+	variable:
+		notepaddir > location of selection list/playlist
+		temp > temp files
+
+		musicdir > location of music files
+		recorddir > location of record files
+		strpldir > location of playlist that create by user
+
+		forpledit > filename of selection list/playlist of music files (include path)
+		forrecdit > filename of selection list/playlist of record files (include path)
+		forstrdit > filename of selection list/playlist of playlist that create by user (include path)
+
+		mode > [GEAR]Create Mode Setting Script
+		modef > (Content of)Mode Setting Script
+
+		gensl > [GEAR]Create Selection list
+		gen4p > [GEAR]Create playlist for play-all and play-all-randomly mode
+		otypes > types for process
+		source > location of targets (Dir)
+		listf > location of editor file
+		thing > type of target
+
+
+>Generator of MyMplayer playlist
+	file:
+		genpl.py
+	type:
+		python script
+	description:
+	usage:
+		"python genpl.py {}"
+	command:
+
+*development info*
