@@ -36,3 +36,7 @@ start using testing branch for experimental purpose
 		8, change "copy" in file.sh
 		9, 把diff.sh从pull.sh和push.sh分割出来
 		10, modify pdp(pull.sh, diff.sh, push.sh)
+
+27042012:
+	MyMplayer (SotongDJ's Mplayer Playback Script Set)
+		1, fix cp unavaible command

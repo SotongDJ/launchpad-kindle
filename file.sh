@@ -13,25 +13,25 @@ dkconfbk=/mnt/us/DK_System/xKindle/configbk
 ## ----------------------------------------------
 case "$1" in
     copy)
-		cp -v -u /mnt/us/SotongDJ/createlist.py /mnt/us/documents/00-self/KINDLE/createlist-py.txt
-		cp -v -u /mnt/us/SotongDJ/createlist.sh /mnt/us/documents/00-self/KINDLE/createlist-sh.txt
-		cp -v -u /mnt/us/SotongDJ/gensl.py /mnt/us/documents/00-self/KINDLE/gensl-py.txt
-		cp -v -u /mnt/us/SotongDJ/genpl.py /mnt/us/documents/00-self/KINDLE/genpl-py.txt
-		cp -v -u /mnt/us/SotongDJ/finance.sh /mnt/us/documents/00-self/KINDLE/finance-sh.txt
-		cp -v -u /mnt/us/SotongDJ/finance.py /mnt/us/documents/00-self/KINDLE/finance-py.txt
-		cp -v -u /mnt/us/SotongDJ/filter.py /mnt/us/documents/00-self/KINDLE/filter-py.txt
-		cp -v -u /mnt/us/SotongDJ/file.sh /mnt/us/documents/00-self/KINDLE/file-sh.txt
-		cp -v -u /mnt/us/SotongDJ/fm.py /mnt/us/documents/00-self/KINDLE/fm-py.txt
-		cp -v -u /mnt/us/SotongDJ/tree.py /mnt/us/documents/00-self/KINDLE/tree-py.txt
-		cp -v -u /mnt/us/SotongDJ/split.py /mnt/us/documents/00-self/KINDLE/split-py.txt
-		cp -v -u /mnt/us/SotongDJ/screen.py /mnt/us/documents/00-self/KINDLE/screen-py.txt
-		cp -v -u /mnt/us/SotongDJ/record.sh /mnt/us/documents/00-self/KINDLE/record-sh.txt
-		cp -v -u /mnt/us/SotongDJ/system.py /mnt/us/documents/00-self/KINDLE/system-py.txt
-		cp -v -u /mnt/us/SotongDJ/test.sh /mnt/us/documents/00-self/KINDLE/test-sh.txt
-		cp -v -u /mnt/us/SotongDJ/python.py /mnt/us/documents/00-self/KINDLE/python-py.txt
-		cp -v -u /mnt/us/launchpad/SotongDJ.ini /mnt/us/documents/00-self/KINDLE/launchpad-SotongDJ-ini.txt
-		cp -v -u /mnt/us/launchpad/mplayer.ini /mnt/us/documents/00-self/KINDLE/launchpad-mplayer-ini.txt
-		cp -v -u /mnt/us/mplayer/control.sh /mnt/us/documents/00-self/KINDLE/mplayer-control-sh.txt
+		cp /mnt/us/SotongDJ/createlist.py /mnt/us/documents/00-self/KINDLE/createlist-py.txt
+		cp /mnt/us/SotongDJ/createlist.sh /mnt/us/documents/00-self/KINDLE/createlist-sh.txt
+		cp /mnt/us/SotongDJ/gensl.py /mnt/us/documents/00-self/KINDLE/gensl-py.txt
+		cp /mnt/us/SotongDJ/genpl.py /mnt/us/documents/00-self/KINDLE/genpl-py.txt
+		cp /mnt/us/SotongDJ/finance.sh /mnt/us/documents/00-self/KINDLE/finance-sh.txt
+		cp /mnt/us/SotongDJ/finance.py /mnt/us/documents/00-self/KINDLE/finance-py.txt
+		cp /mnt/us/SotongDJ/filter.py /mnt/us/documents/00-self/KINDLE/filter-py.txt
+		cp /mnt/us/SotongDJ/file.sh /mnt/us/documents/00-self/KINDLE/file-sh.txt
+		cp /mnt/us/SotongDJ/fm.py /mnt/us/documents/00-self/KINDLE/fm-py.txt
+		cp /mnt/us/SotongDJ/tree.py /mnt/us/documents/00-self/KINDLE/tree-py.txt
+		cp /mnt/us/SotongDJ/split.py /mnt/us/documents/00-self/KINDLE/split-py.txt
+		cp /mnt/us/SotongDJ/screen.py /mnt/us/documents/00-self/KINDLE/screen-py.txt
+		cp /mnt/us/SotongDJ/record.sh /mnt/us/documents/00-self/KINDLE/record-sh.txt
+		cp /mnt/us/SotongDJ/system.py /mnt/us/documents/00-self/KINDLE/system-py.txt
+		cp /mnt/us/SotongDJ/test.sh /mnt/us/documents/00-self/KINDLE/test-sh.txt
+		cp /mnt/us/SotongDJ/python.py /mnt/us/documents/00-self/KINDLE/python-py.txt
+		cp /mnt/us/launchpad/SotongDJ.ini /mnt/us/documents/00-self/KINDLE/launchpad-SotongDJ-ini.txt
+		cp /mnt/us/launchpad/mplayer.ini /mnt/us/documents/00-self/KINDLE/launchpad-mplayer-ini.txt
+		cp /mnt/us/mplayer/control.sh /mnt/us/documents/00-self/KINDLE/mplayer-control-sh.txt
         ;;
     boot2kindle)
         cp $dkconfig $dkconfbk
