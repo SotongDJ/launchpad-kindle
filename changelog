@@ -2,3 +2,4 @@ Changelog
 =======================================================
 27042012:
 1, fix cp unavaible command
+2, fix "split temp file will be remove after p.d.p. cleanup"
