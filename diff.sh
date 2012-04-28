@@ -1,5 +1,5 @@
 #!/bin/sh
-## echo 9, ## 4, read 1, diff 19, rm 2, gedit 1
+## echo 7, ## 4, read 1, diff 19, rm 2, gedit 1
 echo ============================================
 echo "compare scripts (between kindle and com.)"
 echo --------------------------------------------
@@ -25,10 +25,8 @@ diff /media/Kindle/launchpad/mplayer.ini ~/github/launchpad-kindle/launchpad/mpl
 ##
 diff /media/Kindle/mplayer/control.sh ~/github/launchpad-kindle/mplayer/control.sh >> /tmp/difftemp
 gedit /tmp/difftemp
-echo --------------------------------------------
 echo "Press any key to continue the process"
 read null
-echo --------------------------------------------
 rm /tmp/difftemp
 echo --------------------------------------------
 echo remove temp files
