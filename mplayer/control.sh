@@ -55,13 +55,13 @@ case "$1" in
 		$pythonbin $createlist playall > /tmp/mplayer.playlist
 		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist
-		$pythonbin $screensaver turnoff
+		$pythonbin $screensaver --action=turnoff --locker=lock
 		;;
 	playrand)
 		$pythonbin $createlist playrand > /tmp/mplayer.playlist
 		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist
-		$pythonbin $screensaver turnoff
+		$pythonbin $screensaver --action=turnoff --locker=lock
 		;;
 	playlist)
 		$pythonbin /mnt/us/SotongDJ/split.py playlist off
@@ -69,34 +69,34 @@ case "$1" in
 		rm /mnt/us/SotongDJ/listtemp
 		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist
-		$pythonbin $screensaver turnoff
+		$pythonbin $screensaver --action=turnoff --locker=lock
 		;;
 	playlists)
 		$pythonbin $createlist playlists > /tmp/mplayer.playlist
 		loadplaylist /tmp/mplayer.playlist
-		$pythonbin $screensaver turnoff
+		$pythonbin $screensaver --action=turnoff --locker=lock
 		;;
 	playrec)
 		$pythonbin $createlist reclist > /tmp/mplayer.playlist
 		loadplaylist /tmp/mplayer.playlist
-		$pythonbin $screensaver turnoff
+		$pythonbin $screensaver --action=turnoff --locker=lock
 		;;
 	playstr)
 		$pythonbin $createlist strlist > /tmp/mplayer.playlist
 		loadplaylist /tmp/mplayer.playlist
-		$pythonbin $screensaver turnoff
+		$pythonbin $screensaver --action=turnoff --locker=lock
 		;;
 	prepl)
 		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist
-		$pythonbin $screensaver turnoff
+		$pythonbin $screensaver --action=turnoff --locker=lock
 		;;
 	pause)
 		cmd "pause"
 		;;
 	stop)
 		killall mplayer
-		$pythonbin $screensaver turnon
+		$pythonbin $screensaver --action=turnon --locker=unlock
 		;;
 	prev)
 		cmd "pt_step -1"

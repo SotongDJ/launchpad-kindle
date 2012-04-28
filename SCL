@@ -41,3 +41,6 @@ start using testing branch for experimental purpose
 	MyMplayer (SotongDJ's Mplayer Playback Script Set)
 		1, fix cp unavaible command
 		2, fix "split temp file will be remove after p.d.p. cleanup"
+28042012:
+	MyMplayer (SotongDJ's Mplayer Playback Script Set)
+		1, rewrite screensaver switch script(screen.py)
