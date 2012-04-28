@@ -45,3 +45,4 @@ start using testing branch for experimental purpose
 	MyMplayer (SotongDJ's Mplayer Playback Script Set)
 		1, rewrite screensaver switch script(screen.py)
 		2, modify diff.sh to prevent accidentally agreement (if you press enter frequently)
+		3, Finished Second Alpha build (aka selection list generator in gensl.py is in alpha branch)

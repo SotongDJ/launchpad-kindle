@@ -2,6 +2,7 @@
 import sys
 import os
 ## -----------Change it if different---------
+global temp,library,letterset
 notepaddir="/mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/user"
 temp="/tmp/filelisttemp"
 ## ---------------source folder-------------------------------
@@ -13,32 +14,51 @@ forpledit=notepaddir+"/01-Playlist"
 forrecdit=notepaddir+"/02-Reclist"
 forstrdit=notepaddir+"/03-Strlist"
 #forsdpldit=notepaddir+"/04-Playlists.txt"
+## ---------------temporary method-------------------------------
+letterset=[['0','1','2','3','4','5','6','7','8','9'],['A','a'],['B','b'],['C','c'],['D','d'],['E','e'],['F','f'],['G','g'],['H','h'],['I','i'],['J','j'],['K','k'],['L','l'],['M','m'],['N','n'],['O','o'],['P','p'],['Q','q'],['R','r'],['S','s'],['T','t'],['U','u'],['V','v'],['W','w'],['X','x'],['Y','y'],['Z'],'Other']
 ## ----------------------------------------------
 ## Define function
 ## ----------------------------------------------
-def mode(listf):
-    modef=open(listf+"-Mode.txt","w")
+def mode(listh):
+    modef=open(listh+"-Mode.txt","w")
     modef.write("Select the mode below by remove \'!\', vice versa\n")
     modef.write("(mode is enabled by default)\n")
     modef.write(":!shuffle:\n")
-    modef.write(":repeat:\n")
 ## Note:don't forget to change the case in control.sh
+    modef.write(":repeat:\n")
     modef.write(":!playall:")
     modef.close()
 ## ----------------------------------------------
-def gensl(otypes,source,listf,thing):
+def gensl(otypes,source,listh,thing):
     status=os.system("ls -1 "+source+" > "+temp)
     types=otypes.split(".")
-#    for type in types:
-#        for line in open(temp).read().splitlines():
-            
-    
-    
-    
-    
-    
-    
-    
+    songs=[]
+    ## ----------------------------------------------
+    library={}
+    for letters in letterset[0:len(letterset)]:
+        if letters[0] == '0':
+            library.update({'Number':[]})
+        else:
+            library.update({letters[0]:[]})
+    ## ----------------------------------------------
+    for line in open(temp).read().splitlines():
+        for type in types:
+            if not '#' in line:
+                songs.append(line)
+    for song in songs:
+        for letters in letterset[0:len(letterset)]:
+            for letter in letters:
+                if letters[0] == '0':
+                    if song[0] == letter:
+                        library.get('Number').append(song)
+                else:
+                    if song[0] == letter:
+                        library.get(letters[0]).append(song)
+##    print "Numbers:\n"                                       ##WTF
+##    print "\n".join(library.get("Numbers")+"\n"    ##WTF
+##    for letters in letterset[0:len(letterset)]:        ##WTF
+##        print letters[0]+":\n"                               ##WTF
+##        print "\n".join(library.get(letters[0])+"\n" ##WTF
 ## ----------------------------------------------
 def gen4p(otypes,source):
     list=open("/tmp/playlist","w")
@@ -52,28 +72,27 @@ def gen4p(otypes,source):
 ## ----------------------------------------------
 ## Order
 ## ----------------------------------------------
-if "--" in sys.argv[-1]:
-    if "playall" in sys.argv[-1]:
-        otypes="aac.flac.ogg.m3u.m4a.mp3.wav.wma"
-        source=musicdir
-        gen4p(otypes,source)
-    if "playlist" in sys.argv[-1]:
-        otypes="aac.flac.ogg.m3u.m4a.mp3.wav.wma"
-        source=musicdir
-        listf=forpledit
-        thing='songs'
-        gensl(otypes,source,thing)
+if "--playall" in sys.argv[-1]:
+    otypes="aac.flac.ogg.m3u.m4a.mp3.wav.wma"
+    source=musicdir
+    gen4p(otypes,source)
+if "--playlist" in sys.argv[-1]:
+    otypes="aac.flac.ogg.m3u.m4a.mp3.wav.wma"
+    source=musicdir
+    listh=forpledit
+    thing='songs'
+    gensl(otypes,source,listh,thing)
 #    if "playlists" in sys.argv[-1]:
 #        delay the development of this function
-    if "reclist" in sys.argv[-1]:
-        otypes="wav"
-        source=recorddir
-        listf=forrecdit
-        thing='records'
-        gensl(otypes,source,thing)
-    if "strlist" in sys.argv[-1]:
-        otypes="http"
-        source=strpldir
-        listf=forstrdit
-        thing='stream/radio'
-        gensl(otypes,source,thing)
+if "--reclist" in sys.argv[-1]:
+    otypes="wav"
+    source=recorddir
+    listh=forrecdit
+    thing='records'
+    gensl(otypes,source,listh,thing)
+if "--strlist" in sys.argv[-1]:
+    otypes="http"
+    source=strpldir
+    listh=forstrdit
+    thing='stream/radio'
+    gensl(otypes,source,listh,thing)
