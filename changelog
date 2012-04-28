@@ -2,3 +2,4 @@ Changelog
 =======================================================
 28042012:
 1, rewrite screensaver switch script(screen.py)
+2, modify diff.sh to prevent accidentally agreement (if you press enter frequently)
