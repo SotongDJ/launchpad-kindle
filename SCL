@@ -54,3 +54,4 @@ start using testing branch for experimental purpose
 		2, patch the missing part that use to filter file type
 		3, create a huge part for debug usage
 		4, Finished debug Second Alpha Build
+		5, Remove (debug) log file
