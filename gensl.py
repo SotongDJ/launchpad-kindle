@@ -57,7 +57,6 @@ def gensl(otypes,source,listh,thing):
     num=len(library.get("Numbers"))
     print "Numbers"+'('+str(len(library.get("Numbers")))+')'+":" #d
     print "\n".join(library.get("Numbers"))+"\nSubtotal:"+str(num)+"\n" #d
-#d    print library.get("Numbers")
     for letters in letterset[1:len(letterset)-1]:
         num=num+len(library.get(letters[0]))
         print letters[0]+'('+str(len(library.get(letters[0])))+')'+":" #d
@@ -65,7 +64,6 @@ def gensl(otypes,source,listh,thing):
     num=len(library.get("Other"))
     print "Other"+'('+str(len(library.get("Other")))+')'+":" #d
     print "\n".join(library.get("Other"))+"\nSubtotal:"+str(num)+"\n" #d
-#d        print library.get(letters[0])
 ## ----------------------------------------------
 def gen4p(otypes,source):
     list=open("/tmp/playlist","w")
