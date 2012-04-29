@@ -6,7 +6,7 @@ Changelog
 3, create a part for debug usage (that marked as #d, this part will be the basement of Third Alpha Build)
 4, Finished debug Second Alpha Build
 5, Decide to independ Playlists mode, it will be the sub-mode of Playlist mode
-6, Nearly Finished Third Alpha Build, include:
+6, Finished Third Alpha Build, include:
 	(i) support non-latin character
 		(KindleNote and Notepad! havent support yet, this isnt my business)
-	(ii) playlist mode nearly finish development
+	(ii) playlist(and playlists) mode finished development

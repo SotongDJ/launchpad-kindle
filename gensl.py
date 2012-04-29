@@ -5,6 +5,7 @@ import os
 global temp,library,letterset,purels,nonselectstate
 notepaddir="/mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/user"
 nonselectstate="!:"
+nss='\n'+nonselectstate
 temp="/tmp/filelisttemp"
 ## ---------------source folder-------------------------------
 musicdir="/mnt/us/music"
@@ -24,7 +25,7 @@ for letters in letterset:
 ## ----------------------------------------------
 def mode(listh):
     modef=open(listh+"-Mode.txt","w")
-    word="## Select the mode below by remove \'!\', vice versa\n## (mode is enabled by default)\n## :!playall: :!shuffle: :repeat:\n##\n## m3u Control Section:\n## :!m3u: (Enable m3u) :!shufflesongs:\n##(Shuffle will just random the m3u playlist only, to ramdom the songs, enable Shufflem3u and the songs in m3u will be ramdom"
+    word="## Select the mode below by remove \'!\', vice versa\n## (mode is enabled by default)\n## :!playall: :!shuffle: :repeat:\n##\n## m3u Control Section:\n## :!m3u: (Enable m3u) :!shufflesongs:\n##(Shuffle will just random the m3u playlist only.\n##	to ramdom the songs, enable Shufflem3u\n##	and the songs in m3u will be arrange ramdomly)"
 ## Note:don't forget to change the case in control.sh
     modef.write(word)
     modef.close()
@@ -62,43 +63,35 @@ def gensl(otypes,source,listh,thing):
     filelib={}
     splitnum=50
     pagenum=1
-    word="##Select the song(s) you want to play by remove \'"+nonselectstate+"\'"
+    word="##Select the song(s) you want to play by remove \'"+nonselectstate+"\'\n"
     linenum=len(library.get("Numbers"))
-    print listh+"-from-Numbers.txt"
-    print word
-    print "\n".join(library.get("Numbers"))
+    listf=open(listh+"-from-Numbers.txt",'w')
+    listf.write(word)
+    listf.write(nonselectstate+nss.join(library.get("Numbers"))+'\n')
     for letters in letterset[1:len(letterset)-1]:
         tempnum=len(library.get(letters[0]))
         if linenum+tempnum<splitnum:
             linenum=linenum+tempnum
-            print "\n".join(library.get(letters[0]))
+            listf.write(nonselectstate+nss.join(library.get(letters[0]))+'\n')
         elif linenum+tempnum>=splitnum:
             pagenum=pagenum+1
             linenum=tempnum
-            print listh+"-from-"+letters[0]+".txt"
-            print word
-            print "\n".join(library.get(letters[0]))
+            listf.close()
+            listf=open(listh+"-from-"+letters[0]+".txt",'w')
+            listf.write(word)
+            listf.write(nonselectstate+nss.join(library.get(letters[0]))+'\n')
     if linenum+len(library.get("Other"))<splitnum:
         linenum=linenum+tempnum
-        print "\n".join(library.get("Other"))
+        listf.write(nonselectstate+nss.join(library.get("Other"))+'\n')
+        listf.close()
     elif linenum+tempnum>=splitnum:
         pagenum=pagenum+1
         linenum=tempnum
-        print listh+"-from-"+"Other"+".txt"
-        print word
-        print "\n".join(library.get("Other"))
-    
-    ## ---------------------Debug Usage-------------------------
-#d    num=len(library.get("Numbers"))
-#d    print "Numbers"+'('+str(len(library.get("Numbers")))+')'+":"
-#d    print "\n".join(library.get("Numbers"))+"\nSubtotal:"+str(num)+"\n"
-#d    for letters in letterset[1:len(letterset)]:
-#d        num=num+len(library.get(letters[0]))
-#d        print letters[0]+'('+str(len(library.get(letters[0])))+')'+":"
-#d        print "\n".join(library.get(letters[0]))+"\nSubtotal:"+str(num)+"\n"
-#d    num=len(library.get("Other"))
-#d    print "Other"+'('+str(len(library.get("Other")))+')'+":"
-#d    print "\n".join(library.get("Other"))+"\nSubtotal:"+str(num)+"\n"
+        listf.close()
+        listf=open(listh+"-from-"+"Other"+".txt",'w')
+        listf.write(word)
+        listf.write(nonselectstate+nss.join(library.get("Other"))+'\n')
+        listf.close()
 ## ----------------------------------------------
 def gen4p(otypes,source):
     list=open("/tmp/playlist","w")
@@ -106,9 +99,23 @@ def gen4p(otypes,source):
     status=os.system("ls -1 "+source+" > "+temp)
     for type in types:
         for line in open(temp).read().splitlines():
-            if  type in line:
+            if  '.'+type in line:
                 list.write(line+"\n")
     list.close()
+## ----------------------------------------------
+def genm3u(source,listh):
+    status=os.system("ls -1 "+source+" > "+temp)
+    m3us=[]
+    for line in open(temp).read().splitlines():
+        if not '#' in line:
+            if '.m3u' in line:
+                m3us.append(line)
+    if m3us  != []:
+        word="##Select the m3u playlist(s) you want to play by remove \'"+nonselectstate+"\'\n"
+        m3uf=open(listh+"-m3u.txt",'w')
+        m3uf.write(word)
+        m3uf.write(nonselectstate+nss.join(m3us)+'\n')
+        m3uf.close()
 ## ----------------------------------------------
 ## Order
 ## ----------------------------------------------
@@ -117,20 +124,24 @@ if "--playall" in sys.argv[-1]:
     source=musicdir
     gen4p(otypes,source)
 if "--playlist" in sys.argv[-1]:
-    otypes="aac.flac.ogg.m3u.m4a.mp3.wav.wma"
+    otypes="aac.flac.ogg.m4a.mp3.wav.wma"
     source=musicdir
     listh=forpledit
     thing='songs'
     gensl(otypes,source,listh,thing)
+    mode(listh)
+    genm3u(source,listh)
 if "--reclist" in sys.argv[-1]:
     otypes="wav"
     source=recorddir
     listh=forrecdit
     thing='records'
     gensl(otypes,source,listh,thing)
+    mode(listh)
 if "--strlist" in sys.argv[-1]:
     otypes="http"
     source=strpldir
     listh=forstrdit
     thing='stream/radio'
     gensl(otypes,source,listh,thing)
+    mode(listh)
