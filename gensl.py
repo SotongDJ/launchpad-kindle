@@ -21,12 +21,8 @@ letterset=[['0','1','2','3','4','5','6','7','8','9'],['A','a'],['B','b'],['C','c
 ## ----------------------------------------------
 def mode(listh):
     modef=open(listh+"-Mode.txt","w")
-    modef.write("Select the mode below by remove \'!\', vice versa\n")
-    modef.write("(mode is enabled by default)\n")
-    modef.write(":!shuffle:\n")
+    word="## Select the mode below by remove \'!\', vice versa\n## (mode is enabled by default)\n## :!playall: :!shuffle: :repeat:\n##\n## m3u Control Section:\n## :!m3u: (Enable m3u) :!shufflesongs:\n##(Shuffle will just random the m3u playlist only, to ramdom the songs, enable Shufflem3u and the songs in m3u will be ramdom"
 ## Note:don't forget to change the case in control.sh
-    modef.write(":repeat:\n")
-    modef.write(":!playall:")
     modef.close()
 ## ----------------------------------------------
 def gensl(otypes,source,listh,thing):
@@ -57,6 +53,7 @@ def gensl(otypes,source,listh,thing):
                 else:
                     if song[0] == letter:
                         library.get(letters[0]).append(song)
+    ## ----------------------------------------------
     num=len(library.get("Numbers"))
     print "Numbers"+'('+str(len(library.get("Numbers")))+')'+":" #d
     print "\n".join(library.get("Numbers"))+"\nSubtotal:"+str(num)+"\n" #d
