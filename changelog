@@ -10,3 +10,7 @@ Changelog
 	(i) support non-latin character
 		(KindleNote and Notepad! havent support yet, this isnt my business)
 	(ii) playlist(and playlists) mode finished development
+7, Finished Fourth Alpha Build of gensl.py and First Alpha Build of genpl.py, 
+	both isn't in same build as develop genpl.py source code need gensl.py as reference
+8, Finished "Rebuild the script set" work, Alpha version MyMplayer. 
+	Createlish.py/sh filter.py split.py can be delete after BETA build

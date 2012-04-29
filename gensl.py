@@ -10,6 +10,7 @@ temp="/tmp/filelisttemp"
 ## ---------------source folder-------------------------------
 musicdir="/mnt/us/music"
 recorddir="/mnt/us/record"
+strpldir="/mnt/us/record"
 ## ---------------list file head-------------------------------
 forpledit=notepaddir+"/01-Playlist"
 forrecdit=notepaddir+"/02-Reclist"
@@ -23,12 +24,17 @@ for letters in letterset:
 ## ----------------------------------------------
 ## Define function
 ## ----------------------------------------------
-def mode(listh):
+def mode(listh,enm):
     modef=open(listh+"-Mode.txt","w")
-    word="## Select the mode below by remove \'!\', vice versa\n## (mode is enabled by default)\n## :!playall: :!shuffle: :repeat:\n##\n## m3u Control Section:\n## :!m3u: (Enable m3u) :!shufflesongs:\n##(Shuffle will just random the m3u playlist only.\n##	to ramdom the songs, enable Shufflem3u\n##	and the songs in m3u will be arrange ramdomly)"
+    word="## Select the mode below by remove \'!\', vice versa\n## (mode is enabled by default)\n## :!playall: :!shuffle:"# :repeat:"
+    selword="\n##\n## m3u Control Section:\n## :!m3u: (Enable m3u)\n##(If you enable Shuffle and m3u at same time,\n##	the songs in m3u will be arrange ramdomly)"
 ## Note:don't forget to change the case in control.sh
-    modef.write(word)
-    modef.close()
+    if enm == 1:
+        modef.write(word+selword)
+        modef.close()
+    elif enm == 0:
+        modef.write(word)
+        modef.close()
 ## ----------------------------------------------
 def gensl(otypes,source,listh,thing):
     status=os.system("ls -1 "+source+" > "+temp)
@@ -45,7 +51,7 @@ def gensl(otypes,source,listh,thing):
     ## ---------------------Filter Songs-------------------------
     for line in open(temp).read().splitlines():
         for type in types:
-            if not '#' in line:
+            if '#' not in line:
                 if type in line:
                     songs.append(line)
     ## ---------------------Arrange Songs-------------------------
@@ -63,9 +69,9 @@ def gensl(otypes,source,listh,thing):
     filelib={}
     splitnum=50
     pagenum=1
-    word="##Select the song(s) you want to play by remove \'"+nonselectstate+"\'\n"
+    word="##Select the"+thing+"(s) you want to play by remove \'"+nonselectstate+"\'\n"
     linenum=len(library.get("Numbers"))
-    listf=open(listh+"-from-Numbers.txt",'w')
+    listf=open(listh+'-Part'+str(pagenum)+'-'+"-from-Numbers.txt",'w')
     listf.write(word)
     listf.write(nonselectstate+nss.join(library.get("Numbers"))+'\n')
     for letters in letterset[1:len(letterset)-1]:
@@ -77,7 +83,7 @@ def gensl(otypes,source,listh,thing):
             pagenum=pagenum+1
             linenum=tempnum
             listf.close()
-            listf=open(listh+"-from-"+letters[0]+".txt",'w')
+            listf=open(listh+'-Part'+str(pagenum)+'-'+"-from-"+letters[0]+".txt",'w')
             listf.write(word)
             listf.write(nonselectstate+nss.join(library.get(letters[0]))+'\n')
     if linenum+len(library.get("Other"))<splitnum:
@@ -88,7 +94,7 @@ def gensl(otypes,source,listh,thing):
         pagenum=pagenum+1
         linenum=tempnum
         listf.close()
-        listf=open(listh+"-from-"+"Other"+".txt",'w')
+        listf=open(listh+'-Part'+str(pagenum)+'-'+"-from-"+"Other"+".txt",'w')
         listf.write(word)
         listf.write(nonselectstate+nss.join(library.get("Other"))+'\n')
         listf.close()
@@ -112,36 +118,47 @@ def genm3u(source,listh):
                 m3us.append(line)
     if m3us  != []:
         word="##Select the m3u playlist(s) you want to play by remove \'"+nonselectstate+"\'\n"
-        m3uf=open(listh+"-m3u.txt",'w')
+        m3uf=open(listh+"-Part0-m3u.txt",'w')
         m3uf.write(word)
         m3uf.write(nonselectstate+nss.join(m3us)+'\n')
         m3uf.close()
 ## ----------------------------------------------
+def genstr(otypes,source,listh,thing):
+    strs=[]
+    for line in open(source).read().splitlines():
+        if not '#' in line:
+            if otypes in line:
+                strs.append(line)
+    word="##Select the "+thing+"(s) you want to play by remove \'"+nonselectstate+"\'\n"
+    strsf=open(listh+".txt",'w')
+    strsf.write(word)
+    strsf.write(nonselectstate+nss.join(strs)+'\n')
+    strsf.close()
+## ----------------------------------------------
 ## Order
 ## ----------------------------------------------
-if "--playall" in sys.argv[-1]:
+if "--playall" in sys.argv:
     otypes="aac.flac.ogg.m3u.m4a.mp3.wav.wma"
     source=musicdir
     gen4p(otypes,source)
-if "--playlist" in sys.argv[-1]:
+elif "--playlist" in sys.argv:
     otypes="aac.flac.ogg.m4a.mp3.wav.wma"
     source=musicdir
     listh=forpledit
     thing='songs'
     gensl(otypes,source,listh,thing)
-    mode(listh)
+    mode(listh,1)
     genm3u(source,listh)
-if "--reclist" in sys.argv[-1]:
+elif "--reclist" in sys.argv:
     otypes="wav"
     source=recorddir
     listh=forrecdit
     thing='records'
     gensl(otypes,source,listh,thing)
-    mode(listh)
-if "--strlist" in sys.argv[-1]:
+    mode(listh,0)
+elif "--strlist" in sys.argv:
     otypes="http"
-    source=strpldir
+    source="/mnt/us/mplayer/playlist"
     listh=forstrdit
     thing='stream/radio'
-    gensl(otypes,source,listh,thing)
-    mode(listh)
+    genstr(otypes,source,listh,thing)

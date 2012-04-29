@@ -4,11 +4,9 @@
 
 ## /mnt/us is the root directory when mounting the Kindle via USB
 INSTALLDIR=/mnt/us/mplayer
-MUSICDIR=/mnt/us/music
-NOTEDIR=/mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/user
 DOCLOGDIR=/mnt/us/documents/log
 pythonbin=/mnt/us/python/bin/python2.6
-createlist=/mnt/us/SotongDJ/createlist.py
+genpl=/mnt/us/SotongDJ/genpl.py
 screensaver=/mnt/us/SotongDJ/screen.py
 
 ## Value between -20 and 19, decrease in case of music lags
@@ -52,41 +50,36 @@ esac
 
 case "$1" in
 	playall)
-		$pythonbin $createlist playall > /tmp/mplayer.playlist
+		$pythonbin $genpl --playall
 		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist
 		$pythonbin $screensaver --action=turnoff --locker=lock
 		;;
 	playrand)
-		$pythonbin $createlist playrand > /tmp/mplayer.playlist
+		$pythonbin $genpl --playrand
 		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist
 		$pythonbin $screensaver --action=turnoff --locker=lock
 		;;
 	playlist)
 		$pythonbin /mnt/us/SotongDJ/split.py playlist off
-		$pythonbin $createlist playlist > /tmp/mplayer.playlist
+		$pythonbin $genpl --playlist
 		rm /mnt/us/SotongDJ/listtemp
 		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist
 		$pythonbin $screensaver --action=turnoff --locker=lock
 		;;
-	playlists)
-		$pythonbin $createlist playlists > /tmp/mplayer.playlist
-		loadplaylist /tmp/mplayer.playlist
-		$pythonbin $screensaver --action=turnoff --locker=lock
-		;;
 	playrec)
-		$pythonbin $createlist reclist > /tmp/mplayer.playlist
+		$pythonbin $genpl --reclist
 		loadplaylist /tmp/mplayer.playlist
 		$pythonbin $screensaver --action=turnoff --locker=lock
 		;;
 	playstr)
-		$pythonbin $createlist strlist > /tmp/mplayer.playlist
+		$pythonbin $genpl --strlist
 		loadplaylist /tmp/mplayer.playlist
 		$pythonbin $screensaver --action=turnoff --locker=lock
 		;;
-	prepl)
+	recent)
 		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist
 		$pythonbin $screensaver --action=turnoff --locker=lock
@@ -103,15 +96,6 @@ case "$1" in
 		;;
 	next)
 		cmd "pt_step 1"
-		;;
-	test)
-#		echo>testtemp
-		cmd "get_meta_title">testtemp
-		cmd "get_meta_artist">testtemp
-		cmd "get_percent_pos">testtemp
-		cmd "get_time_pos">testtemp
-		cmd "get_time_length">testtemp
-#		cat testtemp
 		;;
 	volup)
 		cmd "volume 5"
