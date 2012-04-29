@@ -87,8 +87,6 @@ if "--playlist" in sys.argv[-1]:
     listh=forpledit
     thing='songs'
     gensl(otypes,source,listh,thing)
-#    if "playlists" in sys.argv[-1]:
-#        delay the development of this function
 if "--reclist" in sys.argv[-1]:
     otypes="wav"
     source=recorddir
