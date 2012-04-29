@@ -1,5 +1,5 @@
 #!/bin/sh
-## echo 12, ## 4, sh 1, read 1, cp 19, rm 2, cat 1
+## echo 12, ## 4, sh 1, read 1, cp 17, rm 2, cat 1
 echo ============================================
 echo "copy scripts (copy file from kindle to com.)"
 echo --------------------------------------------
@@ -11,17 +11,13 @@ echo --------------------------------------------
 echo "Press any key to start the process"
 read null
 echo --------------------------------------------
-cp -v -u /media/Kindle/SotongDJ/createlist.py ~/github/launchpad-kindle/createlist.py > /tmp/difftemp
-cp -v -u /media/Kindle/SotongDJ/createlist.sh ~/github/launchpad-kindle/createlist.sh >> /tmp/difftemp
 cp -v -u /media/Kindle/SotongDJ/gensl.py ~/github/launchpad-kindle/gensl.py >> /tmp/difftemp
 cp -v -u /media/Kindle/SotongDJ/genpl.py ~/github/launchpad-kindle/genpl.py >> /tmp/difftemp
 cp -v -u /media/Kindle/SotongDJ/finance.sh ~/github/launchpad-kindle/finance.sh >> /tmp/difftemp
 cp -v -u /media/Kindle/SotongDJ/finance.py ~/github/launchpad-kindle/finance.py >> /tmp/difftemp
-cp -v -u /media/Kindle/SotongDJ/filter.py ~/github/launchpad-kindle/filter.py >> /tmp/difftemp
 cp -v -u /media/Kindle/SotongDJ/file.sh ~/github/launchpad-kindle/file.sh >> /tmp/difftemp
 cp -v -u /media/Kindle/SotongDJ/fm.py ~/github/launchpad-kindle/fm.py >> /tmp/difftemp
 cp -v -u /media/Kindle/SotongDJ/tree.py ~/github/launchpad-kindle/tree.py >> /tmp/difftemp
-cp -v -u /media/Kindle/SotongDJ/split.py ~/github/launchpad-kindle/split.py >> /tmp/difftemp
 cp -v -u /media/Kindle/SotongDJ/screen.py ~/github/launchpad-kindle/screen.py >> /tmp/difftemp
 cp -v -u /media/Kindle/SotongDJ/record.sh ~/github/launchpad-kindle/record.sh >> /tmp/difftemp
 cp -v -u /media/Kindle/SotongDJ/system.py ~/github/launchpad-kindle/system.py >> /tmp/difftemp
