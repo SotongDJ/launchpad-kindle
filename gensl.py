@@ -37,28 +37,44 @@ def gensl(otypes,source,listh,thing):
     library={}
     for letters in letterset[0:len(letterset)]:
         if letters[0] == '0':
-            library.update({'Number':[]})
+            library.update({'Numbers':[]})
+        elif letters == 'Other':
+            library.update({letters:[]})
         else:
             library.update({letters[0]:[]})
     ## ----------------------------------------------
     for line in open(temp).read().splitlines():
         for type in types:
             if not '#' in line:
-                songs.append(line)
+                if type in line:
+                    songs.append(line)
+#d                    print line
     for song in songs:
-        for letters in letterset[0:len(letterset)]:
+#d        print 'song:'+song
+        for letters in letterset[0:len(letterset)-1]:
+#d            print 'letters:'+",".join(letters)
             for letter in letters:
+#d                print 'letter:'+letter
                 if letters[0] == '0':
                     if song[0] == letter:
-                        library.get('Number').append(song)
+#d                        print 'Numbers'+' '+letter+' '+song
+                        library.get('Numbers').append(song)
                 else:
                     if song[0] == letter:
+#d                        print letters[0]+' '+letter+' '+song
                         library.get(letters[0]).append(song)
-##    print "Numbers:\n"                                       ##WTF
-##    print "\n".join(library.get("Numbers")+"\n"    ##WTF
-##    for letters in letterset[0:len(letterset)]:        ##WTF
-##        print letters[0]+":\n"                               ##WTF
-##        print "\n".join(library.get(letters[0])+"\n" ##WTF
+    num=len(library.get("Numbers"))
+    print "Numbers"+'('+str(len(library.get("Numbers")))+')'+":"
+    print "\n".join(library.get("Numbers"))+"\nSubtotal:"+str(num)+"\n"
+#d    print library.get("Numbers")
+    for letters in letterset[1:len(letterset)-1]:
+        num=num+len(library.get(letters[0]))
+        print letters[0]+'('+str(len(library.get(letters[0])))+')'+":"
+        print "\n".join(library.get(letters[0]))+"\nSubtotal:"+str(num)+"\n"
+    num=len(library.get("Other"))
+    print "Other"+'('+str(len(library.get("Other")))+')'+":"
+    print "\n".join(library.get("Other"))+"\nSubtotal:"+str(num)+"\n"
+#d        print library.get(letters[0])
 ## ----------------------------------------------
 def gen4p(otypes,source):
     list=open("/tmp/playlist","w")

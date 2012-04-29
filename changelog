@@ -1,6 +1,7 @@
 Changelog
 =======================================================
-28042012:
-1, rewrite screensaver switch script(screen.py)
-2, modify diff.sh to prevent accidentally agreement (if you press enter frequently)
-3, Finished Second Alpha build (aka selection list generator in gensl.py is in alpha branch)
+29042012:
+1, fix invalid syntax in the part that marked with ##WTF yesterday
+2, patch the missing part that use to filter file type
+3, create a huge part for debug usage
+4, Finished debug Second Alpha Build
