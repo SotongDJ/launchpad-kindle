@@ -48,20 +48,14 @@ def gensl(otypes,source,listh,thing):
             if not '#' in line:
                 if type in line:
                     songs.append(line)
-#d                    print line
     for song in songs:
-#d        print 'song:'+song
         for letters in letterset[0:len(letterset)-1]:
-#d            print 'letters:'+",".join(letters)
             for letter in letters:
-#d                print 'letter:'+letter
                 if letters[0] == '0':
                     if song[0] == letter:
-#d                        print 'Numbers'+' '+letter+' '+song
                         library.get('Numbers').append(song)
                 else:
                     if song[0] == letter:
-#d                        print letters[0]+' '+letter+' '+song
                         library.get(letters[0]).append(song)
     num=len(library.get("Numbers"))
     print "Numbers"+'('+str(len(library.get("Numbers")))+')'+":" #d
