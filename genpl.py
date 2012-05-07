@@ -9,13 +9,20 @@ nonselectstate="!:"
 temp="/tmp/filelisttemp"
 playlist="/tmp/mplayer.playlist"
 ## ---------------source folder-------------------------------
+global musicdir,recorddir
 musicdir="/mnt/us/music"
 recorddir="/mnt/us/record"
 ## ---------------list file head-------------------------------
-forpledit="01-Playlist"
-forrecdit="02-Reclist"
-forstrdit="03-Strlist"
-## -------Temporary as dev gensl--------------
+global forpledit,forrecdit,forstrdit
+forpledit=notepaddir+"/01-Playlist"
+forrecdit=notepaddir+"/02-Reclist"
+forstrdit=notepaddir+"/03-Strlist"
+## ---------------Order---------------------------------
+global ordplayall,ordshuffle,ordm3u
+ordplayall=':playall:'
+ordshuffle':shuffle:'
+ordm3u=':m3u:'
+## -------bin and script--------------
 pythonbin="/mnt/us/python/bin/python2.6"
 gensl="/mnt/us/SotongDJ/gensl.py"
 ## ----------------------------------------------
@@ -74,11 +81,11 @@ def ascertain(listh):
     modenum=0
     modefile=notepaddir+'/'+listh+"-Mode.txt"
     for line in open(modefile).read().splitlines():
-        if ':playall:' in line:
+        if ordplayall in line:
             modenum=modenum+1
-        if ':shuffle:' in line:
+        if ordshuffle in line:
             modenum=modenum+2
-        if ':m3u:' in line:
+        if ordm3u in line:
             modenum=modenum+10
 #    print str(modenum)
     return modenum

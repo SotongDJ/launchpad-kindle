@@ -2,7 +2,7 @@
 import sys
 import os
 ## -----------Change it if different---------
-global temp,library,letterset,purels,nonselectstate
+global notepaddir,nonselectstate,nss,temp,playlist,letterset,purels
 notepaddir="/mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/user"
 nonselectstate="!:"
 nss='\n'+nonselectstate
@@ -10,7 +10,6 @@ temp="/tmp/filelisttemp"
 ## ---------------source folder-------------------------------
 musicdir="/mnt/us/music"
 recorddir="/mnt/us/record"
-strpldir="/mnt/us/record"
 ## ---------------list file head-------------------------------
 forpledit=notepaddir+"/01-Playlist"
 forrecdit=notepaddir+"/02-Reclist"
