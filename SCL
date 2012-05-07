@@ -71,3 +71,5 @@ start using testing branch for experimental purpose
 		3, Remove HOW-TO as I will write tutorial soon
 		4, fix 'File name too long cause Notepad for Kindle will auto cut off extra words'
 		5, clean unused script
+		6, modify git.sh as I always forget to edit changelog
+		*SCL will be updated after testing-variable be merged into testing*
