@@ -107,15 +107,17 @@ def gensl(otypes,source,listh,thing):
         listf.write(nonselectstate+nss.join(library.get("Other"))+'\n')
         listf.close()
 ## ----------------------------------------------
-def gen4p(otypes,source):
-    list=open("/tmp/playlist","w")
+def gen4p():
+    otypes="aac.flac.ogg.m4a.mp3.wav.wma"
+    source=musicdir
+    list=[]
     types=otypes.split(".")
     status=os.system("ls -1 "+source+" > "+temp)
     for line in open(temp).read().splitlines():
         for type in types:
             if  '.'+type in line:
-                list.write(line+"\n")
-    list.close()
+                list.append(line)
+    return list
 ## ----------------------------------------------
 def genm3u(source,listh):
     status=os.system("ls -1 "+source+" > "+temp)
@@ -143,11 +145,7 @@ def genstr(otypes,source,listh,thing):
 ## ----------------------------------------------
 ## Order
 ## ----------------------------------------------
-if "--playall" in sys.argv:
-    otypes="aac.flac.ogg.m4a.mp3.wav.wma"
-    source=musicdir
-    gen4p(otypes,source)
-elif "--playlist" in sys.argv:
+if "--playlist" in sys.argv:
     otypes="aac.flac.ogg.m4a.mp3.wav.wma"
     source=musicdir
     listh=forpledit

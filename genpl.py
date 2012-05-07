@@ -3,6 +3,7 @@ import sys
 import os
 import random
 import config
+import gensl
 ## -----------Change it if different---------
 global notepaddir,nonselectstate,nss,temp,playlist
 notepaddir=config.general().get('notepaddir')
@@ -24,9 +25,6 @@ global ordplayall,ordshuffle,ordm3u
 ordplayall=config.oder().get('ordplayall')
 ordshuffle=config.oder().get('ordshuffle')
 ordm3u=config.oder().get('ordm3u')
-## -------bin and script--------------
-pythonbin="/mnt/us/python/bin/python2.6"
-gensl="/mnt/us/SotongDJ/gensl.py"
 ## ----------------------------------------------
 ## Define function
 ##    #        #            #                #                    #
@@ -114,17 +112,9 @@ def convlist(plist):
 ## Order
 ## ----------------------------------------------
 if "--playall" in sys.argv:
-    status=os.system(pythonbin+" "+gensl+" --playall")
-    source=musicdir
-    plist="/tmp/playlist"
-    modenum=11
-    ouput(process(convlist(plist),modenum,source))
+    ouput(process(gensl.gen4p(),11,musicdir))
 elif "--playrand" in sys.argv:
-    status=os.system(pythonbin+" "+gensl+" --playall")
-    source=musicdir
-    plist="/tmp/playlist"
-    modenum=13
-    ouput(process(convlist(plist),modenum,source))
+    ouput(process(gensl.gen4p(),13,musicdir))
 elif "--playlist" in sys.argv:
     source=musicdir
     listh=forpledit
