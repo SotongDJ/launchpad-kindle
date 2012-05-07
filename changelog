@@ -16,3 +16,4 @@ testing-variable:
 5, add config.py to pdp/ppd (push.sh, pull.sh and diff.sh)
 6, disable m3u when playall/playrandom
 7, fix 'arrange by type' (cause by filter method)
+8, finished adding method for changing environment
