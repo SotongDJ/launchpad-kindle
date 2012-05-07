@@ -5,6 +5,7 @@ echo "compare scripts (between kindle and com.)"
 echo --------------------------------------------
 diff /media/Kindle/SotongDJ/gensl.py ~/github/launchpad-kindle/gensl.py >> /tmp/difftemp
 diff /media/Kindle/SotongDJ/genpl.py ~/github/launchpad-kindle/genpl.py >> /tmp/difftemp
+diff /media/Kindle/SotongDJ/config.py ~/github/launchpad-kindle/config.py >> /tmp/difftemp
 diff /media/Kindle/SotongDJ/finance.sh ~/github/launchpad-kindle/finance.sh >> /tmp/difftemp
 diff /media/Kindle/SotongDJ/finance.py ~/github/launchpad-kindle/finance.py >> /tmp/difftemp
 diff /media/Kindle/SotongDJ/file.sh ~/github/launchpad-kindle/file.sh >> /tmp/difftemp

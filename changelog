@@ -13,3 +13,4 @@ testing-variable:
 2, change variable.py to config.py
 3, modulize variable(strings)
 4, add Usage to gensl.py, genpl.py and config.py
+5, add config.py to pdp/ppd (push.sh, pull.sh and diff.sh)
