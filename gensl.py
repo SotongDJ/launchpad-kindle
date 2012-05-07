@@ -1,28 +1,30 @@
 #!/mnt/us/python/bin/python2.6
 import sys
 import os
+import config
 ## -----------Change it if different---------
 global notepaddir,nonselectstate,nss,temp,playlist
-notepaddir="/mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/user"
-nonselectstate="!:"
-nss='\n'+nonselectstate
-temp="/tmp/filelisttemp"
-playlist="/tmp/mplayer.playlist"
+notepaddir=config.general().get('notepaddir')
+nonselectstate=config.general().get('nonselectstate')
+nss=config.general().get('nss')
+temp=config.general().get('temp')
+playlist=config.general().get('playlist')
 ## ---------------words-------------------------------
 global word01,selword01,word02,word03
-word01="## Select the mode below by remove \'!\', vice versa\n## (mode is enabled by default)\n## :!playall: :!shuffle:"# :repeat:"
-selword01="\n##\n## m3u Control Section:\n## :!m3u: (Enable m3u)\n##(If you enable Shuffle and m3u at same time,\n##	the songs in m3u will be arrange ramdomly)"
-word02="##Select the"+thing+"(s) you want to play by remove \'"+nonselectstate+"\'\n"
-word03="##Select the m3u playlist(s) you want to play by remove \'"+nonselectstate+"\'\n"
+word01=config.words('').get('word01')
+selword01=config.words('').get('selword01')
+#word02=config.words(thing).get('word02') #Please use 'Find' to find the command
+word03=config.words('').get('word03')
 ## ---------------source folder-------------------------------
-global musicdir,recorddir
-musicdir="/mnt/us/music"
-recorddir="/mnt/us/record"
+global musicdir,recorddir,strlist
+musicdir=config.source().get('musicdir')
+recorddir=config.source().get('recorddir')
+strlist=config.source().get('strlist')
 ## ---------------list file head-------------------------------
 global forpledit,forrecdit,forstrdit
-forpledit=notepaddir+"/01-Playlist"
-forrecdit=notepaddir+"/02-Reclist"
-forstrdit=notepaddir+"/03-Strlist"
+forpledit=config.head().get('forpledit')
+forrecdit=config.head().get('forrecdit')
+forstrdit=config.head().get('forstrdit')
 ## ---------------temporary method-------------------------------
 global letterset,purels
 letterset=[['0','1','2','3','4','5','6','7','8','9'],['A','a'],['B','b'],['C','c'],['D','d'],['E','e'],['F','f'],['G','g'],['H','h'],['I','i'],['J','j'],['K','k'],['L','l'],['M','m'],['N','n'],['O','o'],['P','p'],['Q','q'],['R','r'],['S','s'],['T','t'],['U','u'],['V','v'],['W','w'],['X','x'],['Y','y'],['Z']]
@@ -78,7 +80,7 @@ def gensl(otypes,source,listh,thing):
     pagenum=1
     linenum=len(library.get("Numbers"))
     listf=open(listh+'-Part'+str(pagenum)+"-Num.txt",'w')
-    listf.write(word02)
+    listf.write(config.words(thing).get('word02'))
     listf.write(nonselectstate+nss.join(library.get("Numbers"))+'\n')
     for letters in letterset[1:len(letterset)-1]:
         tempnum=len(library.get(letters[0]))
@@ -90,7 +92,7 @@ def gensl(otypes,source,listh,thing):
             linenum=tempnum
             listf.close()
             listf=open(listh+'-Part'+str(pagenum)+"-"+letters[0]+".txt",'w')
-            listf.write(word02)
+            listf.write(config.words(thing).get('word02'))
             listf.write(nonselectstate+nss.join(library.get(letters[0]))+'\n')
     if linenum+len(library.get("Other"))<splitnum:
         linenum=linenum+tempnum
@@ -101,7 +103,7 @@ def gensl(otypes,source,listh,thing):
         linenum=tempnum
         listf.close()
         listf=open(listh+'-Part'+str(pagenum)+"-Oth"+".txt",'w')
-        listf.write(word02)
+        listf.write(config.words(thing).get('word02'))
         listf.write(nonselectstate+nss.join(library.get("Other"))+'\n')
         listf.close()
 ## ----------------------------------------------
@@ -135,7 +137,7 @@ def genstr(otypes,source,listh,thing):
             if otypes in line:
                 strs.append(line)
     strsf=open(listh+".txt",'w')
-    strsf.write(word02)
+    strsf.write(config.words(thing).get('word02'))
     strsf.write(nonselectstate+nss.join(strs)+'\n')
     strsf.close()
 ## ----------------------------------------------
@@ -162,7 +164,11 @@ elif "--reclist" in sys.argv:
     mode(listh,0)
 elif "--strlist" in sys.argv:
     otypes="http"
-    source="/mnt/us/mplayer/playlist"
+    source=strlist
     listh=forstrdit
     thing='stream/radio'
     genstr(otypes,source,listh,thing)
+else:
+    print "gensl.py: Selection List Generator"
+    print "Usage: "
+    print "	python gensl.py { --playall | --playlist | --reclist | --strlist }"

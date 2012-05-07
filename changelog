@@ -9,4 +9,7 @@ Changelog
 6, modify git.sh as I always forget to edit changelog
 
 testing-variable:
-1, arrange variable
+1, arrange variable(strings)
+2, change variable.py to config.py
+3, modulize variable(strings)
+4, add Usage to gensl.py, genpl.py and config.py
