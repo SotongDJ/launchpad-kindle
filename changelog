@@ -18,3 +18,4 @@ testing-variable:
 7, fix 'arrange by type' (cause by filter method)
 8, finished adding method for changing environment (include Chinese support)
 9, simplify playall's and playrand's codes
+10, add automatic clean up temporary function

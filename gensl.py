@@ -106,6 +106,7 @@ def gensl(otypes,source,listh,thing):
         listf.write(config.words(thing).get('word02'))
         listf.write(nonselectstate+nss.join(library.get("Other"))+'\n')
         listf.close()
+    status=os.system("rm "+temp)
 ## ----------------------------------------------
 def gen4p():
     otypes="aac.flac.ogg.m4a.mp3.wav.wma"
@@ -117,6 +118,7 @@ def gen4p():
         for type in types:
             if  '.'+type in line:
                 list.append(line)
+    status=os.system("rm "+temp)
     return list
 ## ----------------------------------------------
 def genm3u(source,listh):
@@ -131,6 +133,7 @@ def genm3u(source,listh):
         m3uf.write(word03)
         m3uf.write(nonselectstate+nss.join(m3us)+'\n')
         m3uf.close()
+    status=os.system("rm "+temp)
 ## ----------------------------------------------
 def genstr(otypes,source,listh,thing):
     strs=[]
