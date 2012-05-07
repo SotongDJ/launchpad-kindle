@@ -62,20 +62,20 @@ case "$1" in
 		$pythonbin $screensaver --action=turnoff --locker=lock
 		;;
 	playlist)
-		$pythonbin /mnt/us/SotongDJ/split.py playlist off
 		$pythonbin $genpl --playlist
-		rm /mnt/us/SotongDJ/listtemp
 		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist
 		$pythonbin $screensaver --action=turnoff --locker=lock
 		;;
 	playrec)
 		$pythonbin $genpl --reclist
+		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist
 		$pythonbin $screensaver --action=turnoff --locker=lock
 		;;
 	playstr)
 		$pythonbin $genpl --strlist
+		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist
 		$pythonbin $screensaver --action=turnoff --locker=lock
 		;;

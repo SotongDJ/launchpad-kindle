@@ -63,3 +63,11 @@ start using testing branch for experimental purpose
 			both isn't in same build as develop genpl.py source code need gensl.py as reference
 		8, Finished "Rebuild the script set" work, Alpha version MyMplayer. 
 			Createlish.py/sh filter.py split.py can be delete after BETA build
+
+07052012:
+	MyMplayer (SotongDJ's Mplayer Playback Script Set)
+		1, add chmod.sh to make chmod easier when needed
+		2, Stop The Development of testing-pythonize Branch
+		3, Remove HOW-TO as I will write tutorial soon
+		4, fix 'File name too long cause Notepad for Kindle will auto cut off extra words'
+		5, clean unused script

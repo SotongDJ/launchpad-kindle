@@ -91,6 +91,7 @@ def genlist(source,listh):
             for line in open(notepaddir+'/'+files).read().splitlines():
                 if '#' not in line:
                     sets.append(line)
+    status=os.system("rm "+temp)
     return sets
 ## ----------------------------------------------
 def convlist(plist):

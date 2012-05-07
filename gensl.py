@@ -71,7 +71,7 @@ def gensl(otypes,source,listh,thing):
     pagenum=1
     word="##Select the"+thing+"(s) you want to play by remove \'"+nonselectstate+"\'\n"
     linenum=len(library.get("Numbers"))
-    listf=open(listh+'-Part'+str(pagenum)+'-'+"-from-Numbers.txt",'w')
+    listf=open(listh+'-Part'+str(pagenum)+"-Num.txt",'w')
     listf.write(word)
     listf.write(nonselectstate+nss.join(library.get("Numbers"))+'\n')
     for letters in letterset[1:len(letterset)-1]:
@@ -83,7 +83,7 @@ def gensl(otypes,source,listh,thing):
             pagenum=pagenum+1
             linenum=tempnum
             listf.close()
-            listf=open(listh+'-Part'+str(pagenum)+'-'+"-from-"+letters[0]+".txt",'w')
+            listf=open(listh+'-Part'+str(pagenum)+"-"+letters[0]+".txt",'w')
             listf.write(word)
             listf.write(nonselectstate+nss.join(library.get(letters[0]))+'\n')
     if linenum+len(library.get("Other"))<splitnum:
@@ -94,7 +94,7 @@ def gensl(otypes,source,listh,thing):
         pagenum=pagenum+1
         linenum=tempnum
         listf.close()
-        listf=open(listh+'-Part'+str(pagenum)+'-'+"-from-"+"Other"+".txt",'w')
+        listf=open(listh+'-Part'+str(pagenum)+"-Oth"+".txt",'w')
         listf.write(word)
         listf.write(nonselectstate+nss.join(library.get("Other"))+'\n')
         listf.close()

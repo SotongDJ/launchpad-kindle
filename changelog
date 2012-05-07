@@ -1,16 +1,9 @@
 Changelog
 =======================================================
-29042012:
-1, fix invalid syntax in the part that marked with ##WTF yesterday
-2, patch the missing part that use to filter file type
-3, create a part for debug usage (that marked as #d, this part will be the basement of Third Alpha Build)
-4, Finished debug Second Alpha Build
-5, Decide to independ Playlists mode, it will be the sub-mode of Playlist mode
-6, Finished Third Alpha Build, include:
-	(i) support non-latin character
-		(KindleNote and Notepad! havent support yet, this isnt my business)
-	(ii) playlist(and playlists) mode finished development
-7, Finished Fourth Alpha Build of gensl.py and First Alpha Build of genpl.py, 
-	both isn't in same build as develop genpl.py source code need gensl.py as reference
-8, Finished "Rebuild the script set" work, Alpha version MyMplayer. 
-	Createlish.py/sh filter.py split.py can be delete after BETA build
+07052012:
+1, add chmod.sh to make chmod easier when needed
+2, Stop The Development of testing-pythonize Branch
+3, Remove HOW-TO as I will write tutorial soon
+4, fix 'File name too long cause Notepad for Kindle will auto cut off extra words'
+5, clean unused script
+6, 
