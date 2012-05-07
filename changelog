@@ -1,31 +1,4 @@
 Changelog
 =======================================================
-07052012:
-1, add chmod.sh to make chmod easier when needed
-2, Stop The Development of testing-pythonize Branch
-3, Remove HOW-TO as I will write tutorial soon
-4, fix 'File name too long cause Notepad for Kindle will auto cut off extra words'
-5, clean unused script
-6, modify git.sh as I always forget to edit changelog
-
-testing:
-1, clean up code
-
-testing-variable:
-1, arrange variable(strings)
-2, change variable.py to config.py
-3, modulize variable(strings)
-4, add Usage to gensl.py, genpl.py and config.py
-5, add config.py to pdp/ppd (push.sh, pull.sh and diff.sh)
-6, disable m3u when playall/playrandom
-7, fix 'arrange by type' (cause by filter method)
-8, finished adding method for changing environment (include Chinese support and 'clean up code' of testing branch)
-9, simplify playall's and playrand's codes
-10, add automatic clean up temporary function
-
-Decision:
-1, master branch equal to stable branch
-2, testing branch equal to beta branch (find bugs)
-3, testing-* branch equal to alpha branch (adding new function or changing structure)
-4, the statement above isn't the rules, these statement just let you know what these branch means
-	Example, last time I rebuild (nearly) whole script set in testing branch, this isn't satisfy these statement
+08052012:
+1, create INDEX and edit clone code module

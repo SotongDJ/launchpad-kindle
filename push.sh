@@ -25,9 +25,9 @@ cp -v -u ~/github/launchpad-kindle/system.py /media/Kindle/SotongDJ/system.py >>
 cp -v -u ~/github/launchpad-kindle/test.sh /media/Kindle/SotongDJ/test.sh >> /tmp/pushtemp
 cp -v -u ~/github/launchpad-kindle/python.py /media/Kindle/SotongDJ/python.py >> /tmp/pushtemp
 ##
-cp -v -u ~/github/launchpad-kindle/changelog /media/Kindle/documents/00-self/KINDLE/"Changelog.txt" >> /tmp/pushtemp
-cp -v -u ~/github/launchpad-kindle/man /media/Kindle/documents/00-self/KINDLE/"Manual of launchpad-kindle.txt" >> /tmp/pushtemp
-cp -v -u ~/github/launchpad-kindle/SCL /media/Kindle/documents/00-self/KINDLE/"Summary of ChangeLog.txt" >> /tmp/pushtemp
+cp -v -u ~/github/launchpad-kindle/changelog /media/Kindle/documents/00-self/KINDLE/"01a-Changelog.txt" >> /tmp/pushtemp
+cp -v -u ~/github/launchpad-kindle/man /media/Kindle/documents/00-self/KINDLE/"01b-Manual of launchpad-kindle.txt" >> /tmp/pushtemp
+cp -v -u ~/github/launchpad-kindle/SCL /media/Kindle/documents/00-self/KINDLE/"01a-Summary of ChangeLog.txt" >> /tmp/pushtemp
 ##
 cp -v -u ~/github/launchpad-kindle/launchpad/SotongDJ.ini /media/Kindle/launchpad/SotongDJ.ini >> /tmp/pushtemp
 cp -v -u ~/github/launchpad-kindle/launchpad/mplayer.ini /media/Kindle/launchpad/mplayer.ini >> /tmp/pushtemp
