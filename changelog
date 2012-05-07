@@ -15,3 +15,4 @@ testing-variable:
 4, add Usage to gensl.py, genpl.py and config.py
 5, add config.py to pdp/ppd (push.sh, pull.sh and diff.sh)
 6, disable m3u when playall/playrandom
+7, fix 'arrange by type' (cause by filter method)

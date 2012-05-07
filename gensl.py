@@ -111,8 +111,8 @@ def gen4p(otypes,source):
     list=open("/tmp/playlist","w")
     types=otypes.split(".")
     status=os.system("ls -1 "+source+" > "+temp)
-    for type in types:
-        for line in open(temp).read().splitlines():
+    for line in open(temp).read().splitlines():
+        for type in types:
             if  '.'+type in line:
                 list.write(line+"\n")
     list.close()
