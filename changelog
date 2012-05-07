@@ -10,3 +10,16 @@ Changelog
 
 testing:
 1, clean up code
+
+testing-variable:
+1, arrange variable(strings)
+2, change variable.py to config.py
+3, modulize variable(strings)
+4, add Usage to gensl.py, genpl.py and config.py
+5, add config.py to pdp/ppd (push.sh, pull.sh and diff.sh)
+6, disable m3u when playall/playrandom
+7, fix 'arrange by type' (cause by filter method)
+8, finished adding method for changing environment (include Chinese support)
+9, simplify playall's and playrand's codes
+10, add automatic clean up temporary function
+>>>>>>> testing-variableseparate

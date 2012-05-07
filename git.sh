@@ -6,6 +6,8 @@ echo "the changelogs (include SCL) were added the desc. of the change."
 read null
 echo  Add change
 rm -f ~/github/launchpad-kindle/*temp
+rm -f ~/github/launchpad-kindle/*.pyc
+rm -f ~/github/launchpad-kindle/*.conf
 git add -A
 echo --------------------------------------------
 echo Commit change

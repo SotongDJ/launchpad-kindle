@@ -22,3 +22,4 @@ if sys.argv[1] == "nonch":
     cmd="git "+sys.argv[2]+" "+sys.argv[3]+" "+rmnbch
     print "->"+cmd
     status=os.system(cmd)
+    status=os.system("rm /tmp/brchtemp")

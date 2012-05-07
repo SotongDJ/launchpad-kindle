@@ -2,29 +2,29 @@
 import sys
 import os
 import random
+import config
+import gensl
 ## -----------Change it if different---------
-global notepaddir,nonselectstate,temp,playlist
-notepaddir="/mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/user"
-nonselectstate="!:"
-temp="/tmp/filelisttemp"
-playlist="/tmp/mplayer.playlist"
+global notepaddir,nonselectstate,nss,temp,playlist
+notepaddir=config.general().get('notepaddir')
+nonselectstate=config.general().get('nonselectstate')
+nss=config.general().get('nss')
+temp=config.general().get('temp')
+playlist=config.general().get('playlist')
 ## ---------------source folder-------------------------------
-global musicdir,recorddir
-musicdir="/mnt/us/music"
-recorddir="/mnt/us/record"
+global musicdir,recorddir,strlist
+musicdir=config.source().get('musicdir')
+recorddir=config.source().get('recorddir')
 ## ---------------list file head-------------------------------
 global forpledit,forrecdit,forstrdit
-forpledit=notepaddir+"/01-Playlist"
-forrecdit=notepaddir+"/02-Reclist"
-forstrdit=notepaddir+"/03-Strlist"
+forpledit=config.head().get('forpledit')
+forrecdit=config.head().get('forrecdit')
+forstrdit=config.head().get('forstrdit')
 ## ---------------Order---------------------------------
 global ordplayall,ordshuffle,ordm3u
-ordplayall=':playall:'
-ordshuffle':shuffle:'
-ordm3u=':m3u:'
-## -------bin and script--------------
-pythonbin="/mnt/us/python/bin/python2.6"
-gensl="/mnt/us/SotongDJ/gensl.py"
+ordplayall=config.oder().get('ordplayall')
+ordshuffle=config.oder().get('ordshuffle')
+ordm3u=config.oder().get('ordm3u')
 ## ----------------------------------------------
 ## Define function
 ##    #        #            #                #                    #
@@ -112,17 +112,9 @@ def convlist(plist):
 ## Order
 ## ----------------------------------------------
 if "--playall" in sys.argv:
-    status=os.system(pythonbin+" "+gensl+" --playall")
-    source=musicdir
-    plist="/tmp/playlist"
-    modenum=11
-    ouput(process(convlist(plist),modenum,source))
+    ouput(process(gensl.gen4p(),11,musicdir))
 elif "--playrand" in sys.argv:
-    status=os.system(pythonbin+" "+gensl+" --playall")
-    source=musicdir
-    plist="/tmp/playlist"
-    modenum=13
-    ouput(process(convlist(plist),modenum,source))
+    ouput(process(gensl.gen4p(),13,musicdir))
 elif "--playlist" in sys.argv:
     source=musicdir
     listh=forpledit
@@ -135,4 +127,7 @@ elif "--strlist" in sys.argv:
     listh=forstrdit
     plist=notepaddir+'/'+listh+".txt"
     ouput(process(convlist(plist),ascertain(listh),source))
-## ----------------------------------------------
+else:
+    print "genpl.py: Playlist Generator"
+    print "Usage: "
+    print "	python gensl.py { --playall | --playrand | --playlist | --reclist | --strlist }"
