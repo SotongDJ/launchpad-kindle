@@ -144,7 +144,7 @@ def genstr(otypes,source,listh,thing):
 ## Order
 ## ----------------------------------------------
 if "--playall" in sys.argv:
-    otypes="aac.flac.ogg.m3u.m4a.mp3.wav.wma"
+    otypes="aac.flac.ogg.m4a.mp3.wav.wma"
     source=musicdir
     gen4p(otypes,source)
 elif "--playlist" in sys.argv:
