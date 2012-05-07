@@ -31,8 +31,8 @@ case "$1" in
 		cp /mnt/us/SotongDJ/file.sh /mnt/us/documents/00-self/KINDLE/04-file-sh.txt
 		cp /mnt/us/SotongDJ/fm.py /mnt/us/documents/00-self/KINDLE/09-fm-py.txt
 		cp /mnt/us/SotongDJ/tree.py /mnt/us/documents/00-self/KINDLE/09-tree-py.txt
-		cp /mnt/us/SotongDJ/test.sh /mnt/us/documents/00-self/KINDLE/10-test-sh.txt
-		cp /mnt/us/SotongDJ/python.py /mnt/us/documents/00-self/KINDLE/10-python-py.txt
+#		cp /mnt/us/SotongDJ/test.sh /mnt/us/documents/00-self/KINDLE/10-test-sh.txt
+#		cp /mnt/us/SotongDJ/python.py /mnt/us/documents/00-self/KINDLE/10-python-py.txt
         ;;
     boot2kindle)
         cp $dkconfig $dkconfbk
