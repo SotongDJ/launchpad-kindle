@@ -12,8 +12,10 @@ git add -A
 echo --------------------------------------------
 echo Commit change
 echo --------------------------------------------
+echo Exp: [ddmmyynum]xxxxxxxxxxxx
+echo 
 echo Please enter your description of
-echo this commit:
+echo this commit by following the format above:
 read commit
 echo --------------------------------------------
 git commit -m "$commit"

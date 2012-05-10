@@ -11,3 +11,8 @@ Current Versions of MyMplayer:
 3, fix "ignore numbers of songs which start with same character, gensl can't separated the part of that character according the numbers of songs"
 4, "blank selection such as nothing behind '!:' as gensl can't handle blank list"
 P.S.Start edit at 10/05 til 11/05
+
+11052012001:
+1, change the format of serial
+2, change the instruction of git.sh
+3, correct SCL info
