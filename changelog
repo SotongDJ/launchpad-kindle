@@ -1,4 +1,13 @@
 Changelog
 =======================================================
-08052012:
-1, create INDEX and edit clone code module
+Current Versions of MyMplayer:
+	Stable Version --> master branch, commit: Remove HOW-TO as I will write tutorial soon 
+	Beta Version --> testing branch, commit: 1005201201
+	Alpha Version --> testing branch, commit: 1005201201
+-------------------------------------------------------
+1005201201:
+1, add versions statement to changelog
+2, use 'DDMMYYYYnn' format as commit descriptions head
+3, fix "ignore numbers of songs which start with same character, gensl can't separated the part of that character according the numbers of songs"
+4, "blank selection such as nothing behind '!:' as gensl can't handle blank list"
+P.S.Start edit at 10/05 til 11/05

@@ -77,35 +77,78 @@ def gensl(otypes,source,listh,thing):
     ## ---------------Calculate and Create Filelists---------------------
     filelib={}
     splitnum=50
+    ## Start create selection of media which file name start with Numbers
     pagenum=1
     linenum=len(library.get("Numbers"))
     listf=open(listh+'-Part'+str(pagenum)+"-Num.txt",'w')
     listf.write(config.words(thing).get('word02'))
     listf.write(nonselectstate+nss.join(library.get("Numbers"))+'\n')
+    ## Start create selection of media which file name start with alphabet
     for letters in letterset[1:len(letterset)-1]:
         tempnum=len(library.get(letters[0]))
-        if linenum+tempnum<splitnum:
+        if library.get(letters[0])==[]:
+            continue
+        elif linenum+tempnum<splitnum:
             linenum=linenum+tempnum
             listf.write(nonselectstate+nss.join(library.get(letters[0]))+'\n')
         elif linenum+tempnum>=splitnum:
-            pagenum=pagenum+1
-            linenum=tempnum
-            listf.close()
-            listf=open(listh+'-Part'+str(pagenum)+"-"+letters[0]+".txt",'w')
-            listf.write(config.words(thing).get('word02'))
-            listf.write(nonselectstate+nss.join(library.get(letters[0]))+'\n')
-    if linenum+len(library.get("Other"))<splitnum:
+            if tempnum<=splitnum:
+                pagenum=pagenum+1
+                linenum=tempnum
+                listf.close()
+                listf=open(listh+'-Part'+str(pagenum)+"-"+letters[0]+".txt",'w')
+                listf.write(config.words(thing).get('word02'))
+                listf.write(nonselectstate+nss.join(library.get(letters[0]))+'\n')
+            elif tempnum>splitnum:  ## Start seperate list when the number of items more then splitnum
+                templistnum=0
+                for ra in range(0,10000):
+                    if templistnum+splitnum<=tempnum:
+                        pagenum=pagenum+1
+                        listf.close()
+                        listf=open(listh+'-Part'+str(pagenum)+"-"+letters[0]+library.get(letters[0])[templistnum][1]+".txt",'w')
+                        listf.write(config.words(thing).get('word02'))
+                        listf.write(nonselectstate+nss.join(library.get(letters[0])[templistnum:(templistnum+splitnum+1)])+'\n')
+                        templistnum=templistnum+splitnum
+                    elif templistnum+splitnum>tempnum:
+                        pagenum=pagenum+1
+                        listf.close()
+                        listf=open(listh+'-Part'+str(pagenum)+"-"+letters[0]+library.get(letters[0])[templistnum][1]+".txt",'w')
+                        listf.write(config.words(thing).get('word02'))
+                        listf.write(nonselectstate+nss.join(library.get(letters[0])[templistnum:(tempnum+1)])+'\n')
+                        linenum=tempnum-templistnum
+                        break
+    ## Start create selection of media which file name start with non-latin characters
+    tempnum=len(library.get("Other"))
+    if linenum+tempnum<splitnum:
         linenum=linenum+tempnum
         listf.write(nonselectstate+nss.join(library.get("Other"))+'\n')
         listf.close()
     elif linenum+tempnum>=splitnum:
-        pagenum=pagenum+1
-        linenum=tempnum
-        listf.close()
-        listf=open(listh+'-Part'+str(pagenum)+"-Oth"+".txt",'w')
-        listf.write(config.words(thing).get('word02'))
-        listf.write(nonselectstate+nss.join(library.get("Other"))+'\n')
-        listf.close()
+        if tempnum<=splitnum:
+            pagenum=pagenum+1
+            listf.close()
+            listf=open(listh+'-Part'+str(pagenum)+"-Oth"+".txt",'w')
+            listf.write(config.words(thing).get('word02'))
+            listf.write(nonselectstate+nss.join(library.get("Other"))+'\n')
+            listf.close()
+        elif tempnum>splitnum:  ## Start seperate list when the number of items more then splitnum
+            templistnum=0
+            for ra in range(1,10001):
+                if templistnum+splitnum<=tempnum:
+                    pagenum=pagenum+1
+                    listf.close()
+                    listf=open(listh+'-Part'+str(pagenum)+"-Oth"+".txt",'w')
+                    listf.write(config.words(thing).get('word02'))
+                    listf.write(nonselectstate+nss.join(library.get("Other")[templistnum:(templistnum+splitnum+1)])+'\n')
+                    templistnum=templistnum+splitnum
+                elif templistnum+splitnum>tempnum:
+                    pagenum=pagenum+1
+                    listf.close()
+                    listf=open(listh+'-Part'+str(pagenum)+"-Oth"+".txt",'w')
+                    listf.write(config.words(thing).get('word02'))
+                    listf.write(nonselectstate+nss.join(library.get("Other")[templistnum:(tempnum+1)])+'\n')
+                    listf.close()
+                    break
     status=os.system("rm "+temp)
 ## ----------------------------------------------
 def gen4p():

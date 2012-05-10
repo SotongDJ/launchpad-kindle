@@ -92,3 +92,10 @@ start using testing branch for experimental purpose
 08052012:
 	Whole:
 		1, create INDEX and edit clone code module
+
+10052012:
+	MyMplayer (SotongDJ's Mplayer Playback Script Set):
+		1, add versions statement to changelog
+		2, use 'DDMMYYYYnn' format as commit descriptions head
+		3, fix "ignore numbers of songs which start with same character, gensl can't separated the part of that character according the numbers of songs"
+		4, "blank selection such as nothing behind '!:' as gensl can't handle blank list"
