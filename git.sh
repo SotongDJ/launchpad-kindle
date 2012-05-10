@@ -20,7 +20,7 @@ read commit
 echo --------------------------------------------
 #git commit -m "$commit"
 git add -A
-python ./gitcho.py --action=commit --date=`date +%d%m%Y` --serial=$serial --commit=$commit
+python ./gitcho.py --action=commit --date=`date +%d%m%Y` --serial="$serial" --commit="$commit"
 echo ============================================
 echo Push commit\(s\) to GitHub
 python ./gitcho.py --action=push --mode=list --target=origin
