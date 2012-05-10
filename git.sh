@@ -8,18 +8,20 @@ echo  Add change
 rm -f ~/github/launchpad-kindle/*temp
 rm -f ~/github/launchpad-kindle/*.pyc
 rm -f ~/github/launchpad-kindle/*.conf
-git add -A
 echo --------------------------------------------
 echo Commit change
 echo --------------------------------------------
-echo Exp: [ddmmyynum]xxxxxxxxxxxx
+echo Please enter the serial number:
+read serial
 echo 
 echo Please enter your description of
-echo this commit by following the format above:
+echo this commit:
 read commit
 echo --------------------------------------------
-git commit -m "$commit"
+#git commit -m "$commit"
+git add -A
+python ./gitcho.py --action=commit --date=`date +%d%m%Y` --serial=$serial --commit=$commit
 echo ============================================
 echo Push commit\(s\) to GitHub
-python ./gitcho.py nonch push origin
+python ./gitcho.py --action=push --mode=list --target=origin
 echo ============================================

@@ -102,8 +102,9 @@ start using testing branch for experimental purpose
 		3, "blank selection such as nothing behind '!:' as gensl can't handle blank list"
 
 
-11052012001:
+11052012:
 	Whole:
 		1, change the format of serial
 		2, change the instruction of git.sh
 		3, correct SCL info
+		4, rewrite gitcho.py
