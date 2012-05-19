@@ -189,6 +189,9 @@ def genstr(otypes,source,listh,thing):
     strsf.write(nonselectstate+nss.join(strs)+'\n')
     strsf.close()
 ## ----------------------------------------------
+def clean(listh):
+    status=os.system("rm "+listh+"*")
+## ----------------------------------------------
 ## Order
 ## ----------------------------------------------
 if "--playlist" in sys.argv:
@@ -196,6 +199,7 @@ if "--playlist" in sys.argv:
     source=musicdir
     listh=forpledit
     thing='songs'
+    clean(listh)
     gensl(otypes,source,listh,thing)
     mode(listh,1)
     genm3u(source,listh)
@@ -204,6 +208,7 @@ elif "--reclist" in sys.argv:
     source=recorddir
     listh=forrecdit
     thing='records'
+    clean(listh)
     gensl(otypes,source,listh,thing)
     mode(listh,0)
 elif "--strlist" in sys.argv:
@@ -211,8 +216,9 @@ elif "--strlist" in sys.argv:
     source=strlist
     listh=forstrdit
     thing='stream/radio'
+    clean(listh)
     genstr(otypes,source,listh,thing)
-else:
+elif '--help' in sys.argv:
     print "gensl.py: Selection List Generator"
     print "Usage: "
-    print "	python gensl.py { --playall | --playlist | --reclist | --strlist }"
+    print "	python gensl.py { --playall | --playlist | --reclist | --strlist | --help }"

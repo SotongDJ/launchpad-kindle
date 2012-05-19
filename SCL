@@ -108,3 +108,13 @@ start using testing branch for experimental purpose
 		2, change the instruction of git.sh
 		3, correct SCL info
 		4, rewrite gitcho.py
+
+20052012:
+	MyMplayer:
+		1, fix genpl.py
+		2, add "clean-up recent selection list" function to gensl.py
+		3, add "Identity Envirorment" method to config.py
+		4, fix SotongDJ.ini and mplayer.ini
+		5, add description of "turn playlist to .m3u" to config.py
+	Other:
+		1, fix screen.py and gitcho.py

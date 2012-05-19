@@ -31,6 +31,7 @@ elif "--action=switch" in sys.argv:
             os.system("echo on>/tmp/pslog")
             os.system(oncmd)
     else:
-        os.system("touch /mnt/us/pslogCorrupted-screenpy")
+        os.system("echo off>/tmp/pslog")
+        os.system(offcmd)
 else:
     os.system("touch /mnt/us/CommandMissing-screenpy")

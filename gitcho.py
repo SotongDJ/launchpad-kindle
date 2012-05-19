@@ -6,7 +6,7 @@ global cmd,target
 def argv(type):
     b=''
     for a in sys.argv:
-        if type in a:
+        if '--'+type+'=' in a:
             b=a.replace('--'+type+'=','')
     return b
 ## -----------------------------------------

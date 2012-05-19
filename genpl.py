@@ -79,7 +79,7 @@ def ascertain(listh):
     #Shuffle -2
     #m3u - 10
     modenum=0
-    modefile=notepaddir+'/'+listh+"-Mode.txt"
+    modefile=listh+"-Mode.txt"
     for line in open(modefile).read().splitlines():
         if ordplayall in line:
             modenum=modenum+1
@@ -127,7 +127,7 @@ elif "--strlist" in sys.argv:
     listh=forstrdit
     plist=notepaddir+'/'+listh+".txt"
     ouput(process(convlist(plist),ascertain(listh),source))
-else:
+elif '--help' in sys.argv:
     print "genpl.py: Playlist Generator"
     print "Usage: "
-    print "	python gensl.py { --playall | --playrand | --playlist | --reclist | --strlist }"
+    print "	python genpl.py { --playall | --playrand | --playlist | --reclist | --strlist | --help }"

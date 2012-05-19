@@ -2,23 +2,13 @@ Changelog
 =======================================================
 Current Versions of MyMplayer:
 	Stable Version --> master branch, commit: Remove HOW-TO as I will write tutorial soon 
-	Beta Version --> testing branch, commit: 1005201201
-	Alpha Version --> testing branch, commit: 1005201201
+	Beta Version --> testing branch, commit: 20052012001
+	Alpha Version --> testing branch, commit: 20052012001
 -------------------------------------------------------
-1005201201:
-1, add versions statement to changelog
-2, use 'DDMMYYYYnn' format as commit descriptions head
-3, fix "ignore numbers of songs which start with same character, gensl can't separated the part of that character according the numbers of songs"
-4, "blank selection such as nothing behind '!:' as gensl can't handle blank list"
-P.S.Start edit at 10/05 til 11/05
-
-11052012001:
-1, change the format of serial
-2, change the instruction of git.sh
-3, correct SCL info
-
-11052012002:
-1, rewrite gitcho.py
-
-11052012003:
-1,fix gitcho.py
+20052012001:
+1, fix genpl.py
+2, add "clean-up recent selection list" function to gensl.py
+3, fix screen.py and gitcho.py
+4, add "Identity Envirorment" method to config.py
+5, fix SotongDJ.ini and mplayer.ini
+6, add description of "turn playlist to .m3u" to config.py
