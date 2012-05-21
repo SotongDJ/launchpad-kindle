@@ -11,7 +11,7 @@ def determine():
     ## `notepad` for Notepad (7 Dragons)
     ## `kindlenote` for KindleNote (proDOOMman)
     ## `chinese` for KindleNote (proDOOMman) and the Kindle has PinYin IME
-    default='chinese'
+    default='kindlenote'
     temp='/tmp/edittemp'
     status=os.system('cat /mnt/us/SotongDJ/editor.conf>'+temp)
     if status == 0:

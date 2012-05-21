@@ -4,13 +4,6 @@ import os
 import random
 import config
 import gensl
-## ---------------Debug---------------------------------
-global dbmd
-dbmd='on'
-#dbmd='off'
-def debug(cmd):
-    if dbmd=='on':
-        exec cmd
 ## -----------Change it if different---------
 global notepaddir,nonselectstate,nss,temp,playlist
 notepaddir=config.general().get('notepaddir')
@@ -18,34 +11,28 @@ nonselectstate=config.general().get('nonselectstate')
 nss=config.general().get('nss')
 temp=config.general().get('temp')
 playlist=config.general().get('playlist')
-debug('print \'Variable:[\\\'\'+notepaddir+\'\\\',\\\'\'+nonselectstate+\'\\\',\\\'\'+nss+\'\\\',\\\'\'+temp+\'\\\',\\\'\'+playlist+\'\\\']\'')
 ## ---------------source folder-------------------------------
 global musicdir,recorddir
 musicdir=config.source().get('musicdir')
 recorddir=config.source().get('recorddir')
-debug('print \'Variable:[\\\'\'+musicdir+\'\\\',\\\'\'+recorddir+\'\\\']\'') #V
 ## ---------------list file head-------------------------------
 global forpledit,forrecdit,forstrdit
 forpledit=config.head().get('forpledit')
 forrecdit=config.head().get('forrecdit')
 forstrdit=config.head().get('forstrdit')
-debug('print \'Variable:[\\\'\'+forpledit+\'\\\',\\\'\'+forrecdit+\'\\\',\\\'\'+forstrdit+\'\\\']\'') #V
 ## ---------------Order---------------------------------
 global ordplayall,ordshuffle,ordm3u
 ordplayall=config.oder().get('ordplayall')
 ordshuffle=config.oder().get('ordshuffle')
 ordm3u=config.oder().get('ordm3u')
-print 'Variable:[\''+ordplayall+'\',\''+ordshuffle+'\',\''+ordm3u+'\']' #V
 ## ----------------------------------------------
 ## Define function
 ##    #        #            #                #                    #
 ## ----------------------------------------------
 def ouput(result):
     file=open(playlist,'w')
-    print "Write into "+playlist #V
     for line in result:
         file.write(line+"\n")
-        print line #V
     file.close()
 ## --------------for test--------------------------------
 def ouputtest(result):
@@ -83,7 +70,6 @@ def process(sets,modenum,source):
         random.shuffle(result)
         random.shuffle(result)
         random.shuffle(result)
-    print "process():[\n"+'\n'.join(result)+']' #V
     return result
 ## ----------------------------------------------
 def ascertain(listh):
@@ -102,24 +88,17 @@ def ascertain(listh):
         if ordm3u in line:
             modenum=modenum+10
 #    print str(modenum)
-    print "ascertain():"+str(modenum) #V
     return modenum
 ## ----------------------------------------------
 def genlist(source,listh):
-    print '-----------\ngenlist():'#V
     status=os.system("ls -1 "+notepaddir+" > "+temp)
-    status=os.system("cat "+temp)#V
     sets=[]
-    print 'Rule:'+listh.replace(notepaddir,'')#V
     for files in open(temp).read().splitlines():
-        print 'File:'+files#V
         if listh.replace(notepaddir+'/','') in files:
-            print 'Acepted'#V
             for line in open(notepaddir+'/'+files).read().splitlines():
                 if '#' not in line:
                     sets.append(line)
     status=os.system("rm "+temp)
-    print "result:[\n"+'\n'.join(sets)+']\n-----------'#V
     return sets
 ## ----------------------------------------------
 def convlist(plist):
