@@ -4,6 +4,13 @@ import os
 import random
 import config
 import gensl
+## ---------------Debug---------------------------------
+global dbmd
+dbmd='on'
+#dbmd='off'
+def debug(cmd):
+    if dbmd=='on':
+        exec cmd
 ## -----------Change it if different---------
 global notepaddir,nonselectstate,nss,temp,playlist
 notepaddir=config.general().get('notepaddir')
@@ -11,18 +18,18 @@ nonselectstate=config.general().get('nonselectstate')
 nss=config.general().get('nss')
 temp=config.general().get('temp')
 playlist=config.general().get('playlist')
-print 'Variable:[\''+notepaddir+'\',\''+nonselectstate+'\',\''+nss+'\',\''+temp+'\',\''+playlist+'\']' #V
+debug('print \'Variable:[\\\'\'+notepaddir+\'\\\',\\\'\'+nonselectstate+\'\\\',\\\'\'+nss+\'\\\',\\\'\'+temp+\'\\\',\\\'\'+playlist+\'\\\']\'')
 ## ---------------source folder-------------------------------
 global musicdir,recorddir
 musicdir=config.source().get('musicdir')
 recorddir=config.source().get('recorddir')
-print 'Variable:[\''+musicdir+'\',\''+recorddir+'\']' #V
+debug('print \'Variable:[\\\'\'+musicdir+\'\\\',\\\'\'+recorddir+\'\\\']\'') #V
 ## ---------------list file head-------------------------------
 global forpledit,forrecdit,forstrdit
 forpledit=config.head().get('forpledit')
 forrecdit=config.head().get('forrecdit')
 forstrdit=config.head().get('forstrdit')
-print 'Variable:[\''+forpledit+'\',\''+forrecdit+'\',\''+forstrdit+'\']' #V
+debug('print \'Variable:[\\\'\'+forpledit+\'\\\',\\\'\'+forrecdit+\'\\\',\\\'\'+forstrdit+\'\\\']\'') #V
 ## ---------------Order---------------------------------
 global ordplayall,ordshuffle,ordm3u
 ordplayall=config.oder().get('ordplayall')
