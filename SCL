@@ -128,3 +128,8 @@ start using testing branch for experimental purpose
 		5, rewrite some part of config.py
 	Other:
 		1, fix git.sh and gitcho.py
+
+22052012001:
+	MyMplayer:
+		1, fix genpl.py
+		2, fix config.py

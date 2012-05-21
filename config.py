@@ -4,7 +4,7 @@
 import sys
 import os
 global configfile,npdir,kndir,logdir
-configfile='/mnt/us/SotongDJ/mplayer.conf'
+configfile='/mnt/us/SotongDJ/SotongDJ.conf'
 npdir='/mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/user'
 kndir='/mnt/us/developer/KindleNote/work'
 logdir='/mnt/us/documents/log'
@@ -29,10 +29,10 @@ def edvalue(key,value,lib,path):
     lib.update({key:value})
     file=open(path,'w')
     for yek in lib:
-        file.write(yek+'='+lib.get(yek)+'')
+        file.write(yek+'='+lib.get(yek)+'\n')
     file.close()
 ## -----------Determine---------
-def chkvalue(key,defaultvalue,confpath):
+def viewvalue(key,defaultvalue,confpath):
     ## old name:determine()
     if chkvlue(confpath) == 'true':
         if rdvalue(confpath).get(key):
@@ -44,8 +44,9 @@ def chkvalue(key,defaultvalue,confpath):
         edvalue(key,defaultvalue,rdvalue(confpath),confpath)
         return defaultvalue
 ## -----------General---------
-def general():
-    select=chkvalue('env','kindlenote',configfile)
+def mpenv():
+    ## old name:general()
+    select=viewvalue('env','kindlenote',configfile)
     ## -----------Kindle Editor Option---------
     ## What is your default editor in kindle?
     ## Answer:
@@ -66,8 +67,8 @@ def general():
     return {'notepaddir':notepaddir,'nonselectstate':nonselectstate,'nss':nss,'temp':temp,'playlist':playlist}
 ## ---------------words-------------------------------
 def words(thing):
-    nonselectstate=general().get('nonselectstate')
-    select=chkvalue('env','kindlenote',configfile)
+    nonselectstate=mpenv().get('nonselectstate')
+    select=viewvalue('env','kindlenote',configfile)
     if select == 'chinese':
         word01="## 去掉选项前的“不要”即可开启之，反之亦然。\n## 【不要全部播放】 【不要随机播放】\n##（注：重复模式默认开启，目前仍不能选择关闭。）"
         selword01="\n##\n## m3u 控制选项：\n## 【不要m3u】\n## （需不需要支持m3u播放列表播放。）\n## 注：\n##   当您同时选择开启m3u和随机播放时，\n##	  m3u列表里的所有歌曲会和其他歌曲一起乱序播放。\n## 【不要pl2m3u:NAME】\n## （需不需要把您要播放的媒体编成m3u播放列表,\n##  以NAME.m3u为名，如未更改NAME，将自动以时间日期命名）"
@@ -87,14 +88,14 @@ def source():
     return {'musicdir':musicdir,'recorddir':recorddir,'strlist':strlist}
 ## ---------------list file head-------------------------------
 def head():
-    notepaddir=general().get('notepaddir')
+    notepaddir=mpenv().get('notepaddir')
     forpledit=notepaddir+"/01-Playlist"
     forrecdit=notepaddir+"/02-Reclist"
     forstrdit=notepaddir+"/03-Strlist"
     return {'forpledit':forpledit,'forrecdit':forrecdit,'forstrdit':forstrdit}
 ## ---------------Order---------------------------------
 def oder():
-    select=chkvalue('env','kindlenote',configfile)
+    select=viewvalue('env','kindlenote',configfile)
     if select == 'chinese':
         ordplayall="【全部播放】"
         ordshuffle="【随机播放】"
@@ -129,13 +130,14 @@ def change(value):
 ## -----------------------------------------
 if 'config.py' in sys.argv:
     if argv('key') == 'test':
-        print general()
+        print mpenv()
         print words('nothing')
         print source()
         print head()
         print oder()
     if argv('key') == 'dtmtest':
-        print chkvalue('env','kindlenote',configfile)
+        print viewvalue('env','kindlenote',configfile)
+        print viewvalue('nowplaying','no',configfile)
     elif argv('key') == 'change':
         change(argv('value'))
     elif '--help' in sys.argv:

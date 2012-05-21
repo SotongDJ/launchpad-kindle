@@ -6,11 +6,11 @@ import config
 import gensl
 ## -----------Change it if different---------
 global notepaddir,nonselectstate,nss,temp,playlist
-notepaddir=config.general().get('notepaddir')
-nonselectstate=config.general().get('nonselectstate')
-nss=config.general().get('nss')
-temp=config.general().get('temp')
-playlist=config.general().get('playlist')
+notepaddir=config.mpenv().get('notepaddir')
+nonselectstate=config.mpenv().get('nonselectstate')
+nss=config.mpenv().get('nss')
+temp=config.mpenv().get('temp')
+playlist=config.mpenv().get('playlist')
 ## ---------------source folder-------------------------------
 global musicdir,recorddir
 musicdir=config.source().get('musicdir')
@@ -34,10 +34,9 @@ def ouput(result,source):
     for line in result:
         file.write(source+'/'+line+"\n")
     file.close()
-    if chkvalue('nowplaying','no',configfile):
-        file2=open(logdir+'/NowPlaying.txt','w')
-        for line in result:
-            file2.write(line+"\n")
+    if config.viewvalue('nowplaying','no',config.configfile) == 'yes':
+        file2=open(config.logdir+'/NowPlaying.txt','w')
+        file2.write("\n".join(result))
         file2.close()
 ## --------------for test--------------------------------
 def ouputtest(result):

@@ -4,11 +4,11 @@ import os
 import config
 ## -----------Change it if different---------
 global notepaddir,nonselectstate,nss,temp,playlist
-notepaddir=config.general().get('notepaddir')
-nonselectstate=config.general().get('nonselectstate')
-nss=config.general().get('nss')
-temp=config.general().get('temp')
-playlist=config.general().get('playlist')
+notepaddir=config.mpenv().get('notepaddir')
+nonselectstate=config.mpenv().get('nonselectstate')
+nss=config.mpenv().get('nss')
+temp=config.mpenv().get('temp')
+playlist=config.mpenv().get('playlist')
 ## ---------------words-------------------------------
 global word01,selword01,word02,word03
 word01=config.words('').get('word01')
