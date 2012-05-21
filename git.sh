@@ -11,7 +11,7 @@ rm -f ~/github/launchpad-kindle/*.conf
 echo --------------------------------------------
 echo Commit change
 echo --------------------------------------------
-echo Please enter the serial number:
+echo "Please enter the serial number (not ddmmyysss):"
 read serial
 echo 
 echo Please enter your description of

@@ -123,3 +123,5 @@ start using testing branch for experimental purpose
 	MyMplayer:
 		1, fix genpl.py
 		2, fix config.py
+	Other:
+		1, fix git.sh and gitcho.py

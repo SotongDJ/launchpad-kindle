@@ -16,10 +16,10 @@ def num(number):
     elif int(number) >=10:
         if int(number) <100:
             return '0'+number
-        elif int(number) >=100:
-            return number
         elif int(number) >=999:
             return 'sry'
+        elif int(number) >=100:
+            return number
 ## -----------------------------------------
 def bch(mode):
     status=os.system("git branch>/tmp/brchtemp")

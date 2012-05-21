@@ -8,3 +8,6 @@ Current Versions of MyMplayer:
 21052012001:
 1, fix genpl.py
 2, fix config.py
+
+21052012002:
+1, fix fix git.sh and gitcho.py
