@@ -106,7 +106,7 @@ if argv('key') == 'test':
     print source()
     print head()
     print oder()
-elif argv('key') == 'test':
+elif argv('key') == 'change':
     change(argv('value'))
 elif '--help' in sys.argv:
     print "config.py: Strings Configuration"

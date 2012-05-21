@@ -194,31 +194,32 @@ def clean(listh):
 ## ----------------------------------------------
 ## Order
 ## ----------------------------------------------
-if "--playlist" in sys.argv:
-    otypes="aac.flac.ogg.m4a.mp3.wav.wma"
-    source=musicdir
-    listh=forpledit
-    thing='songs'
-    clean(listh)
-    gensl(otypes,source,listh,thing)
-    mode(listh,1)
-    genm3u(source,listh)
-elif "--reclist" in sys.argv:
-    otypes="wav"
-    source=recorddir
-    listh=forrecdit
-    thing='records'
-    clean(listh)
-    gensl(otypes,source,listh,thing)
-    mode(listh,0)
-elif "--strlist" in sys.argv:
-    otypes="http"
-    source=strlist
-    listh=forstrdit
-    thing='stream/radio'
-    clean(listh)
-    genstr(otypes,source,listh,thing)
-elif '--help' in sys.argv:
-    print "gensl.py: Selection List Generator"
-    print "Usage: "
-    print "	python gensl.py { --playall | --playlist | --reclist | --strlist | --help }"
+if 'gensl.py' in sys.argv:
+    if "--playlist" in sys.argv:
+        otypes="aac.flac.ogg.m4a.mp3.wav.wma"
+        source=musicdir
+        listh=forpledit
+        thing='songs'
+        clean(listh)
+        gensl(otypes,source,listh,thing)
+        mode(listh,1)
+        genm3u(source,listh)
+    elif "--reclist" in sys.argv:
+        otypes="wav"
+        source=recorddir
+        listh=forrecdit
+        thing='records'
+        clean(listh)
+        gensl(otypes,source,listh,thing)
+        mode(listh,0)
+    elif "--strlist" in sys.argv:
+        otypes="http"
+        source=strlist
+        listh=forstrdit
+        thing='stream/radio'
+        clean(listh)
+        genstr(otypes,source,listh,thing)
+    elif '--help' in sys.argv:
+        print "gensl.py: Selection List Generator"
+        print "Usage: "
+        print "	python gensl.py { --playall | --playlist | --reclist | --strlist | --help }"
