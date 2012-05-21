@@ -17,7 +17,8 @@ def num(number):
         if int(number) <100:
             return '0'+number
         elif int(number) >=999:
-            return 'sry'
+            print 'S.N.Error'
+            exit()
         elif int(number) >=100:
             return number
 ## -----------------------------------------

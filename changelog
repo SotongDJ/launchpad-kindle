@@ -2,12 +2,15 @@ Changelog
 =======================================================
 Current Versions of MyMplayer:
 	Stable Version --> master branch, commit: Remove HOW-TO as I will write tutorial soon 
-	Beta Version --> testing branch, commit: 21052012001
-	Alpha Version --> testing branch, commit: 21052012001
+	Beta Version --> testing branch, commit: 21052012003
+	Alpha Version --> testing branch, commit: 21052012003
 -------------------------------------------------------
 21052012001:
 1, fix genpl.py
 2, fix config.py
 
 21052012002:
-1, fix fix git.sh and gitcho.py
+1, fix git.sh and gitcho.py
+
+21052012003:
+1, fix gitcho.py
