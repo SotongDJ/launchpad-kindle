@@ -119,9 +119,12 @@ start using testing branch for experimental purpose
 	Other:
 		1, fix screen.py and gitcho.py
 
-21052012001:
+21052012:
 	MyMplayer:
 		1, fix genpl.py
 		2, fix config.py
+		3, change format of mplayer.conf(aka editor.conf)
+		4, complete NowPlaying List Generate Method
+		5, rewrite some part of config.py
 	Other:
 		1, fix git.sh and gitcho.py

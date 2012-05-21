@@ -2,8 +2,8 @@ Changelog
 =======================================================
 Current Versions of MyMplayer:
 	Stable Version --> master branch, commit: Remove HOW-TO as I will write tutorial soon 
-	Beta Version --> testing branch, commit: 21052012005
-	Alpha Version --> testing branch, commit: 21052012005
+	Beta Version --> testing branch, commit: 21052012006
+	Alpha Version --> testing branch, commit: 21052012006
 -------------------------------------------------------
 21052012001:
 1, fix genpl.py
@@ -21,3 +21,8 @@ Current Versions of MyMplayer:
 21052012005:
 1, reverse change
 2, change default env. to KindleNote
+
+21052012006:
+1, change format of mplayer.conf(aka editor.conf)
+2, complete NowPlaying List Generate Method
+3, rewrite some part of config.py

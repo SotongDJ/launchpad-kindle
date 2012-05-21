@@ -29,37 +29,42 @@ ordm3u=config.oder().get('ordm3u')
 ## Define function
 ##    #        #            #                #                    #
 ## ----------------------------------------------
-def ouput(result):
+def ouput(result,source):
     file=open(playlist,'w')
     for line in result:
-        file.write(line+"\n")
+        file.write(source+'/'+line+"\n")
     file.close()
+    if chkvalue('nowplaying','no',configfile):
+        file2=open(logdir+'/NowPlaying.txt','w')
+        for line in result:
+            file2.write(line+"\n")
+        file2.close()
 ## --------------for test--------------------------------
 def ouputtest(result):
     print '\n'.join(result)
 ## ----------------------------------------------
-def process(sets,modenum,source):
+def process(sets,modenum):
     result=[]
     for obj in sets:
         if modenum== 0:
             if nonselectstate not in obj:
-                result.append(source+'/'+obj)
+                result.append(obj)
         elif modenum<10:
             if modenum in [1,3]:
-                result.append(source+'/'+obj.replace(nonselectstate,''))
+                result.append(obj.replace(nonselectstate,''))
         elif modenum>=10:
             if modenum not in [11,13]:
                 if nonselectstate not in obj:
                     if ".m3u" not in obj:
-                        result.append(source+'/'+obj)
+                        result.append(obj)
                     elif ".m3u" in obj:
-                        for line in open(source+'/'+obj).read().splitlines():
+                        for line in open(obj).read().splitlines():
                             result.append(line)
             elif modenum in [11,13]:
                 if ".m3u" not in obj:
-                    result.append(source+'/'+obj.replace(nonselectstate,''))
+                    result.append(obj.replace(nonselectstate,''))
                 elif ".m3u" in obj:
-                    for line in open(source+'/'+obj.replace(nonselectstate,'')).read().splitlines():
+                    for line in open(obj.replace(nonselectstate,'')).read().splitlines():
                         result.append(line)
     if modenum<10:
         if modenum>=2:
@@ -112,21 +117,21 @@ def convlist(plist):
 ## Order
 ## ----------------------------------------------
 if "--playall" in sys.argv:
-    ouput(process(gensl.gen4p(),11,musicdir))
+    ouput(process(gensl.gen4p(),11),musicdir)
 elif "--playrand" in sys.argv:
-    ouput(process(gensl.gen4p(),13,musicdir))
+    ouput(process(gensl.gen4p(),13),musicdir)
 elif "--playlist" in sys.argv:
     source=musicdir
     listh=forpledit
-    ouput(process(genlist(source,listh),ascertain(listh),source))
+    ouput(process(genlist(source,listh),ascertain(listh)),source)
 elif "--reclist" in sys.argv:
     source=recorddir
     listh=forrecdit
-    ouput(process(genlist(source,listh),ascertain(listh),source))
+    ouput(process(genlist(source,listh),ascertain(listh)),source)
 elif "--strlist" in sys.argv:
     listh=forstrdit
     plist=notepaddir+'/'+listh+".txt"
-    ouput(process(convlist(plist),ascertain(listh),source))
+    ouput(process(convlist(plist),ascertain(listh)),source)
 elif '--help' in sys.argv:
     print "genpl.py: Playlist Generator"
     print "Usage: "

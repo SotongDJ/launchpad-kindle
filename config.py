@@ -1,34 +1,61 @@
 #!/mnt/us/python/bin/python2.6
 #coding=UTF8
+## This py script was made to make sure the whole script set are using unique variable
 import sys
 import os
-global config,select
+global configfile,npdir,kndir,logdir
+configfile='/mnt/us/SotongDJ/mplayer.conf'
+npdir='/mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/user'
+kndir='/mnt/us/developer/KindleNote/work'
+logdir='/mnt/us/documents/log'
+## -----------value---------
+#### -----------check value---------
+def chkvlue(file):
+    status=os.system('touch '+file)
+    if open(file).read().splitlines() == []:
+        return 'false'
+    elif open(file).read().splitlines() != []:
+        return 'true'
+#### -----------read value---------
+def rdvalue(file):
+    lib={}
+    for line in open(file).read().splitlines():
+        if open(file).read().splitlines() != []:
+            if len(line.split("=")) == 2:
+                lib.update({line.split("=")[0]:line.split("=")[1]})
+    return lib
+#### -----------edit value---------
+def edvalue(key,value,lib,path):
+    lib.update({key:value})
+    file=open(path,'w')
+    for yek in lib:
+        file.write(yek+'='+lib.get(yek)+'')
+    file.close()
 ## -----------Determine---------
-def determine():
+def chkvalue(key,defaultvalue,confpath):
+    ## old name:determine()
+    if chkvlue(confpath) == 'true':
+        if rdvalue(confpath).get(key):
+            return rdvalue(confpath).get(key)
+        else:
+            edvalue(key,defaultvalue,rdvalue(confpath),confpath)
+            return defaultvalue
+    elif chkvlue(confpath) == 'false':
+        edvalue(key,defaultvalue,rdvalue(confpath),confpath)
+        return defaultvalue
+## -----------General---------
+def general():
+    select=chkvalue('env','kindlenote',configfile)
     ## -----------Kindle Editor Option---------
     ## What is your default editor in kindle?
     ## Answer:
     ## `notepad` for Notepad (7 Dragons)
     ## `kindlenote` for KindleNote (proDOOMman)
     ## `chinese` for KindleNote (proDOOMman) and the Kindle has PinYin IME
-    default='kindlenote'
-    temp='/tmp/edittemp'
-    status=os.system('cat /mnt/us/SotongDJ/editor.conf>'+temp)
-    if status == 0:
-        for selection in ['notepad','kindlenote','chinese']:
-            if selection in open(temp).read().splitlines():
-                select=selection
-    else:
-        status=os.system('echo '+default+'>/mnt/us/SotongDJ/editor.conf')
-        select=default
-    return select
-## -----------General---------
-def general():
-    select=determine()
     if select == 'notepad':
-        notepaddir="/mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/user"
+        notepaddir=npdir
     else:
-        notepaddir="/mnt/us/developer/KindleNote/work"
+        notepaddir=kndir
     if select == 'chinese':
         nonselectstate='【不要】'
     else:
@@ -40,7 +67,7 @@ def general():
 ## ---------------words-------------------------------
 def words(thing):
     nonselectstate=general().get('nonselectstate')
-    select=determine()
+    select=chkvalue('env','kindlenote',configfile)
     if select == 'chinese':
         word01="## 去掉选项前的“不要”即可开启之，反之亦然。\n## 【不要全部播放】 【不要随机播放】\n##（注：重复模式默认开启，目前仍不能选择关闭。）"
         selword01="\n##\n## m3u 控制选项：\n## 【不要m3u】\n## （需不需要支持m3u播放列表播放。）\n## 注：\n##   当您同时选择开启m3u和随机播放时，\n##	  m3u列表里的所有歌曲会和其他歌曲一起乱序播放。\n## 【不要pl2m3u:NAME】\n## （需不需要把您要播放的媒体编成m3u播放列表,\n##  以NAME.m3u为名，如未更改NAME，将自动以时间日期命名）"
@@ -67,7 +94,7 @@ def head():
     return {'forpledit':forpledit,'forrecdit':forrecdit,'forstrdit':forstrdit}
 ## ---------------Order---------------------------------
 def oder():
-    select=determine()
+    select=chkvalue('env','kindlenote',configfile)
     if select == 'chinese':
         ordplayall="【全部播放】"
         ordshuffle="【随机播放】"
@@ -87,29 +114,32 @@ def argv(type):
 ## ---------------Change---------------------------------
 def change(value):
     thing=''
-    status=os.system('rm /mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/user/00-ListLocateAt-*')
-    status=os.system('rm /mnt/us/developer/KindleNote/work/00-ListLocateAt-*')
+    status=os.system('rm '+npdir+'/00-ListLocateAt-*')
+    status=os.system('rm '+kndir+'/00-ListLocateAt-*')
+    edvalue('env',value,rdvalue(configfile),configfile)
     if value == 'notepad':
         thing='Notepad'
     elif value == 'kindlenote':
         thing='KindleNote'
     elif value == 'chinese':
         thing='KindleNote'
-    status=os.system('echo '+value+'>/mnt/us/SotongDJ/editor.conf')
-    status=os.system('touch /mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/user/00-ListLocateAt-'+thing+'.txt')
-    status=os.system('touch /mnt/us/developer/KindleNote/work/00-ListLocateAt-'+thing+'.txt')
+    status=os.system('touch '+npdir+'/00-ListLocateAt-'+thing+'.txt')
+    status=os.system('touch '+kndir+'/00-ListLocateAt-'+thing+'.txt')
     
-## ------------Debug Usage-----------------------------
-if argv('key') == 'test':
-    print general()
-    print words('nothing')
-    print source()
-    print head()
-    print oder()
-elif argv('key') == 'change':
-    change(argv('value'))
-elif '--help' in sys.argv:
-    print "config.py: Strings Configuration"
-    print "Usage: python config.py { --key=[KEY] --value=[VALUE]|--help }"
-    print "\nKEY:\n        `test` for Debug Usage\n         `change` for Change Language and Editor which MyMplayer rely"
-    print "\nVALUE:\n        `notepad` for Notepad (7 Dragons)\n         `kindlenote` for KindleNote (proDOOMman)\n         `chinese` for KindleNote (proDOOMman) and the Kindle has PinYin IME rely"
+## -----------------------------------------
+if 'config.py' in sys.argv:
+    if argv('key') == 'test':
+        print general()
+        print words('nothing')
+        print source()
+        print head()
+        print oder()
+    if argv('key') == 'dtmtest':
+        print chkvalue('env','kindlenote',configfile)
+    elif argv('key') == 'change':
+        change(argv('value'))
+    elif '--help' in sys.argv:
+        print "config.py: Strings Configuration"
+        print "Usage: python config.py { --key=[KEY] --value=[VALUE]|--help }"
+        print "\nKEY:\n        `test` for Debug Usage\n         `change` for Change Language and Editor which MyMplayer rely"
+        print "\nVALUE:\n        `notepad` for Notepad (7 Dragons)\n         `kindlenote` for KindleNote (proDOOMman)\n         `chinese` for KindleNote (proDOOMman) and the Kindle has PinYin IME rely"

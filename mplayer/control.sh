@@ -51,36 +51,30 @@ esac
 case "$1" in
 	playall)
 		$pythonbin $genpl --playall
-		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist
 		$pythonbin $screensaver --action=turnoff --locker=lock
 		;;
 	playrand)
 		$pythonbin $genpl --playrand
-		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist
 		$pythonbin $screensaver --action=turnoff --locker=lock
 		;;
 	playlist)
 		$pythonbin $genpl --playlist
-		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist
 		$pythonbin $screensaver --action=turnoff --locker=lock
 		;;
 	playrec)
 		$pythonbin $genpl --reclist
-		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist
 		$pythonbin $screensaver --action=turnoff --locker=lock
 		;;
 	playstr)
 		$pythonbin $genpl --strlist
-		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist
 		$pythonbin $screensaver --action=turnoff --locker=lock
 		;;
 	recent)
-		cp /tmp/mplayer.playlist $DOCLOGDIR/NowPlaying.txt
 		loadplaylist /tmp/mplayer.playlist
 		$pythonbin $screensaver --action=turnoff --locker=lock
 		;;
