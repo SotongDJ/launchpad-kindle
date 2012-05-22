@@ -2,9 +2,9 @@ Changelog
 =======================================================
 Current Versions of MyMplayer:
 	Stable Version --> master branch, commit: Remove HOW-TO as I will write tutorial soon 
-	Beta Version --> testing branch, commit: 22052012001
-	Alpha Version --> testing branch, commit: 22052012001
+	Beta Version --> testing branch, commit: 23052012001
+	Alpha Version --> testing branch, commit: 23052012001
 -------------------------------------------------------
-22052012001:
-1, fix genpl.py
+23052012001:
+1, fix gensl.py
 2, fix config.py

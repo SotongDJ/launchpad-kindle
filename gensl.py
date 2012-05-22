@@ -194,7 +194,7 @@ def clean(listh):
 ## ----------------------------------------------
 ## Order
 ## ----------------------------------------------
-if 'gensl.py' in sys.argv:
+if config.dtmargv('gensl.py','false') == 'true':
     if "--playlist" in sys.argv:
         otypes="aac.flac.ogg.m4a.mp3.wav.wma"
         source=musicdir

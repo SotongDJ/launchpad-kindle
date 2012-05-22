@@ -115,6 +115,7 @@ def convlist(plist):
 ## ----------------------------------------------
 ## Order
 ## ----------------------------------------------
+##if config.dtmargv('gensl.py') == 'true':
 if "--playall" in sys.argv:
     ouput(process(gensl.gen4p(),11),musicdir)
 elif "--playrand" in sys.argv:

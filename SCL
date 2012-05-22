@@ -133,3 +133,8 @@ start using testing branch for experimental purpose
 	MyMplayer:
 		1, fix genpl.py
 		2, fix config.py
+
+23052012001:
+	MyMplayer:
+		1, fix genpl.py
+		2, fix config.py

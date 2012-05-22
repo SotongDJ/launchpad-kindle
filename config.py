@@ -8,6 +8,25 @@ configfile='/mnt/us/SotongDJ/SotongDJ.conf'
 npdir='/mnt/us/.active-content-data/8a5982e82ae68fb2012bc688405e0026/work/user'
 kndir='/mnt/us/developer/KindleNote/work'
 logdir='/mnt/us/documents/log'
+## ---------------Argument---------------------------------
+def argv(type):
+    b=''
+    for a in sys.argv:
+        if '--'+type+'=' in a:
+            b=a.replace('--'+type+'=','')
+    return b
+def dtmargv(value,accurate):
+    for a in sys.argv:
+        if value in a:
+            if accurate == 'true':
+                if a == value:
+                    return 'true'
+                else:
+                    return 'false'
+            elif accurate == 'false':
+                return 'true'
+        else:
+            return 'false'
 ## -----------value---------
 #### -----------check value---------
 def chkvlue(file):
@@ -105,13 +124,6 @@ def oder():
         ordshuffle=':shuffle:'
         ordm3u=':m3u:'
     return {'ordplayall':ordplayall,'ordshuffle':ordshuffle,'ordm3u':ordm3u}
-## ---------------Argument---------------------------------
-def argv(type):
-    b=''
-    for a in sys.argv:
-        if '--'+type+'=' in a:
-            b=a.replace('--'+type+'=','')
-    return b
 ## ---------------Change---------------------------------
 def change(value):
     thing=''
@@ -128,7 +140,7 @@ def change(value):
     status=os.system('touch '+kndir+'/00-ListLocateAt-'+thing+'.txt')
     
 ## -----------------------------------------
-if 'config.py' in sys.argv:
+if dtmargv('config.py','false') == 'true':
     if argv('key') == 'test':
         print mpenv()
         print words('nothing')
@@ -139,6 +151,7 @@ if 'config.py' in sys.argv:
         print viewvalue('env','kindlenote',configfile)
         print viewvalue('nowplaying','no',configfile)
     elif argv('key') == 'change':
+        print 'action=change'
         change(argv('value'))
     elif '--help' in sys.argv:
         print "config.py: Strings Configuration"
