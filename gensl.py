@@ -3,12 +3,13 @@ import sys
 import os
 import config
 ## -----------Change it if different---------
-global notepaddir,nonselectstate,nss,temp,playlist
+global notepaddir,nonselectstate,nss,temp,playlist,splitnum
 notepaddir=config.mpenv().get('notepaddir')
 nonselectstate=config.mpenv().get('nonselectstate')
 nss=config.mpenv().get('nss')
-temp=config.mpenv().get('temp')
-playlist=config.mpenv().get('playlist')
+temp=config.temp
+playlist=config.playlist
+splitnum=config.mpenv().get('splitnum')
 ## ---------------words-------------------------------
 global word01,selword01,word02,word03
 word01=config.words('').get('word01')
@@ -17,14 +18,14 @@ selword01=config.words('').get('selword01')
 word03=config.words('').get('word03')
 ## ---------------source folder-------------------------------
 global musicdir,recorddir,strlist
-musicdir=config.source().get('musicdir')
-recorddir=config.source().get('recorddir')
-strlist=config.source().get('strlist')
+musicdir=config.musicdir
+recorddir=config.recorddir
+strlist=config.strlist
 ## ---------------list file head-------------------------------
 global forpledit,forrecdit,forstrdit
-forpledit=config.head().get('forpledit')
-forrecdit=config.head().get('forrecdit')
-forstrdit=config.head().get('forstrdit')
+forpledit=config.forpledit
+forrecdit=config.forrecdit
+forstrdit=config.forstrdit
 ## ---------------temporary method-------------------------------
 global letterset,purels
 letterset=[['0','1','2','3','4','5','6','7','8','9'],['A','a'],['B','b'],['C','c'],['D','d'],['E','e'],['F','f'],['G','g'],['H','h'],['I','i'],['J','j'],['K','k'],['L','l'],['M','m'],['N','n'],['O','o'],['P','p'],['Q','q'],['R','r'],['S','s'],['T','t'],['U','u'],['V','v'],['W','w'],['X','x'],['Y','y'],['Z']]
@@ -76,7 +77,6 @@ def gensl(otypes,source,listh,thing):
             library.get('Other').append(song)
     ## ---------------Calculate and Create Filelists---------------------
     filelib={}
-    splitnum=50
     ## Start create selection of media which file name start with Numbers
     pagenum=1
     linenum=len(library.get("Numbers"))
@@ -194,7 +194,7 @@ def clean(listh):
 ## ----------------------------------------------
 ## Order
 ## ----------------------------------------------
-if config.dtmargv('gensl.py','false') == 'true':
+if config.argv('gensl.py','dtm') == 'true':
     if "--playlist" in sys.argv:
         otypes="aac.flac.ogg.m4a.mp3.wav.wma"
         source=musicdir

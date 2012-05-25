@@ -138,3 +138,10 @@ start using testing branch for experimental purpose
 	MyMplayer:
 		1, fix genpl.py
 		2, fix config.py
+
+25052012001:
+	MyMplayer:
+		1, fix gensl.py
+		2, fix genpl.py
+			i, let splitnum of kindlenote be 20 (used to be 50 as same as notepad)
+		3, fix config.py
