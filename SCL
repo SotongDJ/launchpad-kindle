@@ -1,0 +1,163 @@
+Summary of ChangeLog
+==================================================================
+-----------------------Old Records Start-----------------------------------------
+2011-12-5
+mark ch2duokan as experiment
+edit sync.sh --> add remove spam
+edit README
+correct format of control.sh
+
+2011-12-4
+add switch system to duokan lite
+edit finance.py --> temple is user-part string
+add changelog
+
+2011-12-7
+add KindleNote -->as Notepad can't edit text file that have more than 3099 character
+add keystore
+change editor dir from Notepad to KindleNote
+put try.py and test.sh into git
+improve sync.sh --> add git add/commit/push
+improve mplayer control.sh and createlist scripts
+improve sync.sh --> use update(adj.) copy as copy method
+start using testing branch for experimental purpose
+-----------------------Old Records Finish-----------------------------------------
+
+25042012:
+	MyMplayer (SotongDJ's Mplayer Playback Script Set)
+		1, change tmp dir to /tmp
+		2, change the format of changelog
+			(the main modify will state in description of commit)
+		3, move old changelog to SCL (Summary of ChangeLog)
+		4, create manual of gensl.py
+		5, create manual of genpl.py
+		6, remove string which wont use(gensl.py)
+		7, 精简多余的变数
+		8, change "copy" in file.sh
+		9, 把diff.sh从pull.sh和push.sh分割出来
+		10, modify pdp(pull.sh, diff.sh, push.sh)
+
+27042012:
+	MyMplayer (SotongDJ's Mplayer Playback Script Set)
+		1, fix cp unavaible command
+		2, fix "split temp file will be remove after p.d.p. cleanup"
+
+28042012:
+	MyMplayer (SotongDJ's Mplayer Playback Script Set)
+		1, rewrite screensaver switch script(screen.py)
+		2, modify diff.sh to prevent accidentally agreement (if you press enter frequently)
+		3, Finished Second Alpha build (aka selection list generator in gensl.py is in alpha branch)
+
+29042012:
+	MyMplayer (SotongDJ's Mplayer Playback Script Set)
+		1, fix invalid syntax in the part that marked with ##WTF yesterday
+		2, patch the missing part that use to filter file type
+		3, create a part for debug usage (that marked as #d, this part will be the basement of Third Alpha Build)
+		4, Finished debug Second Alpha Build
+		5, Decide to independ Playlists mode, it will be the sub-mode of Playlist mode
+		6, Finished Third Alpha Build, include:
+			(i) support non-latin character
+				(KindleNote and Notepad! havent support yet, this isnt my business)
+			(ii) playlist(and playlists) mode finished development
+		7, Finished Fourth Alpha Build of gensl.py and First Alpha Build of genpl.py, 
+			both isn't in same build as develop genpl.py source code need gensl.py as reference
+		8, Finished "Rebuild the script set" work, Alpha version MyMplayer. 
+			Createlish.py/sh filter.py split.py can be delete after BETA build
+
+07052012:
+	MyMplayer (SotongDJ's Mplayer Playback Script Set)
+		1, add chmod.sh to make chmod easier when needed
+		2, Stop The Development of testing-pythonize Branch
+		3, Remove HOW-TO as I will write tutorial soon
+		4, fix 'File name too long cause Notepad for Kindle will auto cut off extra words'
+		5, clean unused script
+		6, modify git.sh as I always forget to edit changelog
+		7, arrange variable(strings)
+		8, change variable.py to config.py
+		9, modulize variable(strings)
+		10, add Usage to gensl.py, genpl.py and config.py
+		11, add config.py to pdp/ppd (push.sh, pull.sh and diff.sh)
+		12, disable m3u when playall/playrandom
+		13, fix 'arrange by type' (cause by filter method)
+		14, finished adding method for changing environment (include Chinese support and 'clean up code' of testing branch)
+		15, simplify playall's and playrand's codes
+		16, add automatic clean up temporary function
+	Decision:
+		1, master branch equal to stable branch
+		2, testing branch equal to beta branch (find bugs)
+		3, testing-* branch equal to alpha branch (adding new function or changing structure)
+		4, the statement above isn't the rules, these statement just let you know what these branch means
+			Example, last time I rebuild (nearly) whole script set in testing branch, this isn't satisfy these statement
+
+08052012:
+	Whole:
+		1, create INDEX and edit clone code module
+
+10052012:
+	Whole:
+		1, use 'DDMMYYYYnn' format as commit descriptions head
+	MyMplayer (SotongDJ's Mplayer Playback Script Set):
+		1, add versions statement to changelog
+		2, fix "ignore numbers of songs which start with same character, gensl can't separated the part of that character according the numbers of songs"
+		3, "blank selection such as nothing behind '!:' as gensl can't handle blank list"
+
+
+11052012:
+	Whole:
+		1, change the format of serial
+		2, change the instruction of git.sh
+		3, correct SCL info
+		4, rewrite gitcho.py
+
+20052012:
+	MyMplayer:
+		1, fix genpl.py
+		2, add "clean-up recent selection list" function to gensl.py
+		3, add "Identity Envirorment" method to config.py
+		4, fix SotongDJ.ini and mplayer.ini
+		5, add description of "turn playlist to .m3u" to config.py
+	Other:
+		1, fix screen.py and gitcho.py
+
+21052012:
+	MyMplayer:
+		1, fix genpl.py
+		2, fix config.py
+		3, change format of mplayer.conf(aka editor.conf)
+		4, complete NowPlaying List Generate Method
+		5, rewrite some part of config.py
+	Other:
+		1, fix git.sh and gitcho.py
+
+22052012001:
+	MyMplayer:
+		1, fix genpl.py
+		2, fix config.py
+
+23052012001:
+	MyMplayer:
+		1, fix genpl.py
+		2, fix config.py
+
+25052012001:
+	MyMplayer:
+		1, fix gensl.py
+			i, let splitnum of kindlenote be 20 (used to be 50 as same as notepad)
+			ii, simplify the variable from function form to string form
+			iii, merge dtmargv() to argv()
+		2, fix genpl.py
+			i, let splitnum of kindlenote be 20 (used to be 50 as same as notepad)
+			ii, simplify the variable from function form to string form
+			iii, add debug vision, but haven't complete and will complete soon
+			iv, fix m3u mode
+			v, merge dtmargv() to argv()
+		3, fix config.py
+			i, simplify the variable from function form to string form
+			ii, fix format of description (in xxx-Mode.txt)
+			iii, merge dtmargv() to argv()
+
+29052012001:
+	MyMplayer:
+		1, remove desc. of playlist2m3u 
+	Whole:
+		1, stop development as my kindle screen damaged

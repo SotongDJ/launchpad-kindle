@@ -1,0 +1,55 @@
+00 index
+01a changlogs 
+01b manual 
+01c launchpad settings
+02a MyMplayer
+02b MyMplayer which has been removed
+02c MyMplayer settings
+03 Financial Report
+04 System
+09 Concept Stage Sub-Project
+10 Testing Usage
+---------------------------------------------------
+git and sync:
+	chmod.sh
+	diff.sh
+	gitcho.py
+	git.sh
+	pull.sh
+	push.sh
+	merge.sh
+
+instruction:
+	INDEX
+	README
+	changelog
+	SCL
+	man
+
+MyMplayer:
+	genpl.py
+	gensl.py
+	config.py
+	record.sh
+
+Financial Report:
+	finance.py
+	finance.sh
+
+System:
+	file.sh
+	screen.py
+	system.py
+
+Concetp:
+	fm.py
+	tree.py
+
+Directory:
+	kindlenote
+	launchpad
+	mplayer
+
+Testing:
+	python.py
+	test.sh
