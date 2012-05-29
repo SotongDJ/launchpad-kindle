@@ -2,24 +2,9 @@ Changelog
 =======================================================
 Current Versions of MyMplayer:
 	Stable Version --> master branch, commit: Remove HOW-TO as I will write tutorial soon 
-	Beta Version --> testing branch, commit: 25052012001
-	Alpha Version --> testing branch, commit: 25052012001
+	Beta Version --> testing branch, commit: 29052012001
+	Alpha Version --> testing branch, commit: 29052012001
 -------------------------------------------------------
-25052012001:
-1, fix gensl.py
-	i, let splitnum of kindlenote be 20 (used to be 50 as same as notepad)
-	ii, simplify the variable from function form to string form
-	iii, merge dtmargv() to argv()
-2, fix genpl.py
-	i, let splitnum of kindlenote be 20 (used to be 50 as same as notepad)
-	ii, simplify the variable from function form to string form
-	iii, add debug vision, but haven't complete and will complete soon
-	iv, fix m3u mode
-	v, merge dtmargv() to argv()
-3, fix config.py
-	i, simplify the variable from function form to string form
-	ii, fix format of description (in xxx-Mode.txt)
-	iii, merge dtmargv() to argv()
-
-25052012001:
-1, complete changelogs
+29052012001:
+1, remove desc. of playlist2m3u 
+2, stop development as my kindle screen damaged

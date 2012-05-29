@@ -155,3 +155,9 @@ start using testing branch for experimental purpose
 			i, simplify the variable from function form to string form
 			ii, fix format of description (in xxx-Mode.txt)
 			iii, merge dtmargv() to argv()
+
+29052012001:
+	MyMplayer:
+		1, remove desc. of playlist2m3u 
+	Whole:
+		1, stop development as my kindle screen damaged
