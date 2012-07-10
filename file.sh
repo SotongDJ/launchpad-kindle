@@ -57,6 +57,9 @@ case "$1" in
         cp /mnt/us/SotongDJ/developer.keystore /var/local/java/keystore/developer.keystore
         mntroot ro
         ;;
+	usbnetwork)
+		/test/bin/usbnetwork
+		/mnt/us/mplayer/mplayer /mnt/us/SLoDK/audio/usbNetworkTips.ogg
     *)
         echo "Usage: $0 {copy|sync|boot2kindle|boot2duokan}"
         exit 1
