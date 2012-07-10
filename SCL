@@ -161,3 +161,10 @@ start using testing branch for experimental purpose
 		1, remove desc. of playlist2m3u 
 	Whole:
 		1, stop development as my kindle screen damaged
+
+10072012001:
+	Whole:
+10072012001:
+		1, start "Second Life of Damaged Kindle"
+		2, add notif. sound to each major func (playlist can't under damaged kindle)
+		3, finish screen.py notif. sound

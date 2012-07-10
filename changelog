@@ -1,10 +1,11 @@
 Changelog
 =======================================================
 Current Versions of MyMplayer:
-	Stable Version --> master branch, commit: Remove HOW-TO as I will write tutorial soon 
+	Stable Version --> master branch, commit: 29052012001
 	Beta Version --> testing branch, commit: 29052012001
-	Alpha Version --> testing branch, commit: 29052012001
+	Alpha Version --> testing branch, commit: 10072012001
 -------------------------------------------------------
-29052012001:
-1, remove desc. of playlist2m3u 
-2, stop development as my kindle screen damaged
+10072012001:
+1, start "Second Life of Damaged Kindle"
+2, start add notif. sound to each major func (playlist can't under damaged kindle)
+3, finish screen.py notif. sound
