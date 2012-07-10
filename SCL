@@ -161,3 +161,19 @@ start using testing branch for experimental purpose
 		1, remove desc. of playlist2m3u 
 	Whole:
 		1, stop development as my kindle screen damaged
+
+10072012001:
+	Whole:
+		1, start "Second Life of Damaged Kindle"
+		2, add notif. sound to each major func (playlist can't under damaged kindle)
+	Screensaver:
+		1, finish screen.py notif. sound
+
+10072012002:
+	Other:
+		1, move usbnetwork from independent state to file.sh
+		2, finish usbnetwork notif. sound
+
+10072012003:
+	Whole:
+		1, finish testing, move alpha to beta
