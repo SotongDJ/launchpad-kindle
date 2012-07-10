@@ -173,3 +173,7 @@ start using testing branch for experimental purpose
 	Other:
 		1, move usbnetwork from independent state to file.sh
 		2, finish usbnetwork notif. sound
+
+10072012003:
+	Whole:
+		1, finish testing, move alpha to beta
