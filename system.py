@@ -1,5 +1,5 @@
 #!/mnt/us/python/bin/python2.6
-import sys,os
+import sys
 ## -----------Change it if different---------
 ## ----------------------------------------------
 o=open("/mnt/us/DK_System/xKindle/config.ini","a")
