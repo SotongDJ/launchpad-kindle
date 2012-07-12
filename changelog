@@ -1,15 +1,20 @@
 Changelog
 =======================================================
 Current Versions of MyMplayer:
-	Stable Version --> master branch, commit: 10072012003
-	Beta Version --> testing branch, commit: 10072012003
-	Alpha Version --> testing branch, commit: 13072012001
+	Stable Version --> master branch, commit: 13072012003
+	Beta Version --> testing branch, commit: 13072012003
+	Alpha Version --> testing branch, commit: 13072012003
 -------------------------------------------------------
 13072012001:
-1, finish ip-checker notif. sound
-2, fix something
-3, resample notif (notif sound source isn't include in this source)
+1, add ip-checker func.
+2, finish ip-checker notif. sound
+3, fix something
+4, resample notif (notif sound source isn't include in this source)
 
 13072012002:
 1, finish launchpad restart notif
 2, add servicecmds.ini in to this source
+
+13072012003:
+1, finish testing, move alpha to beta
+2, merge master and testing

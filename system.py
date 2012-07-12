@@ -26,7 +26,7 @@ if sys.argv[1] == "duokan":
     o.close
 
 if sys.argv[1] == "chkip":
-	os.system("ifconfig wlan0>/tmp/iptmp") #for kindle
+    os.system("ifconfig wlan0>/tmp/iptmp") #for kindle
 #    os.system("ifconfig wlan1>/tmp/iptmp") #for my desktop
     datasets=[]
     tmpset=[]
