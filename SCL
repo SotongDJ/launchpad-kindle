@@ -177,3 +177,9 @@ start using testing branch for experimental purpose
 10072012003:
 	Whole:
 		1, finish testing, move alpha to beta
+		2, merge master and testing
+
+13072012001:
+	Other:
+		1, finish ip-checker notif. sound
+		2, fix something
