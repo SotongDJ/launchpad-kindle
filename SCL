@@ -183,3 +183,8 @@ start using testing branch for experimental purpose
 	Other:
 		1, finish ip-checker notif. sound
 		2, fix something
+		3, resample notif (notif sound source isn't include in this source)
+
+13072012002:
+	Other:
+		1, finish launchpad restart notif
