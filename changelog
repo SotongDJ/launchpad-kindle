@@ -1,18 +1,20 @@
 Changelog
 =======================================================
 Current Versions of MyMplayer:
-	Stable Version --> master branch, commit: 29052012001
-	Beta Version --> testing branch, commit: 10072012003
-	Alpha Version --> testing branch, commit: 10072012003
+	Stable Version --> master branch, commit: 13072012003
+	Beta Version --> testing branch, commit: 13072012003
+	Alpha Version --> testing branch, commit: 13072012003
 -------------------------------------------------------
-10072012001:
-1, start "Second Life of Damaged Kindle"
-2, start add notif. sound to each major func (playlist can't under damaged kindle)
-3, finish screen.py notif. sound
+13072012001:
+1, add ip-checker func.
+2, finish ip-checker notif. sound
+3, fix something
+4, resample notif (notif sound source isn't include in this source)
 
-10072012002:
-1, move usbnetwork from independent state to file.sh
-2, finish usbnetwork notif. sound
+13072012002:
+1, finish launchpad restart notif
+2, add servicecmds.ini in to this source
 
-10072012003:
+13072012003:
 1, finish testing, move alpha to beta
+2, merge master and testing

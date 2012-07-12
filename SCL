@@ -177,3 +177,21 @@ start using testing branch for experimental purpose
 10072012003:
 	Whole:
 		1, finish testing, move alpha to beta
+		2, merge master and testing
+
+13072012001:
+	Other:
+		1, add ip-checker func.
+		2, finish ip-checker notif. sound
+		3, fix something
+		4, resample notif (notif sound source isn't include in this source)
+
+13072012002:
+	Other:
+		1, finish launchpad restart notif
+		2, add servicecmds.ini in to this source
+
+13072012003:
+	Whole:
+		1, finish testing, move alpha to beta
+		2, merge master and testing

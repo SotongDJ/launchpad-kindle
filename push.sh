@@ -31,6 +31,7 @@ cp -v -u ~/github/launchpad-kindle/SCL /media/Kindle/documents/00-self/KINDLE/"0
 ##
 cp -v -u ~/github/launchpad-kindle/launchpad/SotongDJ.ini /media/Kindle/launchpad/SotongDJ.ini >> /tmp/pushtemp
 cp -v -u ~/github/launchpad-kindle/launchpad/mplayer.ini /media/Kindle/launchpad/mplayer.ini >> /tmp/pushtemp
+cp -v -u ~/github/launchpad-kindle/launchpad/servicecmds.ini /media/Kindle/launchpad/servicecmds.ini >> /tmp/pushtemp
 ##
 cp -v -u ~/github/launchpad-kindle/mplayer/control.sh /media/Kindle/mplayer/control.sh >> /tmp/pushtemp
 cat /tmp/pushtemp |more
