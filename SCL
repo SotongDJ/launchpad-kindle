@@ -188,3 +188,4 @@ start using testing branch for experimental purpose
 13072012002:
 	Other:
 		1, finish launchpad restart notif
+		2, add servicecmds.ini in to this source

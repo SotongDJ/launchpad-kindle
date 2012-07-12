@@ -27,6 +27,7 @@ cp -v -u /media/Kindle/SotongDJ/python.py ~/github/launchpad-kindle/python.py >>
 ##
 cp -v -u /media/Kindle/launchpad/SotongDJ.ini ~/github/launchpad-kindle/launchpad/SotongDJ.ini >> /tmp/pulltemp
 cp -v -u /media/Kindle/launchpad/mplayer.ini ~/github/launchpad-kindle/launchpad/mplayer.ini >> /tmp/pulltemp
+cp -v -u /media/Kindle/launchpad/servicecmds.ini ~/github/launchpad-kindle/launchpad/servicecmds.ini >> /tmp/pulltemp
 ##
 cp -v -u /media/Kindle/mplayer/control.sh ~/github/launchpad-kindle/mplayer/control.sh >> /tmp/pulltemp
 cat /tmp/pulltemp |more
