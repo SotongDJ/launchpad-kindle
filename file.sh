@@ -60,6 +60,7 @@ case "$1" in
 	usbnetwork)
 		/test/bin/usbnetwork
 		/mnt/us/mplayer/mplayer /mnt/us/SLoDK/audio/usbNetworkTips.ogg
+		/mnt/us/python/bin/python /mnt/us/SotongDJ/screen.py --action=switch
 		;;
     *)
         echo "Usage: $0 {copy|sync|boot2kindle|boot2duokan}"

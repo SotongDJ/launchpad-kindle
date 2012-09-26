@@ -41,6 +41,9 @@ if sys.argv[1] == "chkip":
             for a in ip:
                 #print a
                 os.system("/mnt/us/mplayer/mplayer /mnt/us/SLoDK/audio/num"+a+".ogg")
+        else:
+            os.system("/mnt/us/mplayer/mplayer /mnt/us/SLoDK/audio/phone-outgoing-busy.ogg")
+    os.system("rm /tmp/iptmp")
 ##
 ##
 ##if sys.argv[1] == "usbnetwork":
