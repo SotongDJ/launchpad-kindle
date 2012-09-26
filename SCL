@@ -195,3 +195,9 @@ start using testing branch for experimental purpose
 	Whole:
 		1, finish testing, move alpha to beta
 		2, merge master and testing
+
+
+26092012001:
+	Other:
+		1, fix launchpad restart sound
+		2, add switch auto-screensaver to usbnetwork
