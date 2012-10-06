@@ -27,7 +27,10 @@ if sys.argv[1] == "duokan":
 
 if sys.argv[1] == "chkip":
     os.system("ifconfig wlan0>/tmp/iptmp") #for kindle
-#    os.system("ifconfig wlan1>/tmp/iptmp") #for my desktop
+    os.system("ifconfig wlan1>>/tmp/iptmp") 
+    os.system("ifconfig wlan2>>/tmp/iptmp") #for my desktop
+    os.system("ifconfig>/mnt/us/SotongDJ/iplog.txt")  #debug
+#    os.system("cat /tmp/iptmp") #debug
     datasets=[]
     tmpset=[]
     ip=''
@@ -35,15 +38,16 @@ if sys.argv[1] == "chkip":
     for dataset in datasets:
         tmpset=tmpset+dataset.split(" ")
     for data in tmpset:
+#        print data #debug
         if "addr:" in data:
             ip=data.replace("addr:","")
-            #print ip
+#            print ip #debug
             for a in ip:
-                #print a
+#                print a #debug
                 os.system("/mnt/us/mplayer/mplayer /mnt/us/SLoDK/audio/num"+a+".ogg")
-        else:
-            os.system("/mnt/us/mplayer/mplayer /mnt/us/SLoDK/audio/phone-outgoing-busy.ogg")
+    os.system("/mnt/us/mplayer/mplayer /mnt/us/SLoDK/audio/phone-outgoing-busy.ogg")
     os.system("rm /tmp/iptmp")
+    exit()
 ##
 ##
 ##if sys.argv[1] == "usbnetwork":
