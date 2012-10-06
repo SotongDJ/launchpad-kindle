@@ -51,32 +51,32 @@ esac
 case "$1" in
 	playall)
 		$pythonbin $genpl --playall
-		loadplaylist /tmp/mplayer.playlist
 		$pythonbin $screensaver --action=turnoff --locker=lock
+		loadplaylist /tmp/mplayer.playlist
 		;;
 	playrand)
 		$pythonbin $genpl --playrand
-		loadplaylist /tmp/mplayer.playlist
 		$pythonbin $screensaver --action=turnoff --locker=lock
+		loadplaylist /tmp/mplayer.playlist
 		;;
 	playlist)
 		$pythonbin $genpl --playlist
-		loadplaylist /tmp/mplayer.playlist
 		$pythonbin $screensaver --action=turnoff --locker=lock
+		loadplaylist /tmp/mplayer.playlist
 		;;
 	playrec)
 		$pythonbin $genpl --reclist
-		loadplaylist /tmp/mplayer.playlist
 		$pythonbin $screensaver --action=turnoff --locker=lock
+		loadplaylist /tmp/mplayer.playlist
 		;;
 	playstr)
 		$pythonbin $genpl --strlist
-		loadplaylist /tmp/mplayer.playlist
 		$pythonbin $screensaver --action=turnoff --locker=lock
+		loadplaylist /tmp/mplayer.playlist
 		;;
 	recent)
-		loadplaylist /tmp/mplayer.playlist
 		$pythonbin $screensaver --action=turnoff --locker=lock
+		loadplaylist /tmp/mplayer.playlist
 		;;
 	pause)
 		cmd "pause"

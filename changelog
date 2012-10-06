@@ -1,10 +1,11 @@
 Changelog
 =======================================================
 Current Versions of MyMplayer:
-	Stable Version --> master branch, commit: 26092012001
-	Beta Version --> testing branch, commit: 26092012001
-	Alpha Version --> testing branch, commit: 26092012001
+	Stable Version --> master branch, commit: 06102012001
+	Beta Version --> testing branch, commit: 06102012001
+	Alpha Version --> testing branch, commit: 06102012001
 -------------------------------------------------------
-26092012001:
-1, fix launchpad restart sound
-2, add switch auto-screensaver to usbnetwork
+06102012001:
+1, fix mplayer playback
+2, fix notif of mplayer
+3, fix usbnetwork and chkip
